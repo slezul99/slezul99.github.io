@@ -441,7 +441,8 @@ body {
       <div class="code-block text-left max-w-md mx-auto">
         <span class="comment" data-i18n="hero_code_comment">// запущено в этом году</span><br>
         <span class="keyword">const</span> <span class="fn">products</span> = [<br>
-        &nbsp;&nbsp;<span class="string">'QuizAIPro'</span>, <span class="string">'PharmaCompare'</span>, <span class="string">'OPFX-Bot'</span><br>
+        &nbsp;&nbsp;<span class="string">'QuizAIPro'</span>, <span class="string">'PharmaCompare'</span>,<br>
+        &nbsp;&nbsp;<span class="string">'XAU-NewsBot'</span>, <span class="string">'MEM-Signal'</span>, <span class="string">'OPFX'</span><br>
         ];
       </div>
     </div>
@@ -453,7 +454,7 @@ body {
   <div class="max-w-5xl mx-auto reveal">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
       <div class="glass stat-card">
-        <div class="stat-number gradient-text">3+</div>
+        <div class="stat-number gradient-text">5+</div>
         <div class="text-sm text-slate-400 mt-2 font-semibold uppercase tracking-wider" data-i18n="stat_apps">Готовых приложений</div>
       </div>
       <div class="glass stat-card">
@@ -603,15 +604,76 @@ body {
       </div>
     </div>
 
+    <!-- Project 4: XAU News Bot -->
+    <div class="reveal mb-12">
+      <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+           style="--glow-1: #ec4899; --glow-2: #facc15;">
+        <div class="grid md:grid-cols-5 gap-8 p-8 md:p-10">
+          <div class="md:col-span-2 flex items-center justify-center order-2 md:order-1">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-pink-500/20 via-yellow-500/20 to-orange-500/20 flex items-center justify-center text-7xl border border-white/10 w-full">
+              📰
+            </div>
+          </div>
+          <div class="md:col-span-3 space-y-5 order-1 md:order-2">
+            <div class="flex items-center gap-3 flex-wrap">
+              <span class="text-5xl">🤖</span>
+              <h3 class="text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
+                <span class="gradient-text">XAU News Bot</span>
+              </h3>
+            </div>
+            <p class="text-slate-300 leading-relaxed" data-i18n="proj_xau_desc" data-i18n-html>
+              Telegram-бот который собирает новости по золоту (XAU/USD) с финансовых порталов, прогоняет через AI-анализатор и генерирует торговые сигналы.
+              <span class="text-white font-semibold">Скрейпинг + Anthropic Claude + Telegram Bot API + автоанализ настроений.</span>
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Python</span>
+              <span class="tag-pink tag">Claude AI</span>
+              <span class="tag-cyan tag">Telegram Bot</span>
+              <span class="tag-yellow tag">Web Scraping</span>
+              <span class="tag-emerald tag">BeautifulSoup</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5: MEM Signal Bot -->
+    <div class="reveal mb-12">
+      <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+           style="--glow-1: #06b6d4; --glow-2: #facc15;">
+        <div class="grid md:grid-cols-5 gap-8 p-8 md:p-10">
+          <div class="md:col-span-3 space-y-5">
+            <div class="flex items-center gap-3 flex-wrap">
+              <span class="text-5xl">💎</span>
+              <h3 class="text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
+                <span class="gradient-yellow">MEM Signal Bot</span>
+              </h3>
+            </div>
+            <p class="text-slate-300 leading-relaxed" data-i18n="proj_mem_desc" data-i18n-html>
+              AI-агент мониторит криптокошельки и memecoin-проекты, следит за движениями китов и аномалиями объёма, отправляет сигналы в Telegram.
+              <span class="text-white font-semibold">Автономный mode на Anthropic Claude — сам решает когда писать.</span>
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Python</span>
+              <span class="tag-cyan tag">Claude API</span>
+              <span class="tag-pink tag">On-chain Data</span>
+              <span class="tag-yellow tag">Telegram Bot</span>
+              <span class="tag-emerald tag">Autonomous</span>
+            </div>
+          </div>
+          <div class="md:col-span-2 flex items-center justify-center">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-500/20 via-yellow-500/20 to-pink-500/20 flex items-center justify-center text-7xl border border-white/10 w-full">
+              🐋
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Other smaller projects strip -->
     <div class="reveal mt-16">
       <p class="text-center text-sm uppercase tracking-widest text-slate-500 mb-6 font-semibold" data-i18n="proj_more">+ малые эксперименты</p>
       <div class="grid sm:grid-cols-3 gap-4">
-        <div class="glass p-5 text-center">
-          <div class="text-3xl mb-2">🤖</div>
-          <h4 class="font-bold text-white" data-i18n="proj_extra1_h">Telegram Trading Bot</h4>
-          <p class="text-xs text-slate-400 mt-1" data-i18n="proj_extra1_d">ClawGig сигнал-сканер · Python · Anthropic API</p>
-        </div>
         <div class="glass p-5 text-center">
           <div class="text-3xl mb-2">📄</div>
           <h4 class="font-bold text-white" data-i18n="proj_extra2_h">PDF Vision OCR</h4>
@@ -621,6 +683,11 @@ body {
           <div class="text-3xl mb-2">⚙️</div>
           <h4 class="font-bold text-white" data-i18n="proj_extra3_h">DevTools и автоматизация</h4>
           <p class="text-xs text-slate-400 mt-1" data-i18n="proj_extra3_d">CLI утилиты · Excel парсеры · Веб-скрейпинг</p>
+        </div>
+        <div class="glass p-5 text-center">
+          <div class="text-3xl mb-2">🎯</div>
+          <h4 class="font-bold text-white" data-i18n="proj_extra4_h">Asia Range Indicator</h4>
+          <p class="text-xs text-slate-400 mt-1" data-i18n="proj_extra4_d">MT5 индикатор · Asian session · MQL5</p>
         </div>
       </div>
     </div>
@@ -856,13 +923,15 @@ const TRANSLATIONS = {
     proj_opfx_desc: 'Автоматический торговый бот для XAU/USD на платформе MT5. Многотаймфреймный анализ структуры рынка, smart-money концепции, динамический риск-менеджмент, учёт новостей. <span class="text-white font-semibold">Кастомная MQL5 кодовая база разделена на 8 модулей.</span>',
     proj_opfx_tag1: "Алготрейдинг",
     proj_opfx_tag2: "Риск-менеджмент",
+    proj_xau_desc: 'Telegram-бот который собирает новости по золоту (XAU/USD) с финансовых порталов, прогоняет через AI-анализатор и генерирует торговые сигналы. <span class="text-white font-semibold">Скрейпинг + Anthropic Claude + Telegram Bot API + автоанализ настроений.</span>',
+    proj_mem_desc: 'AI-агент мониторит криптокошельки и memecoin-проекты, следит за движениями китов и аномалиями объёма, отправляет сигналы в Telegram. <span class="text-white font-semibold">Автономный mode на Anthropic Claude — сам решает когда писать.</span>',
     proj_more: "+ малые эксперименты",
-    proj_extra1_h: "Telegram Trading Bot",
-    proj_extra1_d: "ClawGig сигнал-сканер · Python · Anthropic API",
     proj_extra2_h: "PDF Vision OCR",
     proj_extra2_d: "Постраничное извлечение · Gemini Vision · PyMuPDF",
     proj_extra3_h: "DevTools и автоматизация",
     proj_extra3_d: "CLI утилиты · Excel парсеры · Веб-скрейпинг",
+    proj_extra4_h: "Asia Range Indicator",
+    proj_extra4_d: "MT5 индикатор · Asian session · MQL5",
 
     skills_badge: "Технологии",
     skills_h_1: "Мой",
@@ -930,13 +999,15 @@ const TRANSLATIONS = {
     proj_opfx_desc: 'Automated trading system for XAU/USD on MT5 platform. Multi-timeframe market structure analysis, smart-money concepts, dynamic risk management, news-aware execution. <span class="text-white font-semibold">Custom MQL5 codebase split into 8 modules.</span>',
     proj_opfx_tag1: "Algo Trading",
     proj_opfx_tag2: "Risk Mgmt",
+    proj_xau_desc: 'Telegram bot that scrapes gold (XAU/USD) news from financial portals, runs them through an AI analyzer and generates trade signals. <span class="text-white font-semibold">Scraping + Anthropic Claude + Telegram Bot API + sentiment analysis.</span>',
+    proj_mem_desc: 'AI agent monitors crypto wallets and memecoin projects, watches whale movements and volume anomalies, sends signals to Telegram. <span class="text-white font-semibold">Autonomous mode on Anthropic Claude — decides when to message.</span>',
     proj_more: "+ smaller experiments",
-    proj_extra1_h: "Telegram Trading Bot",
-    proj_extra1_d: "ClawGig signal scout · Python · Anthropic API",
     proj_extra2_h: "PDF Vision OCR",
     proj_extra2_d: "Per-page extraction · Gemini Vision · PyMuPDF",
     proj_extra3_h: "DevTools & Automation",
     proj_extra3_d: "CLI utilities · Excel parsers · Web scrapers",
+    proj_extra4_h: "Asia Range Indicator",
+    proj_extra4_d: "MT5 indicator · Asian session · MQL5",
 
     skills_badge: "Tech stack",
     skills_h_1: "My",
