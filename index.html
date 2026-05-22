@@ -378,40 +378,51 @@ body {
 
 /* Mobile (phones) */
 @media (max-width: 768px) {
-  /* Hide cursor blob & particles on mobile — saves battery, no glitch */
+  /* Hide cursor blob (touch device) */
   #cursor-blob { display: none !important; }
-  #bg-canvas { opacity: 0.3 !important; }
+  /* Three.js fon — viden no ne meshaet readability */
+  #bg-canvas { opacity: 0.6 !important; }
 
-  /* Smaller deco shapes */
+  /* Deco shapes — perepozitsioniruem chtoby vse byli vidny v ramkakh ekrana */
   .deco-shape {
-    width: 250px !important;
-    height: 250px !important;
-    filter: blur(40px);
+    width: 300px !important;
+    height: 300px !important;
+    filter: blur(50px);
+    opacity: 0.45 !important;
   }
+  .deco-shape:nth-of-type(1) { top: 5% !important; left: -50px !important; }
+  .deco-shape:nth-of-type(2) { top: 45% !important; right: -50px !important; left: auto !important; }
+  .deco-shape:nth-of-type(3) { bottom: 15% !important; left: 20% !important; }
 
-  /* Buttons full-width on small */
+  /* Buttons — comfortable tap targets */
   .btn-primary, .btn-ghost {
     padding: 12px 20px;
     font-size: 14px;
     width: auto;
   }
 
-  /* Glass card padding */
+  /* Glass card */
   .glass { border-radius: 18px; }
 
-  /* Project card glow disabled (perf) */
+  /* Project card glow off (perf) */
   .project-card::after { display: none; }
 
-  /* Smaller marquee */
+  /* Marquee */
   .marquee-track { animation-duration: 18s; gap: 1rem; }
   .marquee { gap: 1rem; }
   .skill-pill { padding: 7px 14px; font-size: 12px; }
 
-  /* Fix oversized text */
   .stat-number { font-size: 2.25rem; }
 
-  /* Section padding */
-  section.relative { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+  /* Sections — uzhe padding chtoby kontent ne klippilsya */
+  section.relative { padding-left: 1rem !important; padding-right: 1rem !important; }
+
+  /* Hero — kompaktnee na mobile, ne min-h-screen kotoraya rezhet kontent */
+  section.relative.min-h-screen {
+    min-height: auto !important;
+    padding-top: 6rem !important;
+    padding-bottom: 3rem !important;
+  }
 }
 
 /* Small phones (iPhone SE etc) */
@@ -421,24 +432,43 @@ body {
 
   .skill-pill { padding: 6px 12px; font-size: 11px; }
 
-  /* Code block in hero — smaller */
-  .code-block { font-size: 11px; padding: 10px 12px; max-width: 100%; }
+  .code-block { font-size: 10px; padding: 10px 12px; max-width: 100%; }
+
+  .deco-shape {
+    width: 240px !important;
+    height: 240px !important;
+  }
+  .deco-shape:nth-of-type(1) { left: -40px !important; }
+  .deco-shape:nth-of-type(2) { right: -40px !important; }
 }
 
-/* iOS Safari fix — disable backdrop-filter animations on mobile (laggy) */
+/* iOS Safari fix — uskorennyy backdrop-filter na mobile */
 @media (max-width: 768px) {
   .glass { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-  .glass:hover::before { opacity: 0.5; } /* Don't animate on touch */
+  .glass:hover::before { opacity: 0.5; }
 }
 
-/* Reduce 3D effects on touch devices */
+/* Touch devices */
 @media (hover: none) and (pointer: coarse) {
-  /* Disable tilt-on-touch (broken UX) */
   [data-tilt] { transform: none !important; }
   .project-card:hover::after { opacity: 0.2; }
-
-  /* No hover transforms on touch */
   .btn-primary:hover { transform: none; }
+}
+
+/* Mobile nav fix — kompaktnee chtoby vlezalo na uzkih ekranah */
+@media (max-width: 480px) {
+  nav .max-w-6xl { padding-left: 1rem !important; padding-right: 1rem !important; }
+  nav .gradient-text { font-size: 1.25rem !important; }
+  nav .lang-btn { padding: 4px 8px; font-size: 11px; }
+  nav .btn-primary { padding: 6px 14px !important; font-size: 12px !important; }
+}
+
+/* Hero — kompaktnee zagolovok na mobile */
+@media (max-width: 640px) {
+  section h1.text-4xl { font-size: 2.25rem !important; line-height: 1.1 !important; }
+  section h1.text-4xl + p { font-size: 1rem !important; }
+  /* Code-block ne dolzhen vyhodit za pole */
+  .code-block { word-break: break-word; max-width: calc(100vw - 3rem); }
 }
 
 </style>
