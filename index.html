@@ -65,6 +65,11 @@ body {
   cursor: default;
 }
 
+/* Otkluchaem nativnye zoomy na touch chtoby fixed elementy ne dergalis */
+@media (hover: none) and (pointer: coarse) {
+  body { -webkit-tap-highlight-color: transparent; }
+}
+
 /* === Three.js canvas === */
 #bg-canvas {
   position: fixed;
@@ -363,6 +368,79 @@ body {
 }
 .lang-btn:hover { color: white; }
 
+/* ====================== MOBILE OPTIMIZATIONS ====================== */
+
+/* Tablet & smaller */
+@media (max-width: 1024px) {
+  .skill-pill { padding: 8px 16px; font-size: 13px; }
+  .marquee-track { animation-duration: 20s; }
+}
+
+/* Mobile (phones) */
+@media (max-width: 768px) {
+  /* Hide cursor blob & particles on mobile — saves battery, no glitch */
+  #cursor-blob { display: none !important; }
+  #bg-canvas { opacity: 0.3 !important; }
+
+  /* Smaller deco shapes */
+  .deco-shape {
+    width: 250px !important;
+    height: 250px !important;
+    filter: blur(40px);
+  }
+
+  /* Buttons full-width on small */
+  .btn-primary, .btn-ghost {
+    padding: 12px 20px;
+    font-size: 14px;
+    width: auto;
+  }
+
+  /* Glass card padding */
+  .glass { border-radius: 18px; }
+
+  /* Project card glow disabled (perf) */
+  .project-card::after { display: none; }
+
+  /* Smaller marquee */
+  .marquee-track { animation-duration: 18s; gap: 1rem; }
+  .marquee { gap: 1rem; }
+  .skill-pill { padding: 7px 14px; font-size: 12px; }
+
+  /* Fix oversized text */
+  .stat-number { font-size: 2.25rem; }
+
+  /* Section padding */
+  section.relative { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+}
+
+/* Small phones (iPhone SE etc) */
+@media (max-width: 480px) {
+  .stat-number { font-size: 1.75rem; }
+  .stat-card { padding: 1.25rem 0.5rem; }
+
+  .skill-pill { padding: 6px 12px; font-size: 11px; }
+
+  /* Code block in hero — smaller */
+  .code-block { font-size: 11px; padding: 10px 12px; max-width: 100%; }
+}
+
+/* iOS Safari fix — disable backdrop-filter animations on mobile (laggy) */
+@media (max-width: 768px) {
+  .glass { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .glass:hover::before { opacity: 0.5; } /* Don't animate on touch */
+}
+
+/* Reduce 3D effects on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable tilt-on-touch (broken UX) */
+  [data-tilt] { transform: none !important; }
+  .project-card:hover::after { opacity: 0.2; }
+
+  /* No hover transforms on touch */
+  .btn-primary:hover { transform: none; }
+}
+
 </style>
 </head>
 <body>
@@ -414,12 +492,12 @@ body {
       <span class="text-sm font-semibold text-emerald-300" data-i18n="hero_status">Доступен для проектов на Upwork</span>
     </div>
 
-    <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-6 leading-none tracking-tight" style="font-family: 'Space Grotesk', sans-serif;">
+    <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight tracking-tight" style="font-family: 'Space Grotesk', sans-serif;">
       <span class="block" data-i18n="hero_title_1">Создаю</span>
       <span class="gradient-text" data-i18n="hero_title_2">продукты которые работают</span>
     </h1>
 
-    <p class="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed" data-i18n="hero_sub" data-i18n-html>
+    <p class="text-lg sm:text-xl md:text-2xl text-slate-300 mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed" data-i18n="hero_sub" data-i18n-html>
       Fullstack разработчик и AI инженер. Специализируюсь на
       <span class="text-white font-semibold">SaaS продуктах</span>,
       <span class="text-white font-semibold">интеграции LLM</span> и
@@ -478,7 +556,7 @@ body {
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-16 reveal">
       <span class="section-badge" data-i18n="proj_badge">Избранные работы</span>
-      <h2 class="text-5xl md:text-7xl font-black mt-6 mb-4" style="font-family: 'Space Grotesk', sans-serif;">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mt-6 mb-4" style="font-family: 'Space Grotesk', sans-serif;">
         <span data-i18n="proj_h_1">Что я</span> <span class="gradient-text" data-i18n="proj_h_2">создал</span>
       </h2>
       <p class="text-lg text-slate-400 max-w-2xl mx-auto" data-i18n="proj_sub">
@@ -490,11 +568,11 @@ body {
     <div class="reveal mb-12">
       <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
            style="--glow-1: #8b5cf6; --glow-2: #ec4899;">
-        <div class="grid md:grid-cols-5 gap-8 p-8 md:p-10">
+        <div class="grid md:grid-cols-5 gap-6 p-6 sm:p-8 md:p-10">
           <div class="md:col-span-3 space-y-5">
             <div class="flex items-center gap-3 flex-wrap">
               <span class="text-5xl">🧠</span>
-              <h3 class="text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
                 <span class="gradient-text">QuizAIPro</span>
               </h3>
               <span class="text-xs px-2 py-1 rounded-md bg-emerald-500/20 text-emerald-300 font-bold uppercase tracking-wider" data-i18n="proj_live">В проде</span>
@@ -537,7 +615,7 @@ body {
     <div class="reveal mb-12">
       <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
            style="--glow-1: #06b6d4; --glow-2: #8b5cf6;">
-        <div class="grid md:grid-cols-5 gap-8 p-8 md:p-10">
+        <div class="grid md:grid-cols-5 gap-6 p-6 sm:p-8 md:p-10">
           <div class="md:col-span-2 flex items-center justify-center order-2 md:order-1">
             <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-purple-500/20 flex items-center justify-center text-7xl border border-white/10 w-full">
               💊
@@ -546,7 +624,7 @@ body {
           <div class="md:col-span-3 space-y-5 order-1 md:order-2">
             <div class="flex items-center gap-3 flex-wrap">
               <span class="text-5xl">📊</span>
-              <h3 class="text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
                 <span class="gradient-text">Pharma Compare</span>
               </h3>
             </div>
@@ -576,11 +654,11 @@ body {
     <div class="reveal mb-12">
       <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
            style="--glow-1: #facc15; --glow-2: #f97316;">
-        <div class="grid md:grid-cols-5 gap-8 p-8 md:p-10">
+        <div class="grid md:grid-cols-5 gap-6 p-6 sm:p-8 md:p-10">
           <div class="md:col-span-3 space-y-5">
             <div class="flex items-center gap-3 flex-wrap">
               <span class="text-5xl">📈</span>
-              <h3 class="text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
                 <span class="gradient-yellow">OPFX Zona Premium</span>
               </h3>
             </div>
@@ -608,7 +686,7 @@ body {
     <div class="reveal mb-12">
       <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
            style="--glow-1: #ec4899; --glow-2: #facc15;">
-        <div class="grid md:grid-cols-5 gap-8 p-8 md:p-10">
+        <div class="grid md:grid-cols-5 gap-6 p-6 sm:p-8 md:p-10">
           <div class="md:col-span-2 flex items-center justify-center order-2 md:order-1">
             <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-pink-500/20 via-yellow-500/20 to-orange-500/20 flex items-center justify-center text-7xl border border-white/10 w-full">
               📰
@@ -617,7 +695,7 @@ body {
           <div class="md:col-span-3 space-y-5 order-1 md:order-2">
             <div class="flex items-center gap-3 flex-wrap">
               <span class="text-5xl">🤖</span>
-              <h3 class="text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
                 <span class="gradient-text">XAU News Bot</span>
               </h3>
             </div>
@@ -641,11 +719,11 @@ body {
     <div class="reveal mb-12">
       <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
            style="--glow-1: #06b6d4; --glow-2: #facc15;">
-        <div class="grid md:grid-cols-5 gap-8 p-8 md:p-10">
+        <div class="grid md:grid-cols-5 gap-6 p-6 sm:p-8 md:p-10">
           <div class="md:col-span-3 space-y-5">
             <div class="flex items-center gap-3 flex-wrap">
               <span class="text-5xl">💎</span>
-              <h3 class="text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
                 <span class="gradient-yellow">MEM Signal Bot</span>
               </h3>
             </div>
@@ -699,7 +777,7 @@ body {
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-12 reveal">
       <span class="section-badge" data-i18n="skills_badge">Технологии</span>
-      <h2 class="text-5xl md:text-7xl font-black mt-6 mb-4" style="font-family: 'Space Grotesk', sans-serif;">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mt-6 mb-4" style="font-family: 'Space Grotesk', sans-serif;">
         <span data-i18n="skills_h_1">Мой</span> <span class="gradient-text" data-i18n="skills_h_2">арсенал</span>
       </h2>
     </div>
@@ -788,24 +866,24 @@ body {
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-12 reveal">
       <span class="section-badge" data-i18n="about_badge">Обо мне</span>
-      <h2 class="text-5xl md:text-7xl font-black mt-6 mb-4" style="font-family: 'Space Grotesk', sans-serif;">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mt-6 mb-4" style="font-family: 'Space Grotesk', sans-serif;">
         <span data-i18n="about_h_1">Краткое</span> <span class="gradient-text" data-i18n="about_h_2">знакомство</span>
       </h2>
     </div>
 
-    <div class="glass p-8 md:p-12 reveal">
+    <div class="glass p-6 sm:p-8 md:p-12 reveal">
       <div class="prose prose-invert max-w-none">
-        <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-5" data-i18n="about_p1" data-i18n-html>
+        <p class="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed mb-5" data-i18n="about_p1" data-i18n-html>
           Я <span class="text-white font-bold">Slezul</span> — разработчик из <span class="text-white font-bold">Узбекистана</span>, который превращает идеи в продукты.
           SaaS для студентов, B2B-автоматизация для дистрибьюторов или торговые боты — мой фокус сделать чтобы это
           <em class="gradient-text font-bold">работало в проде</em>, а не только в демо.
         </p>
-        <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-5" data-i18n="about_p2" data-i18n-html>
+        <p class="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed mb-5" data-i18n="about_p2" data-i18n-html>
           Сильная сторона: <span class="text-white font-semibold">Python бэкенд + AI интеграция + продуманный фронтенд</span>.
           Запущенные продукты с Gemini Vision OCR, мультиплеер в реальном времени, платежи через Stripe и сложные алгоритмы сравнения.
           Пишу код который выживает в продакшене — потому что сам ловил баги в 2 часа ночи.
         </p>
-        <p class="text-lg md:text-xl text-slate-300 leading-relaxed" data-i18n="about_p3" data-i18n-html>
+        <p class="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed" data-i18n="about_p3" data-i18n-html>
           Когда не пишу код — читаю про системный дизайн, оптимизирую свой dev workflow, или думаю как сделать узбекский edtech лучше.
           <span class="gradient-yellow font-bold">Доступен для отдельных проектов на Upwork</span> — особенно AI интеграция, MVP и автоматизация.
         </p>
@@ -835,9 +913,9 @@ body {
 <!-- ====================== CONTACT / CTA ====================== -->
 <section id="contact" class="relative py-24 px-6" style="z-index: 1;">
   <div class="max-w-4xl mx-auto reveal">
-    <div class="glass p-10 md:p-16 text-center" style="background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(236,72,153,0.1));">
-      <div class="text-7xl mb-6">🚀</div>
-      <h2 class="text-4xl md:text-6xl font-black mb-6" style="font-family: 'Space Grotesk', sans-serif;">
+    <div class="glass p-7 sm:p-10 md:p-16 text-center" style="background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(236,72,153,0.1));">
+      <div class="text-6xl sm:text-7xl mb-6">🚀</div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6" style="font-family: 'Space Grotesk', sans-serif;">
         <span data-i18n="contact_h_1">Есть проект?</span><br>
         <span class="gradient-text" data-i18n="contact_h_2">Давай сделаем.</span>
       </h2>
