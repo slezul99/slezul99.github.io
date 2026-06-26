@@ -558,8 +558,8 @@ body {
       <div class="code-block text-left max-w-md mx-auto">
         <span class="comment" data-i18n="hero_code_comment">// запущено в этом году</span><br>
         <span class="keyword">const</span> <span class="fn">products</span> = [<br>
-        &nbsp;&nbsp;<span class="string">'Calp-AI'</span>, <span class="string">'QuizAIPro'</span>, <span class="string">'PharmaCompare'</span>,<br>
-        &nbsp;&nbsp;<span class="string">'XAU-NewsBot'</span>, <span class="string">'MEM-Signal'</span>, <span class="string">'OPFX'</span><br>
+        &nbsp;&nbsp;<span class="string">'Calp-AI'</span>, <span class="string">'QuizAIPro'</span>,<br>
+        &nbsp;&nbsp;<span class="string">'PharmaCompare'</span><br>
         ];
       </div>
     </div>
@@ -682,8 +682,8 @@ body {
           </div>
           <div class="md:col-span-2 flex items-center justify-center">
             <div class="relative w-full">
-              <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-purple-600/20 via-pink-500/20 to-cyan-500/20 flex items-center justify-center text-7xl border border-white/10">
-                🎓
+              <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-purple-600/20 via-pink-500/20 to-cyan-500/20 flex items-center justify-center border border-white/10">
+                <img src="assets/quizaipro-icon.png" alt="QuizAIPro" class="w-28 h-28 sm:w-32 sm:h-32 rounded-[28px] shadow-2xl" loading="lazy" />
               </div>
               <div class="absolute -bottom-4 -right-4 px-3 py-1.5 rounded-lg bg-emerald-500 text-emerald-950 text-xs font-black uppercase tracking-wider shadow-xl" data-i18n="proj_production">Прод</div>
             </div>
@@ -725,104 +725,6 @@ body {
               <span class="text-sm text-slate-400 px-4 py-2 rounded-lg bg-white/5 border border-white/10" data-i18n="proj_pharma_note">
                 🔒 Закрытый — кейс по запросу
               </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 4: OPFX -->
-    <div class="reveal mb-12">
-      <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
-           style="--glow-1: #facc15; --glow-2: #f97316;">
-        <div class="grid md:grid-cols-5 gap-6 p-6 sm:p-8 md:p-10">
-          <div class="md:col-span-3 space-y-5">
-            <div class="flex items-center gap-3 flex-wrap">
-              <span class="text-5xl">📈</span>
-              <h3 class="text-2xl sm:text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
-                <span class="gradient-yellow">OPFX Zona Premium</span>
-              </h3>
-            </div>
-            <p class="text-slate-300 leading-relaxed" data-i18n="proj_opfx_desc" data-i18n-html>
-              Автоматический торговый бот для XAU/USD на платформе MT5. Многотаймфреймный анализ структуры рынка, smart-money концепции, динамический риск-менеджмент, учёт новостей.
-              <span class="text-white font-semibold">Кастомная MQL5 кодовая база разделена на 8 модулей.</span>
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tag-yellow tag">MQL5</span>
-              <span class="tag-pink tag">MetaTrader 5</span>
-              <span class="tag" data-i18n="proj_opfx_tag1">Алготрейдинг</span>
-              <span class="tag-cyan tag" data-i18n="proj_opfx_tag2">Риск-менеджмент</span>
-            </div>
-          </div>
-          <div class="md:col-span-2 flex items-center justify-center">
-            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-yellow-500/20 via-orange-500/20 to-pink-500/20 flex items-center justify-center text-7xl border border-white/10 w-full">
-              🪙
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 5: XAU News Bot -->
-    <div class="reveal mb-12">
-      <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
-           style="--glow-1: #ec4899; --glow-2: #facc15;">
-        <div class="grid md:grid-cols-5 gap-6 p-6 sm:p-8 md:p-10">
-          <div class="md:col-span-2 flex items-center justify-center order-2 md:order-1">
-            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-pink-500/20 via-yellow-500/20 to-orange-500/20 flex items-center justify-center text-7xl border border-white/10 w-full">
-              📰
-            </div>
-          </div>
-          <div class="md:col-span-3 space-y-5 order-1 md:order-2">
-            <div class="flex items-center gap-3 flex-wrap">
-              <span class="text-5xl">🤖</span>
-              <h3 class="text-2xl sm:text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
-                <span class="gradient-text">XAU News Bot</span>
-              </h3>
-            </div>
-            <p class="text-slate-300 leading-relaxed" data-i18n="proj_xau_desc" data-i18n-html>
-              Telegram-бот который собирает новости по золоту (XAU/USD) с финансовых порталов, прогоняет через AI-анализатор и генерирует торговые сигналы.
-              <span class="text-white font-semibold">Скрейпинг + Anthropic Claude + Telegram Bot API + автоанализ настроений.</span>
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tag">Python</span>
-              <span class="tag-pink tag">Claude AI</span>
-              <span class="tag-cyan tag">Telegram Bot</span>
-              <span class="tag-yellow tag">Web Scraping</span>
-              <span class="tag-emerald tag">BeautifulSoup</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 6: MEM Signal Bot -->
-    <div class="reveal mb-12">
-      <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
-           style="--glow-1: #06b6d4; --glow-2: #facc15;">
-        <div class="grid md:grid-cols-5 gap-6 p-6 sm:p-8 md:p-10">
-          <div class="md:col-span-3 space-y-5">
-            <div class="flex items-center gap-3 flex-wrap">
-              <span class="text-5xl">💎</span>
-              <h3 class="text-2xl sm:text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
-                <span class="gradient-yellow">MEM Signal Bot</span>
-              </h3>
-            </div>
-            <p class="text-slate-300 leading-relaxed" data-i18n="proj_mem_desc" data-i18n-html>
-              AI-агент мониторит криптокошельки и memecoin-проекты, следит за движениями китов и аномалиями объёма, отправляет сигналы в Telegram.
-              <span class="text-white font-semibold">Автономный mode на Anthropic Claude — сам решает когда писать.</span>
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tag">Python</span>
-              <span class="tag-cyan tag">Claude API</span>
-              <span class="tag-pink tag">On-chain Data</span>
-              <span class="tag-yellow tag">Telegram Bot</span>
-              <span class="tag-emerald tag">Autonomous</span>
-            </div>
-          </div>
-          <div class="md:col-span-2 flex items-center justify-center">
-            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-500/20 via-yellow-500/20 to-pink-500/20 flex items-center justify-center text-7xl border border-white/10 w-full">
-              🐋
             </div>
           </div>
         </div>
@@ -1083,11 +985,6 @@ const TRANSLATIONS = {
     proj_quiz_desc: 'AI-платформа для подготовки к экзаменам. Флешкарты, тесты, дуэли в реальном времени, генерация вопросов из PDF через Gemini Vision OCR. <span class="text-white font-semibold">3 языка, SRS алгоритм, оплата через Stripe.</span>',
     proj_pharma_desc: 'B2B движок сравнения цен для фарм-дистрибьюторов. Сопоставляет 5000+ позиций препаратов по 9 каталогам с нечётким поиском, нормализацией заводов и AI-арбитром для сложных случаев. <span class="text-white font-semibold">Экономит клиентам 15-30% на закупках.</span>',
     proj_pharma_note: "🔒 Закрытый — кейс по запросу",
-    proj_opfx_desc: 'Автоматический торговый бот для XAU/USD на платформе MT5. Многотаймфреймный анализ структуры рынка, smart-money концепции, динамический риск-менеджмент, учёт новостей. <span class="text-white font-semibold">Кастомная MQL5 кодовая база разделена на 8 модулей.</span>',
-    proj_opfx_tag1: "Алготрейдинг",
-    proj_opfx_tag2: "Риск-менеджмент",
-    proj_xau_desc: 'Telegram-бот который собирает новости по золоту (XAU/USD) с финансовых порталов, прогоняет через AI-анализатор и генерирует торговые сигналы. <span class="text-white font-semibold">Скрейпинг + Anthropic Claude + Telegram Bot API + автоанализ настроений.</span>',
-    proj_mem_desc: 'AI-агент мониторит криптокошельки и memecoin-проекты, следит за движениями китов и аномалиями объёма, отправляет сигналы в Telegram. <span class="text-white font-semibold">Автономный mode на Anthropic Claude — сам решает когда писать.</span>',
     proj_more: "+ малые эксперименты",
     proj_extra2_h: "PDF Vision OCR",
     proj_extra2_d: "Постраничное извлечение · Gemini Vision · PyMuPDF",
@@ -1163,11 +1060,6 @@ const TRANSLATIONS = {
     proj_quiz_desc: 'AI-powered exam prep SaaS for Uzbekistan students. Flashcards, tests, real-time duels, PDF question extraction via Gemini Vision OCR. <span class="text-white font-semibold">3-language support, SRS algorithm, Stripe billing.</span>',
     proj_pharma_desc: 'B2B price comparison engine for pharma distributors. Matches 5,000+ drug positions across 9 distributor catalogs with fuzzy matching, factory normalization, and AI-assisted disambiguation. <span class="text-white font-semibold">Saves clients 15-30% on procurement.</span>',
     proj_pharma_note: "🔒 Private — case study available on request",
-    proj_opfx_desc: 'Automated trading system for XAU/USD on MT5 platform. Multi-timeframe market structure analysis, smart-money concepts, dynamic risk management, news-aware execution. <span class="text-white font-semibold">Custom MQL5 codebase split into 8 modules.</span>',
-    proj_opfx_tag1: "Algo Trading",
-    proj_opfx_tag2: "Risk Mgmt",
-    proj_xau_desc: 'Telegram bot that scrapes gold (XAU/USD) news from financial portals, runs them through an AI analyzer and generates trade signals. <span class="text-white font-semibold">Scraping + Anthropic Claude + Telegram Bot API + sentiment analysis.</span>',
-    proj_mem_desc: 'AI agent monitors crypto wallets and memecoin projects, watches whale movements and volume anomalies, sends signals to Telegram. <span class="text-white font-semibold">Autonomous mode on Anthropic Claude — decides when to message.</span>',
     proj_more: "+ smaller experiments",
     proj_extra2_h: "PDF Vision OCR",
     proj_extra2_d: "Per-page extraction · Gemini Vision · PyMuPDF",
