@@ -98,6 +98,15 @@ body {
   animation: gradient 4s ease infinite;
 }
 
+.gradient-green {
+  background: linear-gradient(120deg, #a3e635 0%, #22c55e 45%, #10b981 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 5s ease infinite;
+}
+
 /* === Glass card === */
 .glass {
   background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
@@ -549,7 +558,7 @@ body {
       <div class="code-block text-left max-w-md mx-auto">
         <span class="comment" data-i18n="hero_code_comment">// запущено в этом году</span><br>
         <span class="keyword">const</span> <span class="fn">products</span> = [<br>
-        &nbsp;&nbsp;<span class="string">'QuizAIPro'</span>, <span class="string">'PharmaCompare'</span>,<br>
+        &nbsp;&nbsp;<span class="string">'Calp-AI'</span>, <span class="string">'QuizAIPro'</span>, <span class="string">'PharmaCompare'</span>,<br>
         &nbsp;&nbsp;<span class="string">'XAU-NewsBot'</span>, <span class="string">'MEM-Signal'</span>, <span class="string">'OPFX'</span><br>
         ];
       </div>
@@ -562,7 +571,7 @@ body {
   <div class="max-w-5xl mx-auto reveal">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
       <div class="glass stat-card">
-        <div class="stat-number gradient-text">5+</div>
+        <div class="stat-number gradient-text">6+</div>
         <div class="text-sm text-slate-400 mt-2 font-semibold uppercase tracking-wider" data-i18n="stat_apps">Готовых приложений</div>
       </div>
       <div class="glass stat-card">
@@ -594,7 +603,49 @@ body {
       </p>
     </div>
 
-    <!-- Project 1: QuizAIPro -->
+    <!-- Project 1: Calp AI -->
+    <div class="reveal mb-12">
+      <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+           style="--glow-1: #a3e635; --glow-2: #10b981;">
+        <div class="grid md:grid-cols-5 gap-6 p-6 sm:p-8 md:p-10">
+          <div class="md:col-span-3 space-y-5">
+            <div class="flex items-center gap-3 flex-wrap">
+              <span class="text-5xl">🥗</span>
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
+                <span class="gradient-green">Calp AI</span>
+              </h3>
+              <span class="text-xs px-2 py-1 rounded-md bg-emerald-500/20 text-emerald-300 font-bold uppercase tracking-wider" data-i18n="proj_calp_badge">Закрытый бета-тест</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed" data-i18n="proj_calp_desc" data-i18n-html>
+              AI-трекер калорий и питания. Сфотографируй блюдо — Gemini Vision определит калории и БЖУ за секунду. AI-нутрициолог 24/7, сканер штрихкодов, пилатес, 3 языка.
+              <span class="text-white font-semibold">Первое мобильное приложение — Flutter + Firebase, скоро в Google Play.</span>
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-cyan tag">Flutter</span>
+              <span class="tag">Dart</span>
+              <span class="tag-emerald tag">Firebase</span>
+              <span class="tag-pink tag">Gemini AI</span>
+              <span class="tag-yellow tag">RevenueCat</span>
+            </div>
+            <div class="flex gap-3 pt-2 flex-wrap">
+              <span class="text-sm text-slate-400 px-4 py-2 rounded-lg bg-white/5 border border-white/10" data-i18n="proj_calp_note">
+                📱 Скоро в Google Play
+              </span>
+            </div>
+          </div>
+          <div class="md:col-span-2 flex items-center justify-center">
+            <div class="relative w-full">
+              <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-lime-500/20 via-emerald-500/20 to-green-600/20 flex items-center justify-center border border-white/10">
+                <img src="assets/calp-icon.png" alt="Calp AI" class="w-28 h-28 sm:w-32 sm:h-32 rounded-[28px] shadow-2xl" loading="lazy" />
+              </div>
+              <div class="absolute -bottom-4 -right-4 px-3 py-1.5 rounded-lg bg-emerald-500 text-emerald-950 text-xs font-black uppercase tracking-wider shadow-xl" data-i18n="proj_calp_corner">Google Play</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: QuizAIPro -->
     <div class="reveal mb-12">
       <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
            style="--glow-1: #8b5cf6; --glow-2: #ec4899;">
@@ -641,7 +692,7 @@ body {
       </div>
     </div>
 
-    <!-- Project 2: Pharma Compare -->
+    <!-- Project 3: Pharma Compare -->
     <div class="reveal mb-12">
       <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
            style="--glow-1: #06b6d4; --glow-2: #8b5cf6;">
@@ -680,7 +731,7 @@ body {
       </div>
     </div>
 
-    <!-- Project 3: OPFX -->
+    <!-- Project 4: OPFX -->
     <div class="reveal mb-12">
       <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
            style="--glow-1: #facc15; --glow-2: #f97316;">
@@ -712,7 +763,7 @@ body {
       </div>
     </div>
 
-    <!-- Project 4: XAU News Bot -->
+    <!-- Project 5: XAU News Bot -->
     <div class="reveal mb-12">
       <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
            style="--glow-1: #ec4899; --glow-2: #facc15;">
@@ -745,7 +796,7 @@ body {
       </div>
     </div>
 
-    <!-- Project 5: MEM Signal Bot -->
+    <!-- Project 6: MEM Signal Bot -->
     <div class="reveal mb-12">
       <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
            style="--glow-1: #06b6d4; --glow-2: #facc15;">
@@ -1025,6 +1076,10 @@ const TRANSLATIONS = {
     proj_live: "В проде",
     proj_production: "Прод",
     proj_demo: "Демо →",
+    proj_calp_badge: "Закрытый бета-тест",
+    proj_calp_corner: "Google Play",
+    proj_calp_note: "📱 Скоро в Google Play",
+    proj_calp_desc: 'AI-трекер калорий и питания. Сфотографируй блюдо — Gemini Vision определит калории и БЖУ за секунду. AI-нутрициолог 24/7, сканер штрихкодов, пилатес, 3 языка. <span class="text-white font-semibold">Первое мобильное приложение — Flutter + Firebase, скоро в Google Play.</span>',
     proj_quiz_desc: 'AI-платформа для подготовки к экзаменам. Флешкарты, тесты, дуэли в реальном времени, генерация вопросов из PDF через Gemini Vision OCR. <span class="text-white font-semibold">3 языка, SRS алгоритм, оплата через Stripe.</span>',
     proj_pharma_desc: 'B2B движок сравнения цен для фарм-дистрибьюторов. Сопоставляет 5000+ позиций препаратов по 9 каталогам с нечётким поиском, нормализацией заводов и AI-арбитром для сложных случаев. <span class="text-white font-semibold">Экономит клиентам 15-30% на закупках.</span>',
     proj_pharma_note: "🔒 Закрытый — кейс по запросу",
@@ -1101,6 +1156,10 @@ const TRANSLATIONS = {
     proj_live: "Live",
     proj_production: "Production",
     proj_demo: "Live demo →",
+    proj_calp_badge: "Closed beta",
+    proj_calp_corner: "Google Play",
+    proj_calp_note: "📱 Launching on Google Play",
+    proj_calp_desc: 'AI calorie &amp; nutrition tracker. Snap a photo of your meal — Gemini Vision estimates calories and macros in a second. 24/7 AI nutritionist, barcode scanner, Pilates, 3 languages. <span class="text-white font-semibold">My first mobile app — Flutter + Firebase, launching on Google Play.</span>',
     proj_quiz_desc: 'AI-powered exam prep SaaS for Uzbekistan students. Flashcards, tests, real-time duels, PDF question extraction via Gemini Vision OCR. <span class="text-white font-semibold">3-language support, SRS algorithm, Stripe billing.</span>',
     proj_pharma_desc: 'B2B price comparison engine for pharma distributors. Matches 5,000+ drug positions across 9 distributor catalogs with fuzzy matching, factory normalization, and AI-assisted disambiguation. <span class="text-white font-semibold">Saves clients 15-30% on procurement.</span>',
     proj_pharma_note: "🔒 Private — case study available on request",
