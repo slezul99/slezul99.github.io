@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="page_title">Slezul — Fullstack и AI разработчик</title>
+<meta name="description" content="Fullstack разработчик и AI инженер. Создаю SaaS продукты на Python, Flask и LLM. Доступен для новых проектов.">
+<meta name="keywords" content="fullstack разработчик, AI инженер, Python, Flask, LLM, Gemini, фрилансер, разработчик на заказ, Узбекистан">
+<meta name="author" content="Slezul">
+
+<link rel="canonical" href="https://slezul99.github.io/">
+<meta name="theme-color" content="#0a0118">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Slezul — Fullstack и AI разработчик">
+<meta property="og:description" content="Создаю AI-продукты которые работают в проде. Доступен для найма.">
+<meta property="og:url" content="https://slezul99.github.io/">
+<meta property="og:site_name" content="Slezul">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://slezul99.github.io/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Slezul — Fullstack & AI Engineer">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Slezul — Fullstack & AI Engineer">
+<meta name="twitter:description" content="I build products that ship — SaaS, LLM integration, automation. Available for hire.">
+<meta name="twitter:image" content="https://slezul99.github.io/assets/og.jpg">
+
+<!-- Structured data (Person) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Slezul",
+  "jobTitle": "Fullstack & AI Engineer",
+  "url": "https://slezul99.github.io/",
+  "image": "https://slezul99.github.io/assets/og.jpg",
+  "email": "mailto:slezul99@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Tashkent", "addressCountry": "UZ" },
+  "knowsLanguage": ["ru", "uz", "en"],
+  "knowsAbout": ["Python", "Flask", "AI", "LLM", "Gemini", "Flutter", "SaaS", "Automation"],
+  "sameAs": ["https://github.com/slezul99", "https://t.me/Slezul"]
+}
+</script>
+
+<!-- Favicon (emoji as SVG) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+<!-- Tailwind CSS — prebuilt static (purged + minified); no runtime CDN -->
+<style id="tw-static">
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Inter,system-ui,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:JetBrains Mono,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.static{position:static}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.-bottom-4{bottom:-1rem}.-right-4{right:-1rem}.left-0{left:0}.right-0{right:0}.top-0{top:0}.z-50{z-index:50}.order-1{order:1}.order-2{order:2}.mx-auto{margin-left:auto;margin-right:auto}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-1{margin-top:.25rem}.mt-16{margin-top:4rem}.mt-2{margin-top:.5rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-\[4\/3\]{aspect-ratio:4/3}.h-2{height:.5rem}.h-28{height:7rem}.h-9{height:2.25rem}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-2{width:.5rem}.w-28{width:7rem}.w-9{width:2.25rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-md{max-width:28rem}.max-w-none{max-width:none}.max-w-xl{max-width:36rem}.flex-shrink{flex-shrink:1}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes float{0%,to{transform:translateY(0)}50%{transform:translateY(-20px)}}.animate-float{animation:float 6s ease-in-out infinite}@keyframes ping{75%,to{transform:scale(2);opacity:0}}.animate-ping{animation:ping 1s cubic-bezier(0,0,.2,1) infinite}.resize{resize:both}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.space-y-5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-2xl{border-radius:1rem}.rounded-\[28px\]{border-radius:28px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-md{border-radius:.375rem}.border{border-width:1px}.border-t{border-top-width:1px}.border-white\/10{border-color:hsla(0,0%,100%,.1)}.border-white\/5{border-color:hsla(0,0%,100%,.05)}.bg-emerald-400{--tw-bg-opacity:1;background-color:rgb(52 211 153/var(--tw-bg-opacity,1))}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129/var(--tw-bg-opacity,1))}.bg-emerald-500\/20{background-color:rgba(16,185,129,.2)}.bg-white\/5{background-color:hsla(0,0%,100%,.05)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.from-cyan-500\/20{--tw-gradient-from:rgba(6,182,212,.2) var(--tw-gradient-from-position);--tw-gradient-to:rgba(6,182,212,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-lime-500\/20{--tw-gradient-from:rgba(132,204,22,.2) var(--tw-gradient-from-position);--tw-gradient-to:rgba(132,204,22,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-purple-600\/20{--tw-gradient-from:rgba(147,51,234,.2) var(--tw-gradient-from-position);--tw-gradient-to:rgba(147,51,234,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-blue-500\/20{--tw-gradient-to:rgba(59,130,246,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),rgba(59,130,246,.2) var(--tw-gradient-via-position),var(--tw-gradient-to)}.via-emerald-500\/20{--tw-gradient-to:rgba(16,185,129,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),rgba(16,185,129,.2) var(--tw-gradient-via-position),var(--tw-gradient-to)}.via-pink-500\/20{--tw-gradient-to:rgba(236,72,153,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),rgba(236,72,153,.2) var(--tw-gradient-via-position),var(--tw-gradient-to)}.to-cyan-500\/20{--tw-gradient-to:rgba(6,182,212,.2) var(--tw-gradient-to-position)}.to-green-600\/20{--tw-gradient-to:rgba(22,163,74,.2) var(--tw-gradient-to-position)}.to-purple-500\/20{--tw-gradient-to:rgba(168,85,247,.2) var(--tw-gradient-to-position)}.p-1{padding:.25rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-7{padding:1.75rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pt-2{padding-top:.5rem}.pt-24{padding-top:6rem}.pt-8{padding-top:2rem}.text-left{text-align:left}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}.text-7xl{font-size:4.5rem;line-height:1}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-.025em}.tracking-wider{letter-spacing:.05em}.tracking-widest{letter-spacing:.1em}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183/var(--tw-text-opacity,1))}.text-emerald-950{--tw-text-opacity:1;color:rgb(2 44 34/var(--tw-text-opacity,1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-75{opacity:.75}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.shadow-2xl,.shadow-xl{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color)}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px)}.backdrop-blur-xl,.backdrop-filter{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.hover\:text-cyan-300:hover{--tw-text-opacity:1;color:rgb(103 232 249/var(--tw-text-opacity,1))}.hover\:text-purple-300:hover{--tw-text-opacity:1;color:rgb(216 180 254/var(--tw-text-opacity,1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}@media (min-width:640px){.sm\:h-32{height:8rem}.sm\:w-32{width:8rem}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:p-10{padding:2.5rem}.sm\:p-8{padding:2rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-7xl{font-size:4.5rem;line-height:1}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width:768px){.md\:order-1{order:1}.md\:order-2{order:2}.md\:col-span-2{grid-column:span 2/span 2}.md\:col-span-3{grid-column:span 3/span 3}.md\:mb-12{margin-bottom:3rem}.md\:inline{display:inline}.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.md\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.md\:flex-row{flex-direction:row}.md\:p-10{padding:2.5rem}.md\:p-12{padding:3rem}.md\:p-16{padding:4rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width:1024px){.lg\:text-6xl{font-size:3.75rem;line-height:1}.lg\:text-8xl{font-size:6rem;line-height:1}}
+</style>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Three.js for 3D background -->
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+
+<!-- Vanilla Tilt for card 3D effect -->
+<script src="https://unpkg.com/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+
+<style>
+* { -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; }
+
+/* Keyframes used by custom CSS below (kept here so they don't depend on the
+   Tailwind build emitting them) */
+@keyframes gradient { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes glow { from { box-shadow: 0 0 20px -10px currentColor; } to { box-shadow: 0 0 40px 0 currentColor; } }
+body {
+  background: #0a0118;
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* Otkluchaem nativnye zoomy na touch chtoby fixed elementy ne dergalis */
+@media (hover: none) and (pointer: coarse) {
+  body { -webkit-tap-highlight-color: transparent; }
+}
+
+/* === Three.js canvas === */
+#bg-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+/* === Gradient text === */
+.gradient-text {
+  background: linear-gradient(120deg, #8b5cf6 0%, #ec4899 35%, #06b6d4 70%, #8b5cf6 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 6s ease infinite;
+}
+
+.gradient-yellow {
+  background: linear-gradient(120deg, #facc15 0%, #f97316 50%, #ec4899 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 4s ease infinite;
+}
+
+.gradient-green {
+  background: linear-gradient(120deg, #a3e635 0%, #22c55e 45%, #10b981 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 5s ease infinite;
+}
+
+/* === Glass card === */
+.glass {
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(139,92,246,0.4), rgba(236,72,153,0.2), rgba(6,182,212,0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.5;
+  transition: opacity 0.4s;
+}
+
+.glass:hover::before { opacity: 1; }
+
+/* === Project card glow === */
+.project-card {
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, var(--glow-1, #8b5cf6), var(--glow-2, #ec4899));
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: -1;
+}
+
+.project-card:hover::after { opacity: 0.4; }
+
+/* === Buttons === */
+.btn-primary {
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  background-size: 200% 200%;
+  color: white;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px -10px rgba(139,92,246,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 15px 40px -10px rgba(236,72,153,0.7);
+  background-position: 100% 100%;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s;
+}
+.btn-primary:hover::before { left: 100%; }
+
+.btn-ghost {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(139,92,246,0.5);
+  transform: translateY(-2px);
+}
+
+/* === Tag === */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: rgba(139,92,246,0.1);
+  border: 1px solid rgba(139,92,246,0.3);
+  color: #c4b5fd;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.tag-pink { background: rgba(236,72,153,0.1); border-color: rgba(236,72,153,0.3); color: #f9a8d4; }
+.tag-cyan { background: rgba(6,182,212,0.1); border-color: rgba(6,182,212,0.3); color: #67e8f9; }
+.tag-yellow { background: rgba(250,204,21,0.1); border-color: rgba(250,204,21,0.3); color: #fde047; }
+.tag-emerald { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.3); color: #6ee7b7; }
+
+/* === Section badge === */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: rgba(139,92,246,0.15);
+  border: 1px solid rgba(139,92,246,0.3);
+  color: #c4b5fd;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.section-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8b5cf6;
+  box-shadow: 0 0 10px #8b5cf6;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+/* === Reveal on scroll === */
+.reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* === Floating shapes === */
+.deco-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0a0118; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #8b5cf6, #ec4899); border-radius: 100px; }
+
+/* === Cursor blob === */
+#cursor-blob {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out;
+  filter: blur(30px);
+}
+
+/* === Cinematic hero orb === */
+.hero-orb-wrap{position:relative;width:min(400px,74vw);margin:0 auto;}
+.hero-orb-img{width:100%;height:auto;display:block;border-radius:50%;
+  -webkit-mask-image:radial-gradient(circle at 50% 50%, #000 64%, transparent 82%);
+  mask-image:radial-gradient(circle at 50% 50%, #000 64%, transparent 82%);}
+.hero-orb-glow{position:absolute;inset:-16%;z-index:-1;border-radius:50%;
+  background:radial-gradient(circle, rgba(139,92,246,.5), rgba(236,72,153,.26) 42%, rgba(6,182,212,.12) 60%, transparent 70%);
+  filter:blur(42px);animation:orbpulse 5s ease-in-out infinite alternate;}
+@keyframes orbpulse{from{opacity:.65;transform:scale(.95);}to{opacity:1;transform:scale(1.05);}}
+
+/* === Headline mask reveal === */
+.rl{display:block;overflow:hidden;padding-bottom:.06em;}
+.rl-in{transform:translateY(112%);transition:transform 1.15s cubic-bezier(.19,1,.22,1);}
+.loaded .rl-in{transform:translateY(0);}
+.loaded h1 .rl:nth-child(2) .rl-in{transition-delay:.12s;}
+.btn-primary,.btn-ghost{will-change:transform;}
+@media (prefers-reduced-motion: reduce){.rl-in{transform:none!important;transition:none!important;}.hero-orb-glow{animation:none!important;}}
+
+/* === Code block === */
+.code-block {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(139,92,246,0.2);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #c4b5fd;
+}
+
+.code-block .keyword { color: #ec4899; font-weight: 600; }
+.code-block .string { color: #facc15; }
+.code-block .fn { color: #06b6d4; }
+.code-block .comment { color: #64748b; }
+
+/* === Stat card === */
+.stat-card {
+  position: relative;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.stat-number {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .stat-number { font-size: 2.5rem; }
+}
+
+/* === Marquee === */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 2rem;
+  mask-image: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+}
+
+.marquee-track {
+  flex-shrink: 0;
+  display: flex;
+  gap: 2rem;
+  animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  font-weight: 600;
+  white-space: nowrap;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+}
+
+/* === Lang switcher === */
+.lang-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.lang-btn.active {
+  background: linear-gradient(135deg, rgba(139,92,246,0.3), rgba(236,72,153,0.2));
+  border-color: rgba(139,92,246,0.5);
+  color: white;
+}
+.lang-btn:hover { color: white; }
+
+/* ====================== MOBILE OPTIMIZATIONS ====================== */
+
+/* Tablet & smaller */
+@media (max-width: 1024px) {
+  .skill-pill { padding: 8px 16px; font-size: 13px; }
+  .marquee-track { animation-duration: 20s; }
+}
+
+/* Mobile (phones) */
+@media (max-width: 768px) {
+  /* Hide cursor blob (touch device) */
+  #cursor-blob { display: none !important; }
+  /* Three.js fon — viden no ne meshaet readability */
+  #bg-canvas { opacity: 0.6 !important; }
+
+  /* Deco shapes — perepozitsioniruem chtoby vse byli vidny v ramkakh ekrana */
+  .deco-shape {
+    width: 300px !important;
+    height: 300px !important;
+    filter: blur(50px);
+    opacity: 0.45 !important;
+  }
+  .deco-shape:nth-of-type(1) { top: 5% !important; left: -50px !important; }
+  .deco-shape:nth-of-type(2) { top: 45% !important; right: -50px !important; left: auto !important; }
+  .deco-shape:nth-of-type(3) { bottom: 15% !important; left: 20% !important; }
+
+  /* Buttons — comfortable tap targets */
+  .btn-primary, .btn-ghost {
+    padding: 12px 20px;
+    font-size: 14px;
+    width: auto;
+  }
+
+  /* Glass card */
+  .glass { border-radius: 18px; }
+
+  /* Project card glow off (perf) */
+  .project-card::after { display: none; }
+
+  /* Marquee */
+  .marquee-track { animation-duration: 18s; gap: 1rem; }
+  .marquee { gap: 1rem; }
+  .skill-pill { padding: 7px 14px; font-size: 12px; }
+
+  .stat-number { font-size: 2.25rem; }
+
+  /* Sections — uzhe padding chtoby kontent ne klippilsya */
+  section.relative { padding-left: 1rem !important; padding-right: 1rem !important; }
+
+  /* Hero — kompaktnee na mobile, ne min-h-screen kotoraya rezhet kontent */
+  section.relative.min-h-screen {
+    min-height: auto !important;
+    padding-top: 6rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+
+/* Small phones (iPhone SE etc) */
+@media (max-width: 480px) {
+  .stat-number { font-size: 1.75rem; }
+  .stat-card { padding: 1.25rem 0.5rem; }
+
+  .skill-pill { padding: 6px 12px; font-size: 11px; }
+
+  .code-block { font-size: 10px; padding: 10px 12px; max-width: 100%; }
+
+  .deco-shape {
+    width: 240px !important;
+    height: 240px !important;
+  }
+  .deco-shape:nth-of-type(1) { left: -40px !important; }
+  .deco-shape:nth-of-type(2) { right: -40px !important; }
+}
+
+/* iOS Safari fix — uskorennyy backdrop-filter na mobile */
+@media (max-width: 768px) {
+  .glass { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .glass:hover::before { opacity: 0.5; }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+  [data-tilt] { transform: none !important; }
+  .project-card:hover::after { opacity: 0.2; }
+  .btn-primary:hover { transform: none; }
+}
+
+/* Mobile nav fix — kompaktnee chtoby vlezalo na uzkih ekranah */
+@media (max-width: 480px) {
+  nav .max-w-6xl { padding-left: 1rem !important; padding-right: 1rem !important; }
+  nav .gradient-text { font-size: 1.25rem !important; }
+  nav .lang-btn { padding: 4px 8px; font-size: 11px; }
+  nav .btn-primary { padding: 6px 14px !important; font-size: 12px !important; }
+}
+
+/* Hero — kompaktnee zagolovok na mobile */
+@media (max-width: 640px) {
+  section h1.text-4xl { font-size: 2.25rem !important; line-height: 1.1 !important; }
+  section h1.text-4xl + p { font-size: 1rem !important; }
+  /* Code-block ne dolzhen vyhodit za pole */
+  .code-block { word-break: break-word; max-width: calc(100vw - 3rem); }
+}
+
+/* === FAQ accordion === */
+.faq-item { padding: 0; }
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #e2e8f0;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item .faq-icon { flex-shrink: 0; color: #a78bfa; font-size: 24px; line-height: 1; transition: transform 0.25s; }
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-item p { padding: 0 22px 20px; margin: 0; color: #94a3b8; line-height: 1.65; font-size: 14px; }
+
+/* === Mobile nav dropdown === */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 16px 16px;
+  background: rgba(10,1,24,0.96);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  padding: 12px 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #cbd5e1;
+  border-radius: 10px;
+  transition: background .15s, color .15s;
+}
+.mobile-menu a:hover, .mobile-menu a:active { background: rgba(139,92,246,0.12); color: #fff; }
+@media (min-width: 768px) { .mobile-menu { display: none !important; } }
+
+/* Respect users who prefer reduced motion — calm all looping/entrance animation */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  #bg-canvas { opacity: 0.35; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- 3D Background canvas -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- Cursor blob -->
+<div id="cursor-blob"></div>
+
+<!-- Decoration shapes -->
+<div class="deco-shape" style="width: 500px; height: 500px; background: #8b5cf6; top: 10%; left: -100px; opacity: 0.3;"></div>
+<div class="deco-shape" style="width: 400px; height: 400px; background: #ec4899; top: 60%; right: -80px; opacity: 0.25;"></div>
+<div class="deco-shape" style="width: 300px; height: 300px; background: #06b6d4; bottom: 20%; left: 30%; opacity: 0.2;"></div>
+
+<!-- ====================== NAV ====================== -->
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl" style="background: rgba(10,1,24,0.6); border-bottom: 1px solid rgba(255,255,255,0.05);">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 group">
+      <span class="text-2xl font-black gradient-text">⚡ Slezul</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+      <a href="#projects" class="hover:text-white transition" data-i18n="nav_work">Проекты</a>
+      <a href="#services" class="hover:text-white transition" data-i18n="nav_services">Услуги</a>
+      <a href="#skills" class="hover:text-white transition" data-i18n="nav_stack">Стек</a>
+      <a href="#about" class="hover:text-white transition" data-i18n="nav_about">Обо мне</a>
+      <a href="#contact" class="hover:text-white transition" data-i18n="nav_contact">Контакты</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <!-- Lang switcher -->
+      <div class="flex items-center gap-1 bg-white/5 rounded-lg p-1 border border-white/10">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a href="#contact" class="btn-primary" style="padding: 8px 20px; font-size: 13px;">
+        <span data-i18n="nav_hire">Нанять →</span>
+      </a>
+      <!-- Mobile menu toggle -->
+      <button id="navToggle" class="md:hidden flex items-center justify-center w-9 h-9 rounded-lg bg-white/5 border border-white/10 text-slate-200" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile menu panel -->
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="#projects" data-i18n="nav_work">Проекты</a>
+    <a href="#services" data-i18n="nav_services">Услуги</a>
+    <a href="#skills" data-i18n="nav_stack">Стек</a>
+    <a href="#about" data-i18n="nav_about">Обо мне</a>
+    <a href="#contact" data-i18n="nav_contact">Контакты</a>
+  </div>
+</nav>
+
+<!-- ====================== HERO ====================== -->
+<section class="relative min-h-screen flex items-center justify-center px-6 pt-24" style="z-index: 1;">
+  <div class="max-w-5xl mx-auto text-center reveal">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8" style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.4);">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+      </span>
+      <span class="text-sm font-semibold text-emerald-300" data-i18n="hero_status">Доступен для новых проектов</span>
+    </div>
+
+    <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight tracking-tight" style="font-family: 'Space Grotesk', sans-serif;">
+      <span class="rl"><span class="rl-in block" data-i18n="hero_title_1">Создаю</span></span>
+      <span class="rl"><span class="rl-in gradient-text" data-i18n="hero_title_2">продукты которые работают</span></span>
+    </h1>
+
+    <p class="text-lg sm:text-xl md:text-2xl text-slate-300 mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed" data-i18n="hero_sub" data-i18n-html>
+      Fullstack разработчик и AI инженер. Специализируюсь на
+      <span class="text-white font-semibold">SaaS продуктах</span>,
+      <span class="text-white font-semibold">интеграции LLM</span> и
+      <span class="text-white font-semibold">автоматизации</span>.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
+      <a href="https://t.me/Slezul" target="_blank" rel="noopener" class="btn-primary">
+        <span data-i18n="hero_btn_upwork">Написать в Telegram</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#projects" class="btn-ghost">
+        <span data-i18n="hero_btn_work">Посмотреть работы</span>
+      </a>
+    </div>
+
+    <!-- Cinematic hero orb -->
+    <div class="hero-orb-wrap animate-float">
+      <div class="hero-orb-glow"></div>
+      <img src="assets/hero-orb.jpg" alt="" class="hero-orb-img" loading="eager" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<!-- ====================== STATS ====================== -->
+<section class="relative py-20 px-6" style="z-index: 1;">
+  <div class="max-w-5xl mx-auto reveal">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="glass stat-card">
+        <div class="stat-number gradient-text">3+</div>
+        <div class="text-sm text-slate-400 mt-2 font-semibold uppercase tracking-wider" data-i18n="stat_apps">Готовых приложений</div>
+      </div>
+      <div class="glass stat-card">
+        <div class="stat-number gradient-yellow">5K+</div>
+        <div class="text-sm text-slate-400 mt-2 font-semibold uppercase tracking-wider" data-i18n="stat_lines">Строк кода в неделю</div>
+      </div>
+      <div class="glass stat-card">
+        <div class="stat-number gradient-text">20+</div>
+        <div class="text-sm text-slate-400 mt-2 font-semibold uppercase tracking-wider" data-i18n="stat_tech">Технологий в стеке</div>
+      </div>
+      <div class="glass stat-card">
+        <div class="stat-number gradient-yellow">∞</div>
+        <div class="text-sm text-slate-400 mt-2 font-semibold uppercase tracking-wider" data-i18n="stat_coffee">Чашек кофе выпито</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PROJECTS ====================== -->
+<section id="projects" class="relative py-24 px-6" style="z-index: 1;">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="section-badge" data-i18n="proj_badge">Избранные работы</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mt-6 mb-4" style="font-family: 'Space Grotesk', sans-serif;">
+        <span data-i18n="proj_h_1">Что я</span> <span class="gradient-text" data-i18n="proj_h_2">создал</span>
+      </h2>
+      <p class="text-lg text-slate-400 max-w-2xl mx-auto" data-i18n="proj_sub">
+        От AI-платформы для образования до B2B автоматизации. Реальные продукты с реальными пользователями в проде.
+      </p>
+    </div>
+
+    <!-- Project 1: Calp AI -->
+    <div class="reveal mb-12">
+      <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+           style="--glow-1: #a3e635; --glow-2: #10b981;">
+        <div class="grid md:grid-cols-5 gap-6 p-6 sm:p-8 md:p-10">
+          <div class="md:col-span-3 space-y-5">
+            <div class="flex items-center gap-3 flex-wrap">
+              <span class="text-5xl">🥗</span>
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
+                <span class="gradient-green">Calp AI</span>
+              </h3>
+              <span class="text-xs px-2 py-1 rounded-md bg-emerald-500/20 text-emerald-300 font-bold uppercase tracking-wider" data-i18n="proj_calp_badge">Закрытый бета-тест</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed" data-i18n="proj_calp_desc" data-i18n-html>
+              AI-трекер калорий и питания. Сфотографируй блюдо — Gemini Vision определит калории и БЖУ за секунду. AI-нутрициолог 24/7, сканер штрихкодов, пилатес, 3 языка.
+              <span class="text-white font-semibold">Первое мобильное приложение — Flutter + Firebase, скоро в Google Play.</span>
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag-cyan tag">Flutter</span>
+              <span class="tag">Dart</span>
+              <span class="tag-emerald tag">Firebase</span>
+              <span class="tag-pink tag">Gemini AI</span>
+              <span class="tag-yellow tag">RevenueCat</span>
+            </div>
+            <div class="flex gap-3 pt-2 flex-wrap">
+              <span class="text-sm text-slate-400 px-4 py-2 rounded-lg bg-white/5 border border-white/10" data-i18n="proj_calp_note">
+                📱 Скоро в Google Play
+              </span>
+            </div>
+          </div>
+          <div class="md:col-span-2 flex items-center justify-center">
+            <div class="relative w-full">
+              <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-lime-500/20 via-emerald-500/20 to-green-600/20 flex items-center justify-center border border-white/10">
+                <img src="assets/calp-icon.png" alt="Calp AI" class="w-28 h-28 sm:w-32 sm:h-32 rounded-[28px] shadow-2xl" loading="lazy" />
+              </div>
+              <div class="absolute -bottom-4 -right-4 px-3 py-1.5 rounded-lg bg-emerald-500 text-emerald-950 text-xs font-black uppercase tracking-wider shadow-xl" data-i18n="proj_calp_corner">Google Play</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: QuizAIPro -->
+    <div class="reveal mb-12">
+      <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+           style="--glow-1: #8b5cf6; --glow-2: #ec4899;">
+        <div class="grid md:grid-cols-5 gap-6 p-6 sm:p-8 md:p-10">
+          <div class="md:col-span-3 space-y-5">
+            <div class="flex items-center gap-3 flex-wrap">
+              <span class="text-5xl">🧠</span>
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
+                <span class="gradient-text">QuizAIPro</span>
+              </h3>
+              <span class="text-xs px-2 py-1 rounded-md bg-emerald-500/20 text-emerald-300 font-bold uppercase tracking-wider" data-i18n="proj_live">В проде</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed" data-i18n="proj_quiz_desc" data-i18n-html>
+              AI-платформа для подготовки к экзаменам. Флешкарты, тесты, дуэли в реальном времени, генерация вопросов из PDF через Gemini Vision OCR.
+              <span class="text-white font-semibold">3 языка, SRS алгоритм, оплата через Stripe.</span>
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Python</span>
+              <span class="tag">Flask</span>
+              <span class="tag-pink tag">Gemini AI</span>
+              <span class="tag-cyan tag">SQLite</span>
+              <span class="tag-yellow tag">Tailwind</span>
+              <span class="tag-emerald tag">Stripe</span>
+              <span class="tag">Alpine.js</span>
+            </div>
+            <div class="flex gap-3 pt-2">
+              <a href="https://quizaipro.com" target="_blank" rel="noopener" class="btn-primary" style="padding: 10px 22px; font-size: 14px;">
+                <span data-i18n="proj_demo">Демо →</span>
+              </a>
+            </div>
+          </div>
+          <div class="md:col-span-2 flex items-center justify-center">
+            <div class="relative w-full">
+              <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-purple-600/20 via-pink-500/20 to-cyan-500/20 flex items-center justify-center border border-white/10">
+                <img src="assets/quizaipro-icon.png" alt="QuizAIPro" class="w-28 h-28 sm:w-32 sm:h-32 rounded-[28px] shadow-2xl" loading="lazy" />
+              </div>
+              <div class="absolute -bottom-4 -right-4 px-3 py-1.5 rounded-lg bg-emerald-500 text-emerald-950 text-xs font-black uppercase tracking-wider shadow-xl" data-i18n="proj_production">Прод</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: Pharma Compare -->
+    <div class="reveal mb-12">
+      <div class="project-card glass" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+           style="--glow-1: #06b6d4; --glow-2: #8b5cf6;">
+        <div class="grid md:grid-cols-5 gap-6 p-6 sm:p-8 md:p-10">
+          <div class="md:col-span-2 flex items-center justify-center order-2 md:order-1">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-purple-500/20 flex items-center justify-center text-7xl border border-white/10 w-full">
+              💊
+            </div>
+          </div>
+          <div class="md:col-span-3 space-y-5 order-1 md:order-2">
+            <div class="flex items-center gap-3 flex-wrap">
+              <span class="text-5xl">📊</span>
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-black" style="font-family: 'Space Grotesk', sans-serif;">
+                <span class="gradient-text">Pharma Compare</span>
+              </h3>
+            </div>
+            <p class="text-slate-300 leading-relaxed" data-i18n="proj_pharma_desc" data-i18n-html>
+              B2B движок сравнения цен для фарм-дистрибьюторов. Сопоставляет 5000+ позиций препаратов по 9 каталогам с нечётким поиском, нормализацией заводов и AI-арбитром для сложных случаев.
+              <span class="text-white font-semibold">Экономит клиентам 15-30% на закупках.</span>
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Python</span>
+              <span class="tag-cyan tag">pandas</span>
+              <span class="tag-yellow tag">openpyxl</span>
+              <span class="tag-pink tag">RapidFuzz</span>
+              <span class="tag">Gemini API</span>
+              <span class="tag-emerald tag">B2B</span>
+            </div>
+            <div class="flex gap-3 pt-2 flex-wrap">
+              <span class="text-sm text-slate-400 px-4 py-2 rounded-lg bg-white/5 border border-white/10" data-i18n="proj_pharma_note">
+                🔒 Закрытый — кейс по запросу
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other smaller projects strip -->
+    <div class="reveal mt-16">
+      <p class="text-center text-sm uppercase tracking-widest text-slate-500 mb-6 font-semibold" data-i18n="proj_more">+ малые эксперименты</p>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="glass p-5 text-center">
+          <div class="text-3xl mb-2">📄</div>
+          <h4 class="font-bold text-white" data-i18n="proj_extra2_h">PDF Vision OCR</h4>
+          <p class="text-xs text-slate-400 mt-1" data-i18n="proj_extra2_d">Постраничное извлечение · Gemini Vision · PyMuPDF</p>
+        </div>
+        <div class="glass p-5 text-center">
+          <div class="text-3xl mb-2">⚙️</div>
+          <h4 class="font-bold text-white" data-i18n="proj_extra3_h">DevTools и автоматизация</h4>
+          <p class="text-xs text-slate-400 mt-1" data-i18n="proj_extra3_d">CLI утилиты · Excel парсеры · Веб-скрейпинг</p>
+        </div>
+        <div class="glass p-5 text-center">
+          <div class="text-3xl mb-2">🎯</div>
+          <h4 class="font-bold text-white" data-i18n="proj_extra4_h">Asia Range Indicator</h4>
+          <p class="text-xs text-slate-400 mt-1" data-i18n="proj_extra4_d">MT5 индикатор · Asian session · MQL5</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== SERVICES ====================== -->
+<section id="services" class="relative py-24 px-6" style="z-index: 1;">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="section-badge" data-i18n="svc_badge">Услуги</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mt-6 mb-4" style="font-family: 'Space Grotesk', sans-serif;">
+        <span data-i18n="svc_h_1">Чем могу</span> <span class="gradient-text" data-i18n="svc_h_2">помочь</span>
+      </h2>
+      <p class="text-lg text-slate-400 max-w-2xl mx-auto" data-i18n="svc_sub">От идеи до продакшена. Беру проекты, где нужны AI, бэкенд и продукт целиком.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6 reveal">
+      <div class="glass p-6 sm:p-8">
+        <div class="text-4xl mb-4">🤖</div>
+        <h3 class="text-xl font-black mb-2 text-white" style="font-family:'Space Grotesk',sans-serif;" data-i18n="svc1_h">AI и LLM интеграция</h3>
+        <p class="text-slate-300 leading-relaxed mb-4 text-sm sm:text-base" data-i18n="svc1_d">Чат-боты, RAG-поиск по вашим данным, обработка документов и изображений через Gemini / Claude / OpenAI. От прототипа до продакшена с честной обработкой ошибок.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag-pink tag">Gemini</span><span class="tag">Claude</span><span class="tag-cyan tag">RAG</span><span class="tag-yellow tag">Vision OCR</span>
+        </div>
+      </div>
+      <div class="glass p-6 sm:p-8">
+        <div class="text-4xl mb-4">🚀</div>
+        <h3 class="text-xl font-black mb-2 text-white" style="font-family:'Space Grotesk',sans-serif;" data-i18n="svc2_h">SaaS и MVP под ключ</h3>
+        <p class="text-slate-300 leading-relaxed mb-4 text-sm sm:text-base" data-i18n="svc2_d">Запуск продукта с нуля: бэкенд на Python / Flask, продуманный фронтенд, авторизация, платежи Stripe, мультиязычность. То, что реально работает у пользователей.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag-emerald tag">Stripe</span><span class="tag-cyan tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="glass p-6 sm:p-8">
+        <div class="text-4xl mb-4">⚙️</div>
+        <h3 class="text-xl font-black mb-2 text-white" style="font-family:'Space Grotesk',sans-serif;" data-i18n="svc3_h">Автоматизация и данные</h3>
+        <p class="text-slate-300 leading-relaxed mb-4 text-sm sm:text-base" data-i18n="svc3_d">Сопоставление данных, обработка Excel / PDF, веб-скрейпинг, нечёткий поиск. Движок сравнения цен сэкономил клиенту 15-30% на закупках.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag-cyan tag">pandas</span><span class="tag-pink tag">RapidFuzz</span><span class="tag-yellow tag">scraping</span><span class="tag">openpyxl</span>
+        </div>
+      </div>
+      <div class="glass p-6 sm:p-8">
+        <div class="text-4xl mb-4">📱</div>
+        <h3 class="text-xl font-black mb-2 text-white" style="font-family:'Space Grotesk',sans-serif;" data-i18n="svc4_h">Мобильные приложения</h3>
+        <p class="text-slate-300 leading-relaxed mb-4 text-sm sm:text-base" data-i18n="svc4_d">Кроссплатформенные приложения на Flutter с AI-фичами, подписками и Firebase. От дизайна до релиза в Google Play.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag-cyan tag">Flutter</span><span class="tag">Dart</span><span class="tag-emerald tag">Firebase</span><span class="tag-yellow tag">RevenueCat</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== SKILLS MARQUEE ====================== -->
+<section id="skills" class="relative py-24 px-6" style="z-index: 1;">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12 reveal">
+      <span class="section-badge" data-i18n="skills_badge">Технологии</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mt-6 mb-4" style="font-family: 'Space Grotesk', sans-serif;">
+        <span data-i18n="skills_h_1">Мой</span> <span class="gradient-text" data-i18n="skills_h_2">арсенал</span>
+      </h2>
+    </div>
+
+    <div class="reveal space-y-4">
+      <!-- Row 1 -->
+      <div class="marquee">
+        <div class="marquee-track">
+          <span class="skill-pill">🐍 Python</span>
+          <span class="skill-pill">⚡ JavaScript</span>
+          <span class="skill-pill">📘 TypeScript</span>
+          <span class="skill-pill">🌶️ Flask</span>
+          <span class="skill-pill">⚛️ React</span>
+          <span class="skill-pill">🔮 Alpine.js</span>
+          <span class="skill-pill">🎨 Tailwind</span>
+          <span class="skill-pill">🤖 Gemini API</span>
+          <span class="skill-pill">🧠 Claude API</span>
+          <span class="skill-pill">⚡ OpenAI</span>
+          <span class="skill-pill">💙 Flutter</span>
+          <span class="skill-pill">🐦 Dart</span>
+        </div>
+        <div class="marquee-track" aria-hidden="true">
+          <span class="skill-pill">🐍 Python</span>
+          <span class="skill-pill">⚡ JavaScript</span>
+          <span class="skill-pill">📘 TypeScript</span>
+          <span class="skill-pill">🌶️ Flask</span>
+          <span class="skill-pill">⚛️ React</span>
+          <span class="skill-pill">🔮 Alpine.js</span>
+          <span class="skill-pill">🎨 Tailwind</span>
+          <span class="skill-pill">🤖 Gemini API</span>
+          <span class="skill-pill">🧠 Claude API</span>
+          <span class="skill-pill">⚡ OpenAI</span>
+          <span class="skill-pill">💙 Flutter</span>
+          <span class="skill-pill">🐦 Dart</span>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="marquee">
+        <div class="marquee-track" style="animation-direction: reverse;">
+          <span class="skill-pill">🗄️ SQLite</span>
+          <span class="skill-pill">🐘 PostgreSQL</span>
+          <span class="skill-pill">📊 pandas</span>
+          <span class="skill-pill">📈 NumPy</span>
+          <span class="skill-pill">🎯 RapidFuzz</span>
+          <span class="skill-pill">📑 openpyxl</span>
+          <span class="skill-pill">📄 PyMuPDF</span>
+          <span class="skill-pill">🚂 Railway</span>
+          <span class="skill-pill">💳 Stripe</span>
+          <span class="skill-pill">📈 MQL5</span>
+          <span class="skill-pill">🔥 Firebase</span>
+          <span class="skill-pill">🐱 RevenueCat</span>
+        </div>
+        <div class="marquee-track" style="animation-direction: reverse;" aria-hidden="true">
+          <span class="skill-pill">🗄️ SQLite</span>
+          <span class="skill-pill">🐘 PostgreSQL</span>
+          <span class="skill-pill">📊 pandas</span>
+          <span class="skill-pill">📈 NumPy</span>
+          <span class="skill-pill">🎯 RapidFuzz</span>
+          <span class="skill-pill">📑 openpyxl</span>
+          <span class="skill-pill">📄 PyMuPDF</span>
+          <span class="skill-pill">🚂 Railway</span>
+          <span class="skill-pill">💳 Stripe</span>
+          <span class="skill-pill">📈 MQL5</span>
+          <span class="skill-pill">🔥 Firebase</span>
+          <span class="skill-pill">🐱 RevenueCat</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== ABOUT ====================== -->
+<section id="about" class="relative py-24 px-6" style="z-index: 1;">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12 reveal">
+      <span class="section-badge" data-i18n="about_badge">Обо мне</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mt-6 mb-4" style="font-family: 'Space Grotesk', sans-serif;">
+        <span data-i18n="about_h_1">Краткое</span> <span class="gradient-text" data-i18n="about_h_2">знакомство</span>
+      </h2>
+    </div>
+
+    <div class="glass p-6 sm:p-8 md:p-12 reveal">
+      <div class="prose prose-invert max-w-none">
+        <p class="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed mb-5" data-i18n="about_p1" data-i18n-html>
+          Я <span class="text-white font-bold">Slezul</span> — разработчик из <span class="text-white font-bold">Узбекистана</span>, который превращает идеи в продукты.
+          SaaS для студентов, B2B-автоматизация для дистрибьюторов или торговые боты — мой фокус сделать чтобы это
+          <em class="gradient-text font-bold">работало в проде</em>, а не только в демо.
+        </p>
+        <p class="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed mb-5" data-i18n="about_p2" data-i18n-html>
+          Сильная сторона: <span class="text-white font-semibold">Python бэкенд + AI интеграция + продуманный фронтенд</span>.
+          Запущенные продукты с Gemini Vision OCR, мультиплеер в реальном времени, платежи через Stripe и сложные алгоритмы сравнения.
+          Пишу код который выживает в продакшене — потому что сам ловил баги в 2 часа ночи.
+        </p>
+        <p class="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed" data-i18n="about_p3" data-i18n-html>
+          Когда не пишу код — читаю про системный дизайн, оптимизирую свой dev workflow, или думаю как сделать узбекский edtech лучше.
+          <span class="gradient-yellow font-bold">Доступен для новых проектов</span> — особенно AI интеграция, MVP и автоматизация.
+        </p>
+      </div>
+
+      <div class="mt-8 pt-8 border-t border-white/10 grid md:grid-cols-3 gap-6 text-center">
+        <div>
+          <div class="text-3xl mb-2">🌏</div>
+          <div class="font-bold text-white" data-i18n="about_loc">Ташкент, Узбекистан</div>
+          <div class="text-xs text-slate-500 mt-1" data-i18n="about_loc_sub">UTC+5 · работаю асинхронно</div>
+        </div>
+        <div>
+          <div class="text-3xl mb-2">💬</div>
+          <div class="font-bold text-white" data-i18n="about_lang">Русский · Узбекский</div>
+          <div class="text-xs text-slate-500 mt-1" data-i18n="about_lang_sub">Свободно</div>
+        </div>
+        <div>
+          <div class="text-3xl mb-2">⏰</div>
+          <div class="font-bold text-white" data-i18n="about_hours">~60 часов в неделю</div>
+          <div class="text-xs text-slate-500 mt-1" data-i18n="about_hours_sub">Доступен для проектов</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FAQ ====================== -->
+<section id="faq" class="relative py-24 px-6" style="z-index: 1;">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-12 reveal">
+      <span class="section-badge" data-i18n="faq_badge">FAQ</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mt-6 mb-4" style="font-family: 'Space Grotesk', sans-serif;">
+        <span data-i18n="faq_h_1">Частые</span> <span class="gradient-text" data-i18n="faq_h_2">вопросы</span>
+      </h2>
+    </div>
+    <div class="reveal space-y-3">
+      <details class="faq-item glass">
+        <summary><span data-i18n="faq_q1">Как мы начнём работу?</span><span class="faq-icon">+</span></summary>
+        <p data-i18n="faq_a1">Напишите в Telegram или на почту с кратким описанием задачи. Обсудим объём, сроки и бюджет — обычно отвечаю в тот же день.</p>
+      </details>
+      <details class="faq-item glass">
+        <summary><span data-i18n="faq_q2">Часовой пояс и языки?</span><span class="faq-icon">+</span></summary>
+        <p data-i18n="faq_a2">Ташкент (UTC+5), работаю асинхронно — комфортно пересекаюсь с Европой и Азией. Общение на русском, узбекском и английском.</p>
+      </details>
+      <details class="faq-item glass">
+        <summary><span data-i18n="faq_q3">Как оцениваете проект?</span><span class="faq-icon">+</span></summary>
+        <p data-i18n="faq_a3">После короткого обсуждения даю оценку по объёму: фикс-прайс за чёткую задачу или почасово за развитие продукта. Без сюрпризов по бюджету.</p>
+      </details>
+      <details class="faq-item glass">
+        <summary><span data-i18n="faq_q4">Код будет моим? А NDA?</span><span class="faq-icon">+</span></summary>
+        <p data-i18n="faq_a4">Да — по завершении весь код и права переходят к вам. Готов подписать NDA; часть моих проектов закрытые именно поэтому.</p>
+      </details>
+      <details class="faq-item glass">
+        <summary><span data-i18n="faq_q5">Берёте небольшие задачи?</span><span class="faq-icon">+</span></summary>
+        <p data-i18n="faq_a5">Да — от отдельной AI-интеграции или автоматизации до полного MVP. Если задача не мой профиль, честно скажу об этом сразу.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== CONTACT / CTA ====================== -->
+<section id="contact" class="relative py-24 px-6" style="z-index: 1;">
+  <div class="max-w-4xl mx-auto reveal">
+    <div class="glass p-7 sm:p-10 md:p-16 text-center" style="background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(236,72,153,0.1));">
+      <div class="text-6xl sm:text-7xl mb-6">🚀</div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6" style="font-family: 'Space Grotesk', sans-serif;">
+        <span data-i18n="contact_h_1">Есть проект?</span><br>
+        <span class="gradient-text" data-i18n="contact_h_2">Давай сделаем.</span>
+      </h2>
+      <p class="text-lg text-slate-300 mb-10 max-w-xl mx-auto leading-relaxed" data-i18n="contact_sub">
+        Сейчас принимаю новые проекты. Лучше всего для разработки MVP, интеграции AI,
+        автоматизации на Python или fullstack SaaS работы.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
+        <a href="https://t.me/Slezul" target="_blank" rel="noopener" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.464.139a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          <span data-i18n="contact_upwork">Написать в Telegram</span>
+        </a>
+        <a href="mailto:slezul99@gmail.com" class="btn-ghost">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>slezul99@gmail.com</span>
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-400">
+        <a href="https://t.me/Slezul" target="_blank" rel="noopener" class="hover:text-cyan-300 transition flex items-center gap-2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.464.139a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          @Slezul
+        </a>
+        <a href="https://github.com/slezul99" target="_blank" rel="noopener" class="hover:text-purple-300 transition flex items-center gap-2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          slezul99
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="relative py-12 px-6 border-t border-white/5" style="z-index: 1;">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <span class="text-2xl">⚡</span>
+      <span class="text-sm text-slate-500" data-i18n="footer_copy">© 2026 Slezul. Сделано с любопытством.</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-slate-600">
+      <span data-i18n="footer_built">Three.js · Tailwind</span>
+      <span class="hidden md:inline">·</span>
+      <span class="hidden md:inline" data-i18n="footer_host">Хостинг: GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ====================== I18N TRANSLATIONS ====================== -->
+<script>
+const TRANSLATIONS = {
+  ru: {
+    page_title: "Slezul — Fullstack и AI разработчик",
+    nav_work: "Проекты",
+    nav_stack: "Стек",
+    nav_about: "Обо мне",
+    nav_contact: "Контакты",
+    nav_hire: "Нанять →",
+    nav_services: "Услуги",
+
+    svc_badge: "Услуги",
+    svc_h_1: "Чем могу",
+    svc_h_2: "помочь",
+    svc_sub: "От идеи до продакшена. Беру проекты, где нужны AI, бэкенд и продукт целиком.",
+    svc1_h: "AI и LLM интеграция",
+    svc1_d: "Чат-боты, RAG-поиск по вашим данным, обработка документов и изображений через Gemini / Claude / OpenAI. От прототипа до продакшена с честной обработкой ошибок.",
+    svc2_h: "SaaS и MVP под ключ",
+    svc2_d: "Запуск продукта с нуля: бэкенд на Python / Flask, продуманный фронтенд, авторизация, платежи Stripe, мультиязычность. То, что реально работает у пользователей.",
+    svc3_h: "Автоматизация и данные",
+    svc3_d: "Сопоставление данных, обработка Excel / PDF, веб-скрейпинг, нечёткий поиск. Движок сравнения цен сэкономил клиенту 15-30% на закупках.",
+    svc4_h: "Мобильные приложения",
+    svc4_d: "Кроссплатформенные приложения на Flutter с AI-фичами, подписками и Firebase. От дизайна до релиза в Google Play.",
+
+    faq_badge: "FAQ",
+    faq_h_1: "Частые",
+    faq_h_2: "вопросы",
+    faq_q1: "Как мы начнём работу?",
+    faq_a1: "Напишите в Telegram или на почту с кратким описанием задачи. Обсудим объём, сроки и бюджет — обычно отвечаю в тот же день.",
+    faq_q2: "Часовой пояс и языки?",
+    faq_a2: "Ташкент (UTC+5), работаю асинхронно — комфортно пересекаюсь с Европой и Азией. Общение на русском, узбекском и английском.",
+    faq_q3: "Как оцениваете проект?",
+    faq_a3: "После короткого обсуждения даю оценку по объёму: фикс-прайс за чёткую задачу или почасово за развитие продукта. Без сюрпризов по бюджету.",
+    faq_q4: "Код будет моим? А NDA?",
+    faq_a4: "Да — по завершении весь код и права переходят к вам. Готов подписать NDA; часть моих проектов закрытые именно поэтому.",
+    faq_q5: "Берёте небольшие задачи?",
+    faq_a5: "Да — от отдельной AI-интеграции или автоматизации до полного MVP. Если задача не мой профиль, честно скажу об этом сразу.",
+
+    hero_status: "Доступен для новых проектов",
+    hero_title_1: "Создаю",
+    hero_title_2: "продукты которые работают",
+    hero_sub: 'Fullstack разработчик и AI инженер. Специализируюсь на <span class="text-white font-semibold">SaaS продуктах</span>, <span class="text-white font-semibold">интеграции LLM</span> и <span class="text-white font-semibold">автоматизации</span>.',
+    hero_btn_upwork: "Написать в Telegram",
+    hero_btn_work: "Посмотреть работы",
+    hero_code_comment: "// запущено в этом году",
+
+    stat_apps: "Готовых приложений",
+    stat_lines: "Строк кода в неделю",
+    stat_tech: "Технологий в стеке",
+    stat_coffee: "Чашек кофе выпито",
+
+    proj_badge: "Избранные работы",
+    proj_h_1: "Что я",
+    proj_h_2: "создал",
+    proj_sub: "От AI-платформы для образования до B2B автоматизации. Реальные продукты с реальными пользователями в проде.",
+    proj_live: "В проде",
+    proj_production: "Прод",
+    proj_demo: "Демо →",
+    proj_calp_badge: "Закрытый бета-тест",
+    proj_calp_corner: "Google Play",
+    proj_calp_note: "📱 Скоро в Google Play",
+    proj_calp_desc: 'AI-трекер калорий и питания. Сфотографируй блюдо — Gemini Vision определит калории и БЖУ за секунду. AI-нутрициолог 24/7, сканер штрихкодов, пилатес, 3 языка. <span class="text-white font-semibold">Первое мобильное приложение — Flutter + Firebase, скоро в Google Play.</span>',
+    proj_quiz_desc: 'AI-платформа для подготовки к экзаменам. Флешкарты, тесты, дуэли в реальном времени, генерация вопросов из PDF через Gemini Vision OCR. <span class="text-white font-semibold">3 языка, SRS алгоритм, оплата через Stripe.</span>',
+    proj_pharma_desc: 'B2B движок сравнения цен для фарм-дистрибьюторов. Сопоставляет 5000+ позиций препаратов по 9 каталогам с нечётким поиском, нормализацией заводов и AI-арбитром для сложных случаев. <span class="text-white font-semibold">Экономит клиентам 15-30% на закупках.</span>',
+    proj_pharma_note: "🔒 Закрытый — кейс по запросу",
+    proj_more: "+ малые эксперименты",
+    proj_extra2_h: "PDF Vision OCR",
+    proj_extra2_d: "Постраничное извлечение · Gemini Vision · PyMuPDF",
+    proj_extra3_h: "DevTools и автоматизация",
+    proj_extra3_d: "CLI утилиты · Excel парсеры · Веб-скрейпинг",
+    proj_extra4_h: "Asia Range Indicator",
+    proj_extra4_d: "MT5 индикатор · Asian session · MQL5",
+
+    skills_badge: "Технологии",
+    skills_h_1: "Мой",
+    skills_h_2: "арсенал",
+
+    about_badge: "Обо мне",
+    about_h_1: "Краткое",
+    about_h_2: "знакомство",
+    about_p1: 'Я <span class="text-white font-bold">Slezul</span> — разработчик из <span class="text-white font-bold">Узбекистана</span>, который превращает идеи в продукты. SaaS для студентов, B2B-автоматизация для дистрибьюторов или торговые боты — мой фокус сделать чтобы это <em class="gradient-text font-bold">работало в проде</em>, а не только в демо.',
+    about_p2: 'Сильная сторона: <span class="text-white font-semibold">Python бэкенд + AI интеграция + продуманный фронтенд</span>. Запущенные продукты с Gemini Vision OCR, мультиплеер в реальном времени, платежи через Stripe и сложные алгоритмы сравнения. Пишу код который выживает в продакшене — потому что сам ловил баги в 2 часа ночи.',
+    about_p3: 'Когда не пишу код — читаю про системный дизайн, оптимизирую свой dev workflow, или думаю как сделать узбекский edtech лучше. <span class="gradient-yellow font-bold">Доступен для новых проектов</span> — особенно AI интеграция, MVP и автоматизация.',
+    about_loc: "Ташкент, Узбекистан",
+    about_loc_sub: "UTC+5 · работаю асинхронно",
+    about_lang: "Русский · Узбекский",
+    about_lang_sub: "Свободно",
+    about_hours: "~60 часов в неделю",
+    about_hours_sub: "Доступен для проектов",
+
+    contact_h_1: "Есть проект?",
+    contact_h_2: "Давай сделаем.",
+    contact_sub: "Сейчас принимаю новые проекты. Лучше всего для разработки MVP, интеграции AI, автоматизации на Python или fullstack SaaS работы.",
+    contact_upwork: "Написать в Telegram",
+
+    footer_copy: "© 2026 Slezul. Сделано с любопытством.",
+    footer_built: "Three.js · Tailwind",
+    footer_host: "Хостинг: GitHub Pages",
+  },
+  en: {
+    page_title: "Slezul — Full-stack & AI Engineer",
+    nav_work: "Work",
+    nav_stack: "Stack",
+    nav_about: "About",
+    nav_contact: "Contact",
+    nav_hire: "Hire me →",
+    nav_services: "Services",
+
+    svc_badge: "Services",
+    svc_h_1: "What I can",
+    svc_h_2: "build for you",
+    svc_sub: "From idea to production. I take on projects that need AI, backend, and the whole product.",
+    svc1_h: "AI & LLM integration",
+    svc1_d: "Chatbots, RAG search over your data, document and image processing with Gemini / Claude / OpenAI. From prototype to production with honest error handling.",
+    svc2_h: "SaaS & MVP builds",
+    svc2_d: "Launch a product from scratch: Python / Flask backend, a thoughtful frontend, auth, Stripe billing, multi-language. The kind that actually works for real users.",
+    svc3_h: "Automation & data",
+    svc3_d: "Data matching, Excel / PDF processing, web scraping, fuzzy search. A price-comparison engine saved a client 15-30% on procurement.",
+    svc4_h: "Mobile apps",
+    svc4_d: "Cross-platform Flutter apps with AI features, subscriptions, and Firebase. From design to a Google Play release.",
+
+    faq_badge: "FAQ",
+    faq_h_1: "Frequent",
+    faq_h_2: "questions",
+    faq_q1: "How do we get started?",
+    faq_a1: "Message me on Telegram or by email with a short description of the task. We'll scope the work, timeline, and budget — I usually reply the same day.",
+    faq_q2: "Timezone and languages?",
+    faq_a2: "Tashkent (UTC+5), working async — comfortable overlap with Europe and Asia. I communicate in Russian, Uzbek, and English.",
+    faq_q3: "How do you estimate a project?",
+    faq_a3: "After a short chat I give an estimate by scope: fixed price for a well-defined task, or hourly for ongoing product work. No budget surprises.",
+    faq_q4: "Do I own the code? What about an NDA?",
+    faq_a4: "Yes — on completion all code and rights are yours. Happy to sign an NDA; some of my projects are private for exactly that reason.",
+    faq_q5: "Do you take small tasks?",
+    faq_a5: "Yes — from a single AI integration or automation script to a full MVP. If it's not my strength, I'll tell you upfront.",
+
+    hero_status: "Available for new projects",
+    hero_title_1: "I build",
+    hero_title_2: "products that ship",
+    hero_sub: 'Full-stack developer & AI engineer specializing in <span class="text-white font-semibold">production SaaS</span>, <span class="text-white font-semibold">LLM integration</span>, and <span class="text-white font-semibold">automation tooling</span>.',
+    hero_btn_upwork: "Message on Telegram",
+    hero_btn_work: "View my work",
+    hero_code_comment: "// shipped this year",
+
+    stat_apps: "Production apps",
+    stat_lines: "Lines shipped weekly",
+    stat_tech: "Languages / frameworks",
+    stat_coffee: "Coffee consumed",
+
+    proj_badge: "Featured Work",
+    proj_h_1: "Things I've",
+    proj_h_2: "built",
+    proj_sub: "From AI-powered education platforms to financial automation. Real products, real users, shipped to production.",
+    proj_live: "Live",
+    proj_production: "Production",
+    proj_demo: "Live demo →",
+    proj_calp_badge: "Closed beta",
+    proj_calp_corner: "Google Play",
+    proj_calp_note: "📱 Launching on Google Play",
+    proj_calp_desc: 'AI calorie &amp; nutrition tracker. Snap a photo of your meal — Gemini Vision estimates calories and macros in a second. 24/7 AI nutritionist, barcode scanner, Pilates, 3 languages. <span class="text-white font-semibold">My first mobile app — Flutter + Firebase, launching on Google Play.</span>',
+    proj_quiz_desc: 'AI-powered exam prep SaaS for Uzbekistan students. Flashcards, tests, real-time duels, PDF question extraction via Gemini Vision OCR. <span class="text-white font-semibold">3-language support, SRS algorithm, Stripe billing.</span>',
+    proj_pharma_desc: 'B2B price comparison engine for pharma distributors. Matches 5,000+ drug positions across 9 distributor catalogs with fuzzy matching, factory normalization, and AI-assisted disambiguation. <span class="text-white font-semibold">Saves clients 15-30% on procurement.</span>',
+    proj_pharma_note: "🔒 Private — case study available on request",
+    proj_more: "+ smaller experiments",
+    proj_extra2_h: "PDF Vision OCR",
+    proj_extra2_d: "Per-page extraction · Gemini Vision · PyMuPDF",
+    proj_extra3_h: "DevTools & Automation",
+    proj_extra3_d: "CLI utilities · Excel parsers · Web scrapers",
+    proj_extra4_h: "Asia Range Indicator",
+    proj_extra4_d: "MT5 indicator · Asian session · MQL5",
+
+    skills_badge: "Tech stack",
+    skills_h_1: "My",
+    skills_h_2: "arsenal",
+
+    about_badge: "About me",
+    about_h_1: "Brief",
+    about_h_2: "intro",
+    about_p1: 'I\'m <span class="text-white font-bold">Slezul</span> — a builder from <span class="text-white font-bold">Uzbekistan</span> who genuinely loves turning ideas into shipped products. Whether it\'s a SaaS for students, B2B automation for distributors, or trading bots — I obsess over making things <em class="gradient-text font-bold">work in production</em>, not just in demo.',
+    about_p2: 'My sweet spot: <span class="text-white font-semibold">Python backend + AI integration + thoughtful frontend</span>. I\'ve shipped products with Gemini Vision OCR, real-time multiplayer games, payment integrations, and complex matching algorithms. I write code that handles edge cases gracefully because I\'ve been the one debugging at 2am when production breaks.',
+    about_p3: 'When I\'m not coding, I\'m reading about systems design, optimizing my dev workflow, or thinking about how to make Uzbek edtech actually good. <span class="gradient-yellow font-bold">Available for select projects</span> — especially AI integration, SaaS MVPs, or automation tooling.',
+    about_loc: "Tashkent, Uzbekistan",
+    about_loc_sub: "UTC+5 · async-friendly",
+    about_lang: "Russian · Uzbek",
+    about_lang_sub: "Fluent in both",
+    about_hours: "~60 hours / week",
+    about_hours_sub: "Available for projects",
+
+    contact_h_1: "Got a project?",
+    contact_h_2: "Let's build it.",
+    contact_sub: "I'm currently accepting new projects. Best for MVP development, AI integration, Python automation, or full-stack SaaS work.",
+    contact_upwork: "Message on Telegram",
+
+    footer_copy: "© 2026 Slezul. Built with curiosity.",
+    footer_built: "Three.js · Tailwind",
+    footer_host: "Hosted on GitHub Pages",
+  },
+};
+
+function applyLang(lang) {
+  const dict = TRANSLATIONS[lang];
+  if (!dict) return;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] === undefined) return;
+    if (el.hasAttribute('data-i18n-html')) {
+      el.innerHTML = dict[key];
+    } else {
+      el.textContent = dict[key];
+    }
+  });
+  if (dict.page_title) document.title = dict.page_title;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+  var _fc = document.querySelector('[data-i18n="footer_copy"]');
+  if (_fc) _fc.textContent = _fc.textContent.replace(/©\s*\d{4}/, '© ' + new Date().getFullYear());
+  try { localStorage.setItem('lang', lang); } catch(e) {}
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+});
+
+// Init lang from localStorage or default to RU
+(function() {
+  let saved = 'ru';
+  try { saved = localStorage.getItem('lang') || 'ru'; } catch(e) {}
+  applyLang(saved);
+})();
+</script>
+
+<!-- ====================== ANIMATION SCRIPTS ====================== -->
+<script>
+// === Three.js animated 3D background — particles + waves ===
+(function() {
+  const canvas = document.getElementById('bg-canvas');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  const particlesCount = 1500;
+  const positions = new Float32Array(particlesCount * 3);
+  const colors = new Float32Array(particlesCount * 3);
+
+  const colorPalette = [
+    new THREE.Color(0x8b5cf6),
+    new THREE.Color(0xec4899),
+    new THREE.Color(0x06b6d4),
+    new THREE.Color(0xfacc15),
+  ];
+
+  for (let i = 0; i < particlesCount; i++) {
+    positions[i * 3] = (Math.random() - 0.5) * 30;
+    positions[i * 3 + 1] = (Math.random() - 0.5) * 30;
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 30;
+    const color = colorPalette[Math.floor(Math.random() * colorPalette.length)];
+    colors[i * 3] = color.r;
+    colors[i * 3 + 1] = color.g;
+    colors[i * 3 + 2] = color.b;
+  }
+
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+  const material = new THREE.PointsMaterial({
+    size: 0.05,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.7,
+    blending: THREE.AdditiveBlending,
+    sizeAttenuation: true,
+  });
+
+  const particles = new THREE.Points(geometry, material);
+  scene.add(particles);
+
+  const knotGeo = new THREE.TorusKnotGeometry(2.5, 0.6, 100, 16);
+  const knotMat = new THREE.MeshBasicMaterial({
+    color: 0x8b5cf6,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.15,
+  });
+  const knot = new THREE.Mesh(knotGeo, knotMat);
+  knot.position.set(8, 0, -5);
+  scene.add(knot);
+
+  camera.position.z = 8;
+
+  let mouseX = 0, mouseY = 0;
+  document.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+  });
+
+  let scrollY = 0;
+  window.addEventListener('scroll', () => { scrollY = window.scrollY; });
+
+  const clock = new THREE.Clock();
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let rafId = null;
+  function animate() {
+    const elapsed = clock.getElapsedTime();
+    particles.rotation.y = elapsed * 0.04 + mouseX * 0.2;
+    particles.rotation.x = elapsed * 0.02 + mouseY * 0.2;
+
+    knot.rotation.x = elapsed * 0.3;
+    knot.rotation.y = elapsed * 0.5;
+    knot.position.y = Math.sin(elapsed * 0.5) * 1.5;
+
+    camera.position.y = -scrollY * 0.001;
+
+    renderer.render(scene, camera);
+    rafId = requestAnimationFrame(animate);
+  }
+  if (reduceMotion) {
+    renderer.render(scene, camera);           // one static frame, no loop
+  } else {
+    animate();
+    // Pause rendering while the tab is hidden — saves CPU/battery.
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { if (rafId) cancelAnimationFrame(rafId); rafId = null; }
+      else if (!rafId) { clock.start(); animate(); }
+    });
+  }
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+})();
+
+// === Cursor blob ===
+(function() {
+  const blob = document.getElementById('cursor-blob');
+  let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
+  document.addEventListener('mousemove', (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+  });
+  function lerp() {
+    currentX += (targetX - currentX) * 0.12;
+    currentY += (targetY - currentY) * 0.12;
+    blob.style.transform = `translate(${currentX - 200}px, ${currentY - 200}px)`;
+    requestAnimationFrame(lerp);
+  }
+  lerp();
+})();
+
+// === Reveal on scroll ===
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+
+// === VanillaTilt init ===
+if (typeof VanillaTilt !== 'undefined') {
+  VanillaTilt.init(document.querySelectorAll('[data-tilt]'));
+}
+
+// === Headline mask reveal + magnetic buttons (premium polish) ===
+requestAnimationFrame(() => document.body.classList.add('loaded'));
+(function(){
+  if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.btn-primary, .btn-ghost').forEach(b => {
+    b.addEventListener('mousemove', e => {
+      const r = b.getBoundingClientRect();
+      b.style.transform = `translate(${(e.clientX - r.left - r.width/2)*0.2}px, ${(e.clientY - r.top - r.height/2)*0.3}px)`;
+    });
+    b.addEventListener('mouseleave', () => { b.style.transform = ''; });
+  });
+})();
+
+// === Smooth anchor offset for fixed nav ===
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      window.scrollTo({
+        top: target.offsetTop - 80,
+        behavior: 'smooth',
+      });
+    }
+  });
+});
+
+// === Mobile menu toggle ===
+(function() {
+  const btn = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  if (!btn || !menu) return;
+  const setOpen = (open) => {
+    menu.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  btn.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  // Close on Escape or when resizing up to desktop
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  window.addEventListener('resize', () => { if (window.innerWidth >= 768) setOpen(false); });
+})();
+</script>
+
+</body>
+</html>
