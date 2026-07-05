@@ -389,100 +389,73 @@ mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList
 // smooth anchors
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();scrollTo({top:t.offsetTop-70,behavior:'smooth'});}}));
 
-/* ===== GRAND WEBGL AURORA BACKGROUND =====
-   Domain-warped fBm noise → flowing light ribbons in the brand palette.
-   Renders at reduced resolution (aurora is soft, so it's cheap), reacts to
-   cursor + scroll, pauses when the tab is hidden. Falls back to CSS blobs
-   on reduced-motion or if WebGL is unavailable. */
+/* ===== GRAND FLOW-FIELD BACKGROUND =====
+   ~1900 glowing particles advected through an animated value-noise flow field,
+   leaving silky comet trails (additive 'lighter' blend) in the brand palette.
+   The cursor spins the streams into a vortex. Pauses when the tab is hidden.
+   Falls back to CSS blobs on reduced-motion. */
 (function(){
   if(reduce) return;                         // respect prefers-reduced-motion → keep static blobs
   const cv=document.getElementById('fx');
-  const gl=cv.getContext('webgl')||cv.getContext('experimental-webgl');
-  if(!gl) return;                            // no WebGL → keep static blobs
-
-  const vsrc='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
-  const fsrc=`
-  precision highp float;
-  uniform vec2  u_res;
-  uniform float u_time;
-  uniform vec2  u_mouse;
-  uniform float u_scroll;
-  float hash(vec2 p){p=fract(p*vec2(123.34,345.45));p+=dot(p,p+34.345);return fract(p.x*p.y);}
-  float noise(vec2 p){
-    vec2 i=floor(p),f=fract(p);
-    float a=hash(i),b=hash(i+vec2(1,0)),c=hash(i+vec2(0,1)),d=hash(i+vec2(1,1));
-    vec2 u=f*f*(3.-2.*f);
-    return mix(a,b,u.x)+(c-a)*u.y*(1.-u.x)+(d-b)*u.x*u.y;
-  }
-  float fbm(vec2 p){
-    float v=0.,a=.5; mat2 m=mat2(1.6,1.2,-1.2,1.6);
-    for(int i=0;i<6;i++){v+=a*noise(p);p=m*p;a*=.5;}
-    return v;
-  }
-  void main(){
-    vec2 p=(gl_FragCoord.xy-.5*u_res)/u_res.y;
-    p.y+=u_scroll*.35;                         // parallax with scroll
-    float t=u_time*.045;
-    vec2 mo=(u_mouse-.5)*.35;
-    // triple domain warp → silky flowing ribbons
-    vec2 q=vec2(fbm(p+t+mo),fbm(p-t+vec2(5.2,1.3)));
-    vec2 r=vec2(fbm(p+1.5*q+t*1.1+mo),fbm(p+1.5*q-t+vec2(8.3,2.8)));
-    float f=fbm(p+1.8*r);
-    vec3 violet=vec3(.545,.361,.965);
-    vec3 magenta=vec3(.925,.282,.600);
-    vec3 cyan=vec3(.024,.714,.831);
-    vec3 col=mix(violet,magenta,clamp(f*f*2.2,0.,1.));
-    col=mix(col,cyan,clamp(length(q)*.7,0.,1.));
-    float breathe=.86+.14*sin(u_time*.25);          // slow living pulse
-    float ribbon=smoothstep(.27,1.0,f+.30*r.x)*breathe; // where the light concentrates
-    vec3 bg=vec3(.039,.039,.047);                  // #0a0a0c base
-    vec3 outc=bg+col*ribbon*.82;
-    float top=mix(1.25,.5,clamp(gl_FragCoord.y/u_res.y,0.,1.)); // brighter up top (hero)
-    outc=bg+(outc-bg)*top;
-    float vig=smoothstep(1.3,.2,length(p));        // keep edges dark → text stays readable
-    outc*=mix(.7,1.,vig);
-    gl_FragColor=vec4(outc,1.);
-  }`;
-  function sh(t,s){const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);return o;}
-  const prog=gl.createProgram();
-  gl.attachShader(prog,sh(gl.VERTEX_SHADER,vsrc));
-  gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fsrc));
-  gl.linkProgram(prog);
-  if(!gl.getProgramParameter(prog,gl.LINK_STATUS)) return; // compile issue → keep blobs
-  gl.useProgram(prog);
-  const buf=gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER,buf);
-  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW); // fullscreen tri
-  const loc=gl.getAttribLocation(prog,'p');
-  gl.enableVertexAttribArray(loc);
-  gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-  const uRes=gl.getUniformLocation(prog,'u_res'),
-        uTime=gl.getUniformLocation(prog,'u_time'),
-        uMouse=gl.getUniformLocation(prog,'u_mouse'),
-        uScroll=gl.getUniformLocation(prog,'u_scroll');
-  const SCALE=innerWidth<700?.45:.6;           // render below native res — soft aurora hides it, big perf win (lighter on phones)
+  const ctx=cv.getContext('2d');
+  if(!ctx) return;
+  const COLORS=[[139,92,246],[236,72,153],[6,182,212]]; // violet · magenta · cyan
+  let W,H,DPR;
   function resize(){
-    const w=Math.round(innerWidth*SCALE), h=Math.round(innerHeight*SCALE);
-    cv.width=w;cv.height=h;gl.viewport(0,0,w,h);
+    DPR=Math.min(devicePixelRatio||1,1.4);
+    W=innerWidth;H=innerHeight;
+    cv.width=W*DPR;cv.height=H*DPR;cv.style.width=W+'px';cv.style.height=H+'px';
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    ctx.fillStyle='#0a0a0c';ctx.fillRect(0,0,W,H);
   }
   resize();addEventListener('resize',resize);
-  let mx=.5,my=.5,tmx=.5,tmy=.5;
-  addEventListener('mousemove',e=>{tmx=e.clientX/innerWidth;tmy=1-e.clientY/innerHeight;},{passive:true});
-  let hidden=false;
+  // compact 2D value noise
+  function hash(x,y){const n=Math.sin(x*127.1+y*311.7)*43758.5453;return n-Math.floor(n);}
+  function vnoise(x,y){
+    const xi=Math.floor(x),yi=Math.floor(y),xf=x-xi,yf=y-yi;
+    const u=xf*xf*(3-2*xf),v=yf*yf*(3-2*yf);
+    const a=hash(xi,yi),b=hash(xi+1,yi),c=hash(xi,yi+1),d=hash(xi+1,yi+1);
+    return a*(1-u)*(1-v)+b*u*(1-v)+c*(1-u)*v+d*u*v;
+  }
+  const COUNT=innerWidth<700?750:1900;
+  const NS=0.0016;                             // flow-field noise scale
+  const parts=[];
+  function spawn(p,fresh){
+    p.x=Math.random()*W;p.y=Math.random()*H;p.px=p.x;p.py=p.y;
+    p.life=fresh?Math.random()*260:0;p.max=140+Math.random()*220;
+    p.sp=0.55+Math.random()*1.6;
+    p.c=COLORS[(Math.random()*COLORS.length)|0];
+    p.a=0.16+Math.random()*0.32;
+  }
+  for(let i=0;i<COUNT;i++){const p={};spawn(p,true);parts.push(p);}
+  let mx=-1e4,my=-1e4;
+  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;},{passive:true});
+  addEventListener('mouseout',()=>{mx=-1e4;my=-1e4;});
+  let hidden=false,t=0;
   document.addEventListener('visibilitychange',()=>{hidden=document.hidden;});
-  cv.classList.add('on');
-  document.body.classList.add('fx-live');
-  let start=performance.now();
-  function frame(now){
+  cv.classList.add('on');document.body.classList.add('fx-live');
+  const R=210,R2=R*R;
+  function frame(){
     requestAnimationFrame(frame);
     if(hidden) return;
-    mx+=(tmx-mx)*.05;my+=(tmy-my)*.05;
-    const sc=(scrollY/innerHeight);
-    gl.uniform2f(uRes,cv.width,cv.height);
-    gl.uniform1f(uTime,(now-start)/1000);
-    gl.uniform2f(uMouse,mx,my);
-    gl.uniform1f(uScroll,sc);
-    gl.drawArrays(gl.TRIANGLES,0,3);
+    t+=0.0016;
+    ctx.globalCompositeOperation='source-over';   // fade previous frame → trails
+    ctx.fillStyle='rgba(10,10,12,0.085)';ctx.fillRect(0,0,W,H);
+    ctx.globalCompositeOperation='lighter';       // additive glow
+    for(let i=0;i<COUNT;i++){
+      const p=parts[i];
+      const ang=vnoise(p.x*NS+t,p.y*NS-t*0.6)*Math.PI*4.0;
+      p.px=p.x;p.py=p.y;
+      p.x+=Math.cos(ang)*p.sp;p.y+=Math.sin(ang)*p.sp;
+      // cursor vortex — tangential swirl + gentle pull
+      const dx=p.x-mx,dy=p.y-my,d2=dx*dx+dy*dy;
+      if(d2<R2){const d=Math.sqrt(d2)||1,w=1-d/R;p.x+=(-dy/d)*w*2.4;p.y+=(dx/d)*w*2.4;p.x-=dx/d*w*0.6;p.y-=dy/d*w*0.6;}
+      const env=Math.sin(p.life/p.max*Math.PI);   // fade in then out over lifetime
+      ctx.strokeStyle='rgba('+p.c[0]+','+p.c[1]+','+p.c[2]+','+(p.a*env)+')';
+      ctx.lineWidth=1.1;
+      ctx.beginPath();ctx.moveTo(p.px,p.py);ctx.lineTo(p.x,p.y);ctx.stroke();
+      if(++p.life>p.max||p.x<-30||p.x>W+30||p.y<-30||p.y>H+30) spawn(p,false);
+    }
   }
   requestAnimationFrame(frame);
 })();
