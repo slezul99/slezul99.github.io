@@ -34,8 +34,15 @@ a{color:inherit;text-decoration:none;}
 @media(max-width:600px){.wrap{padding:0 20px;}}
 /* scroll progress */
 .progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:60;background:linear-gradient(90deg,var(--violet),var(--magenta),var(--cyan));box-shadow:0 0 12px rgba(139,92,246,.6);}
-/* ambient blobs */
-.blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.11;z-index:0;pointer-events:none;}
+/* grand WebGL aurora background */
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block;opacity:0;transition:opacity 1.2s ease;}
+#fx.on{opacity:1;}
+/* faint drifting grain over the aurora for cinematic texture */
+.grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+/* ambient blobs — CSS fallback when WebGL is unavailable / reduced-motion */
+.blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.11;z-index:0;pointer-events:none;transition:opacity .8s;}
+body.fx-live .blob{opacity:0;}
 .blob.v{width:560px;height:560px;background:var(--violet);top:-160px;left:-120px;}
 .blob.m{width:480px;height:480px;background:var(--magenta);top:44%;right:-160px;}
 .blob.c{width:420px;height:420px;background:var(--cyan);bottom:-140px;left:26%;}
@@ -188,6 +195,8 @@ footer{border-top:1px solid var(--border);padding:40px 0;position:relative;z-ind
 </head>
 <body>
 <div class="progress" id="progress" aria-hidden="true"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
 <div class="cursor" aria-hidden="true"></div>
 <div class="blob v"></div><div class="blob m"></div><div class="blob c"></div>
 <div class="note">design-v6 · mix: rich v4 + pro-max v5</div>
@@ -379,6 +388,104 @@ mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList
 })();
 // smooth anchors
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();scrollTo({top:t.offsetTop-70,behavior:'smooth'});}}));
+
+/* ===== GRAND WEBGL AURORA BACKGROUND =====
+   Domain-warped fBm noise → flowing light ribbons in the brand palette.
+   Renders at reduced resolution (aurora is soft, so it's cheap), reacts to
+   cursor + scroll, pauses when the tab is hidden. Falls back to CSS blobs
+   on reduced-motion or if WebGL is unavailable. */
+(function(){
+  if(reduce) return;                         // respect prefers-reduced-motion → keep static blobs
+  const cv=document.getElementById('fx');
+  const gl=cv.getContext('webgl')||cv.getContext('experimental-webgl');
+  if(!gl) return;                            // no WebGL → keep static blobs
+
+  const vsrc='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+  const fsrc=`
+  precision highp float;
+  uniform vec2  u_res;
+  uniform float u_time;
+  uniform vec2  u_mouse;
+  uniform float u_scroll;
+  float hash(vec2 p){p=fract(p*vec2(123.34,345.45));p+=dot(p,p+34.345);return fract(p.x*p.y);}
+  float noise(vec2 p){
+    vec2 i=floor(p),f=fract(p);
+    float a=hash(i),b=hash(i+vec2(1,0)),c=hash(i+vec2(0,1)),d=hash(i+vec2(1,1));
+    vec2 u=f*f*(3.-2.*f);
+    return mix(a,b,u.x)+(c-a)*u.y*(1.-u.x)+(d-b)*u.x*u.y;
+  }
+  float fbm(vec2 p){
+    float v=0.,a=.5; mat2 m=mat2(1.6,1.2,-1.2,1.6);
+    for(int i=0;i<6;i++){v+=a*noise(p);p=m*p;a*=.5;}
+    return v;
+  }
+  void main(){
+    vec2 p=(gl_FragCoord.xy-.5*u_res)/u_res.y;
+    p.y+=u_scroll*.35;                         // parallax with scroll
+    float t=u_time*.045;
+    vec2 mo=(u_mouse-.5)*.35;
+    // triple domain warp → silky flowing ribbons
+    vec2 q=vec2(fbm(p+t+mo),fbm(p-t+vec2(5.2,1.3)));
+    vec2 r=vec2(fbm(p+1.5*q+t*1.1+mo),fbm(p+1.5*q-t+vec2(8.3,2.8)));
+    float f=fbm(p+1.8*r);
+    vec3 violet=vec3(.545,.361,.965);
+    vec3 magenta=vec3(.925,.282,.600);
+    vec3 cyan=vec3(.024,.714,.831);
+    vec3 col=mix(violet,magenta,clamp(f*f*2.2,0.,1.));
+    col=mix(col,cyan,clamp(length(q)*.7,0.,1.));
+    float breathe=.86+.14*sin(u_time*.25);          // slow living pulse
+    float ribbon=smoothstep(.27,1.0,f+.30*r.x)*breathe; // where the light concentrates
+    vec3 bg=vec3(.039,.039,.047);                  // #0a0a0c base
+    vec3 outc=bg+col*ribbon*.82;
+    float top=mix(1.25,.5,clamp(gl_FragCoord.y/u_res.y,0.,1.)); // brighter up top (hero)
+    outc=bg+(outc-bg)*top;
+    float vig=smoothstep(1.3,.2,length(p));        // keep edges dark → text stays readable
+    outc*=mix(.7,1.,vig);
+    gl_FragColor=vec4(outc,1.);
+  }`;
+  function sh(t,s){const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);return o;}
+  const prog=gl.createProgram();
+  gl.attachShader(prog,sh(gl.VERTEX_SHADER,vsrc));
+  gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fsrc));
+  gl.linkProgram(prog);
+  if(!gl.getProgramParameter(prog,gl.LINK_STATUS)) return; // compile issue → keep blobs
+  gl.useProgram(prog);
+  const buf=gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW); // fullscreen tri
+  const loc=gl.getAttribLocation(prog,'p');
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  const uRes=gl.getUniformLocation(prog,'u_res'),
+        uTime=gl.getUniformLocation(prog,'u_time'),
+        uMouse=gl.getUniformLocation(prog,'u_mouse'),
+        uScroll=gl.getUniformLocation(prog,'u_scroll');
+  const SCALE=innerWidth<700?.45:.6;           // render below native res — soft aurora hides it, big perf win (lighter on phones)
+  function resize(){
+    const w=Math.round(innerWidth*SCALE), h=Math.round(innerHeight*SCALE);
+    cv.width=w;cv.height=h;gl.viewport(0,0,w,h);
+  }
+  resize();addEventListener('resize',resize);
+  let mx=.5,my=.5,tmx=.5,tmy=.5;
+  addEventListener('mousemove',e=>{tmx=e.clientX/innerWidth;tmy=1-e.clientY/innerHeight;},{passive:true});
+  let hidden=false;
+  document.addEventListener('visibilitychange',()=>{hidden=document.hidden;});
+  cv.classList.add('on');
+  document.body.classList.add('fx-live');
+  let start=performance.now();
+  function frame(now){
+    requestAnimationFrame(frame);
+    if(hidden) return;
+    mx+=(tmx-mx)*.05;my+=(tmy-my)*.05;
+    const sc=(scrollY/innerHeight);
+    gl.uniform2f(uRes,cv.width,cv.height);
+    gl.uniform1f(uTime,(now-start)/1000);
+    gl.uniform2f(uMouse,mx,my);
+    gl.uniform1f(uScroll,sc);
+    gl.drawArrays(gl.TRIANGLES,0,3);
+  }
+  requestAnimationFrame(frame);
+})();
 </script>
 </body>
 </html>
