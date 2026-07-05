@@ -4,15 +4,48 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-i18n="page_title">Slezul — Fullstack и AI разработчик</title>
-<meta name="description" content="Fullstack разработчик и AI инженер. Создаю SaaS продукты на Python, Flask и LLM. Доступен для Upwork проектов.">
-<meta name="keywords" content="fullstack разработчик, AI инженер, Python, Flask, LLM, Gemini, Upwork, фрилансер, Узбекистан">
+<meta name="description" content="Fullstack разработчик и AI инженер. Создаю SaaS продукты на Python, Flask и LLM. Доступен для новых проектов.">
+<meta name="keywords" content="fullstack разработчик, AI инженер, Python, Flask, LLM, Gemini, фрилансер, разработчик на заказ, Узбекистан">
 <meta name="author" content="Slezul">
+
+<link rel="canonical" href="https://slezul99.github.io/">
+<meta name="theme-color" content="#0a0118">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Slezul — Fullstack и AI разработчик">
 <meta property="og:description" content="Создаю AI-продукты которые работают в проде. Доступен для найма.">
-<meta property="og:url" content="https://slezul99.github.io">
+<meta property="og:url" content="https://slezul99.github.io/">
+<meta property="og:site_name" content="Slezul">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://slezul99.github.io/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Slezul — Fullstack & AI Engineer">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Slezul — Fullstack & AI Engineer">
+<meta name="twitter:description" content="I build products that ship — SaaS, LLM integration, automation. Available for hire.">
+<meta name="twitter:image" content="https://slezul99.github.io/assets/og.jpg">
+
+<!-- Structured data (Person) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Slezul",
+  "jobTitle": "Fullstack & AI Engineer",
+  "url": "https://slezul99.github.io/",
+  "image": "https://slezul99.github.io/assets/og.jpg",
+  "email": "mailto:slezul99@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Tashkent", "addressCountry": "UZ" },
+  "knowsLanguage": ["ru", "uz", "en"],
+  "knowsAbout": ["Python", "Flask", "AI", "LLM", "Gemini", "Flutter", "SaaS", "Automation"],
+  "sameAs": ["https://github.com/slezul99", "https://t.me/Slezul"]
+}
+</script>
 
 <!-- Favicon (emoji as SVG) -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -480,6 +513,18 @@ body {
   .code-block { word-break: break-word; max-width: calc(100vw - 3rem); }
 }
 
+/* Respect users who prefer reduced motion — calm all looping/entrance animation */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  #bg-canvas { opacity: 0.35; }
+}
+
 </style>
 </head>
 <body>
@@ -528,7 +573,7 @@ body {
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
       </span>
-      <span class="text-sm font-semibold text-emerald-300" data-i18n="hero_status">Доступен для проектов на Upwork</span>
+      <span class="text-sm font-semibold text-emerald-300" data-i18n="hero_status">Доступен для новых проектов</span>
     </div>
 
     <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight tracking-tight" style="font-family: 'Space Grotesk', sans-serif;">
@@ -544,8 +589,8 @@ body {
     </p>
 
     <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
-      <a href="https://www.upwork.com/freelancers/~YOUR_UPWORK_ID" target="_blank" rel="noopener" class="btn-primary">
-        <span data-i18n="hero_btn_upwork">Нанять на Upwork</span>
+      <a href="https://t.me/Slezul" target="_blank" rel="noopener" class="btn-primary">
+        <span data-i18n="hero_btn_upwork">Написать в Telegram</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
       <a href="#projects" class="btn-ghost">
@@ -674,9 +719,6 @@ body {
             <div class="flex gap-3 pt-2">
               <a href="https://quizaipro.com" target="_blank" rel="noopener" class="btn-primary" style="padding: 10px 22px; font-size: 14px;">
                 <span data-i18n="proj_demo">Демо →</span>
-              </a>
-              <a href="https://github.com/slezul99/quizaipro" target="_blank" rel="noopener" class="btn-ghost" style="padding: 10px 22px; font-size: 14px;">
-                GitHub
               </a>
             </div>
           </div>
@@ -857,7 +899,7 @@ body {
         </p>
         <p class="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed" data-i18n="about_p3" data-i18n-html>
           Когда не пишу код — читаю про системный дизайн, оптимизирую свой dev workflow, или думаю как сделать узбекский edtech лучше.
-          <span class="gradient-yellow font-bold">Доступен для отдельных проектов на Upwork</span> — особенно AI интеграция, MVP и автоматизация.
+          <span class="gradient-yellow font-bold">Доступен для новых проектов</span> — особенно AI интеграция, MVP и автоматизация.
         </p>
       </div>
 
@@ -897,9 +939,9 @@ body {
       </p>
 
       <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
-        <a href="https://www.upwork.com/freelancers/~YOUR_UPWORK_ID" target="_blank" rel="noopener" class="btn-primary">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg>
-          <span data-i18n="contact_upwork">Профиль на Upwork</span>
+        <a href="https://t.me/Slezul" target="_blank" rel="noopener" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.464.139a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          <span data-i18n="contact_upwork">Написать в Telegram</span>
         </a>
         <a href="mailto:slezul99@gmail.com" class="btn-ghost">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -947,11 +989,11 @@ const TRANSLATIONS = {
     nav_contact: "Контакты",
     nav_hire: "Нанять →",
 
-    hero_status: "Доступен для проектов на Upwork",
+    hero_status: "Доступен для новых проектов",
     hero_title_1: "Создаю",
     hero_title_2: "продукты которые работают",
     hero_sub: 'Fullstack разработчик и AI инженер. Специализируюсь на <span class="text-white font-semibold">SaaS продуктах</span>, <span class="text-white font-semibold">интеграции LLM</span> и <span class="text-white font-semibold">автоматизации</span>.',
-    hero_btn_upwork: "Нанять на Upwork",
+    hero_btn_upwork: "Написать в Telegram",
     hero_btn_work: "Посмотреть работы",
     hero_code_comment: "// запущено в этом году",
 
@@ -991,7 +1033,7 @@ const TRANSLATIONS = {
     about_h_2: "знакомство",
     about_p1: 'Я <span class="text-white font-bold">Slezul</span> — разработчик из <span class="text-white font-bold">Узбекистана</span>, который превращает идеи в продукты. SaaS для студентов, B2B-автоматизация для дистрибьюторов или торговые боты — мой фокус сделать чтобы это <em class="gradient-text font-bold">работало в проде</em>, а не только в демо.',
     about_p2: 'Сильная сторона: <span class="text-white font-semibold">Python бэкенд + AI интеграция + продуманный фронтенд</span>. Запущенные продукты с Gemini Vision OCR, мультиплеер в реальном времени, платежи через Stripe и сложные алгоритмы сравнения. Пишу код который выживает в продакшене — потому что сам ловил баги в 2 часа ночи.',
-    about_p3: 'Когда не пишу код — читаю про системный дизайн, оптимизирую свой dev workflow, или думаю как сделать узбекский edtech лучше. <span class="gradient-yellow font-bold">Доступен для отдельных проектов на Upwork</span> — особенно AI интеграция, MVP и автоматизация.',
+    about_p3: 'Когда не пишу код — читаю про системный дизайн, оптимизирую свой dev workflow, или думаю как сделать узбекский edtech лучше. <span class="gradient-yellow font-bold">Доступен для новых проектов</span> — особенно AI интеграция, MVP и автоматизация.',
     about_loc: "Ташкент, Узбекистан",
     about_loc_sub: "UTC+5 · работаю асинхронно",
     about_lang: "Русский · Узбекский",
@@ -1002,7 +1044,7 @@ const TRANSLATIONS = {
     contact_h_1: "Есть проект?",
     contact_h_2: "Давай сделаем.",
     contact_sub: "Сейчас принимаю новые проекты. Лучше всего для разработки MVP, интеграции AI, автоматизации на Python или fullstack SaaS работы.",
-    contact_upwork: "Профиль на Upwork",
+    contact_upwork: "Написать в Telegram",
 
     footer_copy: "© 2026 Slezul. Сделано с любопытством.",
     footer_built: "Three.js · Tailwind",
@@ -1016,11 +1058,11 @@ const TRANSLATIONS = {
     nav_contact: "Contact",
     nav_hire: "Hire me →",
 
-    hero_status: "Available for Upwork projects",
+    hero_status: "Available for new projects",
     hero_title_1: "I build",
     hero_title_2: "products that ship",
     hero_sub: 'Full-stack developer & AI engineer specializing in <span class="text-white font-semibold">production SaaS</span>, <span class="text-white font-semibold">LLM integration</span>, and <span class="text-white font-semibold">automation tooling</span>.',
-    hero_btn_upwork: "Hire me on Upwork",
+    hero_btn_upwork: "Message on Telegram",
     hero_btn_work: "View my work",
     hero_code_comment: "// shipped this year",
 
@@ -1060,7 +1102,7 @@ const TRANSLATIONS = {
     about_h_2: "intro",
     about_p1: 'I\'m <span class="text-white font-bold">Slezul</span> — a builder from <span class="text-white font-bold">Uzbekistan</span> who genuinely loves turning ideas into shipped products. Whether it\'s a SaaS for students, B2B automation for distributors, or trading bots — I obsess over making things <em class="gradient-text font-bold">work in production</em>, not just in demo.',
     about_p2: 'My sweet spot: <span class="text-white font-semibold">Python backend + AI integration + thoughtful frontend</span>. I\'ve shipped products with Gemini Vision OCR, real-time multiplayer games, payment integrations, and complex matching algorithms. I write code that handles edge cases gracefully because I\'ve been the one debugging at 2am when production breaks.',
-    about_p3: 'When I\'m not coding, I\'m reading about systems design, optimizing my dev workflow, or thinking about how to make Uzbek edtech actually good. <span class="gradient-yellow font-bold">Available for select Upwork projects</span> — especially AI integration, SaaS MVPs, or automation tooling.',
+    about_p3: 'When I\'m not coding, I\'m reading about systems design, optimizing my dev workflow, or thinking about how to make Uzbek edtech actually good. <span class="gradient-yellow font-bold">Available for select projects</span> — especially AI integration, SaaS MVPs, or automation tooling.',
     about_loc: "Tashkent, Uzbekistan",
     about_loc_sub: "UTC+5 · async-friendly",
     about_lang: "Russian · Uzbek",
@@ -1071,7 +1113,7 @@ const TRANSLATIONS = {
     contact_h_1: "Got a project?",
     contact_h_2: "Let's build it.",
     contact_sub: "I'm currently accepting new projects. Best for MVP development, AI integration, Python automation, or full-stack SaaS work.",
-    contact_upwork: "Upwork profile",
+    contact_upwork: "Message on Telegram",
 
     footer_copy: "© 2026 Slezul. Built with curiosity.",
     footer_built: "Three.js · Tailwind",
@@ -1093,9 +1135,12 @@ function applyLang(lang) {
     }
   });
   if (dict.page_title) document.title = dict.page_title;
+  document.documentElement.lang = lang;
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
+  var _fc = document.querySelector('[data-i18n="footer_copy"]');
+  if (_fc) _fc.textContent = _fc.textContent.replace(/©\s*\d{4}/, '© ' + new Date().getFullYear());
   try { localStorage.setItem('lang', lang); } catch(e) {}
 }
 
@@ -1182,6 +1227,8 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   window.addEventListener('scroll', () => { scrollY = window.scrollY; });
 
   const clock = new THREE.Clock();
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let rafId = null;
   function animate() {
     const elapsed = clock.getElapsedTime();
     particles.rotation.y = elapsed * 0.04 + mouseX * 0.2;
@@ -1194,9 +1241,18 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     camera.position.y = -scrollY * 0.001;
 
     renderer.render(scene, camera);
-    requestAnimationFrame(animate);
+    rafId = requestAnimationFrame(animate);
   }
-  animate();
+  if (reduceMotion) {
+    renderer.render(scene, camera);           // one static frame, no loop
+  } else {
+    animate();
+    // Pause rendering while the tab is hidden — saves CPU/battery.
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { if (rafId) cancelAnimationFrame(rafId); rafId = null; }
+      else if (!rafId) { clock.start(); animate(); }
+    });
+  }
 
   window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
