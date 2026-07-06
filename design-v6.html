@@ -137,12 +137,22 @@ section{position:relative;z-index:1;padding:100px 0;}
 /* BENTO GRID */
 .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:18px;}
 @media(max-width:900px){.bento{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:560px){.bento{grid-template-columns:1fr;}}
+@media(max-width:560px){
+  .bento{grid-template-columns:1fr;grid-auto-rows:auto;}
+  .bento .cell.big,.bento .cell.wide{grid-column:auto;}
+  .bento .cell.big,.bento .cell.tall{grid-row:auto;}
+  .bento .cell.tall .shot{flex:none;}
+  .bento .cell.tall .shot img{height:auto;object-fit:contain;}
+  .bento .cell{min-height:160px;}
+}
 .cell{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform .45s var(--ease),border-color .45s;will-change:transform;}
 .cell::before{content:'';position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);opacity:.5;}
 .cell:hover{transform:translateY(-4px) scale(1.015);border-color:rgba(139,92,246,.4);box-shadow:0 24px 70px -24px rgba(139,92,246,.55);}
 .cell.big{grid-column:span 2;grid-row:span 2;}
+.cell.tall{grid-row:span 2;}
 .cell.wide{grid-column:span 2;}
+.cell.tall .shot{margin-top:16px;flex:1 1 auto;min-height:0;}
+.cell.tall .shot img{width:100%;height:100%;object-fit:cover;object-position:top;}
 .cell-pad{padding:26px;height:100%;display:flex;flex-direction:column;}
 .cell h3{font-family:var(--disp);font-weight:600;font-size:24px;letter-spacing:-.02em;}
 .cell .st{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--violet);margin-bottom:auto;display:flex;align-items:center;gap:10px;}
@@ -324,8 +334,8 @@ footer{border-top:1px solid var(--border);padding:48px 0 40px;position:relative;
       <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Gemini</span><span class="tag">PostgreSQL</span><span class="tag">Stripe</span></div>
       <div class="shot"><img src="assets/shot-quizaipro.jpg" alt="QuizAIPro"></div>
     </div></div>
-    <div class="cell" data-proj="calp" role="button" tabindex="0" aria-label="Подробнее о Calp AI"><div class="cell-pad"><span class="st">● закрытая бета</span><h3>Calp AI</h3><p>AI-трекер калорий: фото блюда → БЖУ через Gemini Vision. Flutter + Firebase, скоро в Google Play.</p></div></div>
-    <div class="cell glow-c" data-proj="pharma" role="button" tabindex="0" aria-label="Подробнее о Pharma Compare"><div class="cell-pad"><span class="st">● приватный</span><h3>Pharma&nbsp;Compare</h3><p>B2B-движок сравнения цен: 5000+ позиций, 9 каталогов, AI-арбитр. −15-30% на закупках.</p></div></div>
+    <div class="cell tall" data-proj="calp" role="button" tabindex="0" aria-label="Подробнее о Calp AI"><div class="cell-pad"><span class="st">● закрытая бета</span><h3>Calp AI</h3><p>AI-трекер калорий: фото блюда → БЖУ за секунду. Flutter + Firebase.</p><div class="shot"><img src="assets/shot-calp.jpg" alt="Calp AI — экран трекера калорий"></div></div></div>
+    <div class="cell tall glow-c" data-proj="pharma" role="button" tabindex="0" aria-label="Подробнее о Pharma Compare"><div class="cell-pad"><span class="st">● приватный</span><h3>Pharma&nbsp;Compare</h3><p>B2B-сравнение цен: 5000+ позиций, AI-арбитраж. −15-30% на закупках.</p><div class="shot"><img src="assets/shot-pharma.jpg" alt="Pharma Compare — сравнение цен"></div></div></div>
     <div class="cell"><div class="cell-pad"><span class="num">3+</span><span class="lbl">в проде</span></div></div>
     <div class="cell"><div class="cell-pad"><span class="num">20+</span><span class="lbl">технологий</span></div></div>
     <div class="cell wide"><div class="cell-pad"><span class="st">● стек</span><h3 style="font-size:20px;">AI · Fullstack · Mobile</h3><div class="tags"><span class="tag">Gemini</span><span class="tag">Claude</span><span class="tag">RAG</span><span class="tag">Flutter</span><span class="tag">React</span><span class="tag">pandas</span><span class="tag">RapidFuzz</span></div></div></div>
@@ -551,10 +561,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       tags:['Python','Flask','Gemini','PostgreSQL','Stripe','Alpine.js'],img:'assets/shot-quizaipro.jpg',link:'https://quizaipro.com',linkText:'Открыть quizaipro.com →'},
     calp:{st:'● закрытая бета',t:'Calp AI',
       d:'AI-трекер калорий и питания. Сфотографируй блюдо — Gemini Vision определит калории и БЖУ за секунду. AI-нутрициолог 24/7, сканер штрихкодов, 3 языка. Первое мобильное приложение — Flutter + Firebase, скоро в Google Play.',
-      tags:['Flutter','Dart','Firebase','Gemini','RevenueCat'],img:null,link:null},
+      tags:['Flutter','Dart','Firebase','Gemini','RevenueCat'],img:'assets/shot-calp.jpg',link:null},
     pharma:{st:'● приватный',t:'Pharma Compare',
       d:'B2B-движок сравнения цен: 5000+ позиций из 9 каталогов, AI-арбитраж совпадений и нечёткий поиск. Сэкономил клиенту 15-30% на закупках. Обработка Excel / PDF в промышленных объёмах.',
-      tags:['pandas','RapidFuzz','openpyxl','Python'],img:null,link:null}
+      tags:['pandas','RapidFuzz','openpyxl','Python'],img:'assets/shot-pharma.jpg',link:null}
   };
   const modal=document.getElementById('modal'); if(!modal) return;
   const card=modal.querySelector('.modal-card'); let lastFocus=null;
