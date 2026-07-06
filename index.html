@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -89,6 +89,13 @@ nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(20px) saturate(150%);b
 .mobile-menu a{padding:13px 10px;font-weight:600;color:#cbd5e1;border-radius:10px;font-family:var(--sans);}
 .mobile-menu a:active,.mobile-menu a:hover{background:rgba(139,92,246,.12);color:#fff;}
 @media(min-width:801px){.mobile-menu{display:none!important;}}
+/* language switcher */
+.lang{display:inline-flex;gap:2px;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:3px;}
+.lang button{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.03em;color:var(--muted);background:none;border:none;padding:5px 8px;border-radius:6px;cursor:pointer;transition:color .2s,background .2s;}
+.lang button.active{background:linear-gradient(120deg,rgba(139,92,246,.4),rgba(236,72,153,.25));color:#fff;}
+.lang button:hover{color:var(--fg);}
+.mm-lang{margin:12px 10px 4px;align-self:flex-start;}
+@media(max-width:560px){.nav-right .lang{display:none;}}
 
 .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;padding:12px 22px;border-radius:12px;background:linear-gradient(120deg,var(--violet),var(--magenta));color:#fff;transition:transform .3s var(--ease),box-shadow .3s;box-shadow:0 10px 40px -12px rgba(139,92,246,.6);will-change:transform;}
 .btn:hover{box-shadow:0 14px 50px -10px rgba(236,72,153,.7);}
@@ -283,16 +290,18 @@ footer{border-top:1px solid var(--border);padding:48px 0 40px;position:relative;
 <nav>
   <div class="wrap nav-in">
     <span class="brand">Slezul<b>.</b></span>
-    <div class="nav-links"><a href="#work">Работы</a><a href="#services">Услуги</a><a href="#skills">Стек</a><a href="#about">Обо мне</a><a href="#faq">FAQ</a><a href="#contact">Контакты</a></div>
+    <div class="nav-links"><a href="#work" data-i18n="nav.work">Work</a><a href="#services" data-i18n="nav.services">Services</a><a href="#skills" data-i18n="nav.stack">Stack</a><a href="#about" data-i18n="nav.about">About</a><a href="#faq" data-i18n="nav.faq">FAQ</a><a href="#contact" data-i18n="nav.contact">Contact</a></div>
     <div class="nav-right">
-      <a href="https://t.me/Slezul" class="btn" style="padding:9px 18px;font-size:13px;">Написать</a>
-      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu">
+      <div class="lang" id="lang"><button data-lang="en">EN</button><button data-lang="ru">RU</button><button data-lang="uz">UZ</button></div>
+      <a href="https://t.me/Slezul" class="btn" style="padding:9px 18px;font-size:13px;" data-i18n="nav.write">Get in touch</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
       </button>
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#work">Работы</a><a href="#services">Услуги</a><a href="#skills">Стек</a><a href="#about">Обо мне</a><a href="#faq">FAQ</a><a href="#contact">Контакты</a>
+    <a href="#work" data-i18n="nav.work">Work</a><a href="#services" data-i18n="nav.services">Services</a><a href="#skills" data-i18n="nav.stack">Stack</a><a href="#about" data-i18n="nav.about">About</a><a href="#faq" data-i18n="nav.faq">FAQ</a><a href="#contact" data-i18n="nav.contact">Contact</a>
+    <div class="lang mm-lang" id="langM"><button data-lang="en">EN</button><button data-lang="ru">RU</button><button data-lang="uz">UZ</button></div>
   </div>
 </nav>
 
@@ -300,71 +309,71 @@ footer{border-top:1px solid var(--border);padding:48px 0 40px;position:relative;
 <!-- HERO -->
 <section class="hero"><div class="wrap">
   <div class="hero-copy">
-    <span class="eyebrow">Доступен для новых проектов</span>
-    <h1><span class="rl"><span class="rl-in">Создаю то,</span></span><span class="rl"><span class="rl-in">что <em>работает</em>.</span></span></h1>
-    <p>Fullstack-разработчик и AI-инженер из Ташкента. SaaS, интеграция LLM, автоматизация — продукты, которые живут в продакшене, а не в демо.</p>
+    <span class="eyebrow" data-i18n="hero.status">Available for new projects</span>
+    <h1 data-i18n-html="hero.title"><span class="rl"><span class="rl-in">I build things</span></span><span class="rl"><span class="rl-in">that <em>work</em>.</span></span></h1>
+    <p data-i18n="hero.sub">Fullstack developer & AI engineer from Tashkent. SaaS, LLM integration, automation — products that live in production, not just in a demo.</p>
     <div class="hero-actions">
-      <a href="https://t.me/Slezul" class="btn">Написать в Telegram</a>
-      <a href="#work" class="btn ghost">Смотреть работы</a>
+      <a href="https://t.me/Slezul" class="btn" data-i18n="hero.btn_tg">Message on Telegram</a>
+      <a href="#work" class="btn ghost" data-i18n="hero.btn_work">See my work</a>
     </div>
-    <div class="hero-scroll" aria-hidden="true"><span>прокрутите</span><i></i></div>
+    <div class="hero-scroll" aria-hidden="true"><span data-i18n="hero.scroll">scroll</span><i></i></div>
   </div>
 </div></section>
 
 <!-- STATS -->
 <section style="padding:20px 0 40px;"><div class="wrap">
   <div class="stats reveal">
-    <div class="stat"><div class="num" data-to="3" data-suf="+">3+</div><div class="lbl">готовых продукта</div></div>
-    <div class="stat"><div class="num warm" data-to="5000" data-fmt="k">5K+</div><div class="lbl">строк кода в неделю</div></div>
-    <div class="stat"><div class="num" data-to="20" data-suf="+">20+</div><div class="lbl">технологий в стеке</div></div>
-    <div class="stat"><div class="num warm">∞</div><div class="lbl">чашек кофе</div></div>
+    <div class="stat"><div class="num" data-to="3" data-suf="+">3+</div><div class="lbl" data-i18n="stat.products">shipped products</div></div>
+    <div class="stat"><div class="num warm" data-to="5000" data-fmt="k">5K+</div><div class="lbl" data-i18n="stat.lines">lines of code / week</div></div>
+    <div class="stat"><div class="num" data-to="20" data-suf="+">20+</div><div class="lbl" data-i18n="stat.tech">technologies in stack</div></div>
+    <div class="stat"><div class="num warm">∞</div><div class="lbl" data-i18n="stat.coffee">cups of coffee</div></div>
   </div>
 </div></section>
 
 <!-- WORK — BENTO -->
 <section id="work"><div class="wrap">
-  <div class="sec-head reveal"><span class="eyebrow">Избранное</span><h2>Что я <em>создал</em></h2></div>
+  <div class="sec-head reveal"><span class="eyebrow" data-i18n="work.eyebrow">Selected</span><h2 data-i18n-html="work.title">What I've <em>built</em></h2></div>
   <div class="bento">
-    <div class="cell big glow-v" data-proj="quiz" role="button" tabindex="0" aria-label="Подробнее о QuizAIPro"><div class="cell-pad">
-      <span class="st">● в проде <a href="https://quizaipro.com" target="_blank" rel="noopener">quizaipro.com&nbsp;↗</a></span>
+    <div class="cell big glow-v" data-proj="quiz" role="button" tabindex="0" aria-label="More about QuizAIPro"><div class="cell-pad">
+      <span class="st"><span data-i18n="proj.quiz.badge">● live</span> <a href="https://quizaipro.com" target="_blank" rel="noopener">quizaipro.com&nbsp;↗</a></span>
       <h3 style="font-size:30px;">QuizAIPro</h3>
-      <p>AI-платформа для подготовки к экзаменам. Флешкарты, тесты, дуэли в реальном времени, генерация вопросов из PDF через Gemini Vision OCR. 3 языка, SRS-алгоритм, оплата Stripe.</p>
+      <p data-i18n="proj.quiz.desc">AI exam-prep platform. Flashcards, tests, real-time duels, question generation from PDF via Gemini Vision OCR. 3 languages, SRS algorithm, Stripe payments.</p>
       <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Gemini</span><span class="tag">PostgreSQL</span><span class="tag">Stripe</span></div>
       <div class="shot"><img src="assets/shot-quizaipro.jpg" alt="QuizAIPro"></div>
     </div></div>
-    <div class="cell tall" data-proj="calp" role="button" tabindex="0" aria-label="Подробнее о Calp AI"><div class="cell-pad"><span class="st">● закрытая бета</span><h3>Calp AI</h3><p>AI-трекер калорий: фото блюда → БЖУ за секунду. Flutter + Firebase.</p><div class="shot"><img src="assets/shot-calp.jpg" alt="Calp AI — экран трекера калорий"></div></div></div>
-    <div class="cell tall glow-c" data-proj="pharma" role="button" tabindex="0" aria-label="Подробнее о Pharma Compare"><div class="cell-pad"><span class="st">● приватный</span><h3>Pharma&nbsp;Compare</h3><p>B2B-сравнение цен: 5000+ позиций, AI-арбитраж. −15-30% на закупках.</p><div class="shot"><img src="assets/shot-pharma.jpg" alt="Pharma Compare — сравнение цен"></div></div></div>
-    <div class="cell"><div class="cell-pad"><span class="num">3+</span><span class="lbl">в проде</span></div></div>
-    <div class="cell"><div class="cell-pad"><span class="num">20+</span><span class="lbl">технологий</span></div></div>
-    <div class="cell wide"><div class="cell-pad"><span class="st">● стек</span><h3 style="font-size:20px;">AI · Fullstack · Mobile</h3><div class="tags"><span class="tag">Gemini</span><span class="tag">Claude</span><span class="tag">RAG</span><span class="tag">Flutter</span><span class="tag">React</span><span class="tag">pandas</span><span class="tag">RapidFuzz</span></div></div></div>
+    <div class="cell tall" data-proj="calp" role="button" tabindex="0" aria-label="More about Calp AI"><div class="cell-pad"><span class="st" data-i18n="proj.calp.badge">● closed beta</span><h3>Calp AI</h3><p data-i18n="proj.calp.desc">AI calorie tracker: photo of a dish → macros in a second. Flutter + Firebase.</p><div class="shot"><img src="assets/shot-calp.jpg" alt="Calp AI — calorie tracker screen"></div></div></div>
+    <div class="cell tall glow-c" data-proj="pharma" role="button" tabindex="0" aria-label="More about Pharma Compare"><div class="cell-pad"><span class="st" data-i18n="proj.pharma.badge">● private</span><h3>Pharma&nbsp;Compare</h3><p data-i18n="proj.pharma.desc">B2B price comparison: 5000+ items, AI matching. −15-30% on purchasing.</p><div class="shot"><img src="assets/shot-pharma.jpg" alt="Pharma Compare — price comparison"></div></div></div>
+    <div class="cell"><div class="cell-pad"><span class="num">3+</span><span class="lbl" data-i18n="stat.live">live</span></div></div>
+    <div class="cell"><div class="cell-pad"><span class="num">20+</span><span class="lbl" data-i18n="stat.tech2">technologies</span></div></div>
+    <div class="cell wide"><div class="cell-pad"><span class="st" data-i18n="proj.stack.badge">● stack</span><h3 style="font-size:20px;">AI · Fullstack · Mobile</h3><div class="tags"><span class="tag">Gemini</span><span class="tag">Claude</span><span class="tag">RAG</span><span class="tag">Flutter</span><span class="tag">React</span><span class="tag">pandas</span><span class="tag">RapidFuzz</span></div></div></div>
   </div>
 </div></section>
 
 <!-- SERVICES -->
 <section id="services"><div class="wrap">
-  <div class="sec-head reveal"><span class="eyebrow">Услуги</span><h2>Чем могу <em>помочь</em></h2></div>
+  <div class="sec-head reveal"><span class="eyebrow" data-i18n="svc.eyebrow">Services</span><h2 data-i18n-html="svc.title">How I can <em>help</em></h2></div>
   <div class="svc-grid">
-    <div class="svc reveal"><div class="ic">🤖</div><h3>AI и LLM интеграция</h3><p>Чат-боты, RAG-поиск по вашим данным, обработка документов и изображений через Gemini / Claude / OpenAI. От прототипа до продакшена с честной обработкой ошибок.</p><div class="tags"><span class="tag">Gemini</span><span class="tag">Claude</span><span class="tag">RAG</span><span class="tag">Vision OCR</span></div></div>
-    <div class="svc reveal"><div class="ic">🚀</div><h3>SaaS и MVP под ключ</h3><p>Запуск продукта с нуля: бэкенд Python / Flask, продуманный фронтенд, авторизация, платежи Stripe, мультиязычность. То, что реально работает у пользователей.</p><div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Stripe</span><span class="tag">PostgreSQL</span></div></div>
-    <div class="svc reveal"><div class="ic">⚙️</div><h3>Автоматизация и данные</h3><p>Сопоставление данных, обработка Excel / PDF, веб-скрейпинг, нечёткий поиск. Движок сравнения цен сэкономил клиенту 15-30% на закупках.</p><div class="tags"><span class="tag">pandas</span><span class="tag">RapidFuzz</span><span class="tag">scraping</span><span class="tag">openpyxl</span></div></div>
-    <div class="svc reveal"><div class="ic">📱</div><h3>Мобильные приложения</h3><p>Кроссплатформенные приложения на Flutter с AI-фичами, подписками и Firebase. От дизайна до релиза в Google Play.</p><div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Firebase</span><span class="tag">RevenueCat</span></div></div>
+    <div class="svc reveal"><div class="ic">🤖</div><h3 data-i18n="svc.1.h">AI & LLM integration</h3><p data-i18n="svc.1.p">Chatbots, RAG search over your data, document and image processing via Gemini / Claude / OpenAI. From prototype to production with honest error handling.</p><div class="tags"><span class="tag">Gemini</span><span class="tag">Claude</span><span class="tag">RAG</span><span class="tag">Vision OCR</span></div></div>
+    <div class="svc reveal"><div class="ic">🚀</div><h3 data-i18n="svc.2.h">SaaS & MVP end-to-end</h3><p data-i18n="svc.2.p">A product from scratch: Python / Flask backend, thoughtful frontend, auth, Stripe payments, multi-language. Things that actually work for users.</p><div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Stripe</span><span class="tag">PostgreSQL</span></div></div>
+    <div class="svc reveal"><div class="ic">⚙️</div><h3 data-i18n="svc.3.h">Automation & data</h3><p data-i18n="svc.3.p">Data matching, Excel / PDF processing, web scraping, fuzzy search. A price-comparison engine saved a client 15-30% on purchasing.</p><div class="tags"><span class="tag">pandas</span><span class="tag">RapidFuzz</span><span class="tag">scraping</span><span class="tag">openpyxl</span></div></div>
+    <div class="svc reveal"><div class="ic">📱</div><h3 data-i18n="svc.4.h">Mobile apps</h3><p data-i18n="svc.4.p">Cross-platform Flutter apps with AI features, subscriptions and Firebase. From design to Google Play release.</p><div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Firebase</span><span class="tag">RevenueCat</span></div></div>
   </div>
 </div></section>
 
 <!-- PROCESS -->
 <section id="process"><div class="wrap">
-  <div class="sec-head center reveal"><span class="eyebrow">Процесс</span><h2>Как я <em>работаю</em></h2></div>
+  <div class="sec-head center reveal"><span class="eyebrow" data-i18n="proc.eyebrow">Process</span><h2 data-i18n-html="proc.title">How I <em>work</em></h2></div>
   <div class="steps">
-    <div class="step reveal"><div class="step-top"><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="step-n">01</span></div><h3>Обсуждаем</h3><p>Пишете задачу в Telegram — в тот же день возвращаюсь с оценкой объёма, сроков и бюджета. Без обязательств.</p></div>
-    <div class="step reveal"><div class="step-top"><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span><span class="step-n">02</span></div><h3>Прототип</h3><p>Собираю рабочий прототип ключевой части, чтобы вы увидели результат ещё до полной разработки.</p></div>
-    <div class="step reveal"><div class="step-top"><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span><span class="step-n">03</span></div><h3>Разработка</h3><p>Итеративно, с демо по ходу. Честная обработка ошибок, тесты, код, который выживает в проде.</p></div>
-    <div class="step reveal"><div class="step-top"><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span><span class="step-n">04</span></div><h3>Запуск</h3><p>Деплой, передача кода и прав, поддержка на старте. Дальше — развитие продукта по необходимости.</p></div>
+    <div class="step reveal"><div class="step-top"><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="step-n">01</span></div><h3 data-i18n="proc.1.h">Discuss</h3><p data-i18n="proc.1.p">You send the task on Telegram — the same day I come back with an estimate of scope, timeline and budget. No commitment.</p></div>
+    <div class="step reveal"><div class="step-top"><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span><span class="step-n">02</span></div><h3 data-i18n="proc.2.h">Prototype</h3><p data-i18n="proc.2.p">I build a working prototype of the key part so you see the result before full development.</p></div>
+    <div class="step reveal"><div class="step-top"><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span><span class="step-n">03</span></div><h3 data-i18n="proc.3.h">Build</h3><p data-i18n="proc.3.p">Iterative, with demos along the way. Honest error handling, tests, code that survives production.</p></div>
+    <div class="step reveal"><div class="step-top"><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span><span class="step-n">04</span></div><h3 data-i18n="proc.4.h">Launch</h3><p data-i18n="proc.4.p">Deploy, handover of code and rights, launch support. Then — growing the product as needed.</p></div>
   </div>
 </div></section>
 
 <!-- SKILLS MARQUEE -->
 <section id="skills"><div class="wrap">
-  <div class="sec-head center reveal"><span class="eyebrow">Технологии</span><h2>Мой <em>арсенал</em></h2></div>
+  <div class="sec-head center reveal"><span class="eyebrow" data-i18n="skills.eyebrow">Tech</span><h2 data-i18n-html="skills.title">My <em>arsenal</em></h2></div>
 </div>
 <div class="reveal">
   <div class="marquee">
@@ -388,39 +397,39 @@ footer{border-top:1px solid var(--border);padding:48px 0 40px;position:relative;
 
 <!-- ABOUT -->
 <section id="about"><div class="wrap" style="max-width:900px;">
-  <div class="sec-head center reveal"><span class="eyebrow">Обо мне</span><h2>Краткое <em>знакомство</em></h2></div>
+  <div class="sec-head center reveal"><span class="eyebrow" data-i18n="about.eyebrow">About</span><h2 data-i18n-html="about.title">A quick <em>intro</em></h2></div>
   <div class="about-card reveal">
-    <p class="about-lead">Я <b>Slezul</b> — разработчик из Узбекистана, который превращает идеи в продукты, <em>работающие в проде</em>, а не только в демо.</p>
-    <p class="about-body">Сильная сторона: <b>Python-бэкенд + AI-интеграция + продуманный фронтенд</b>. Запущенные продукты с Gemini Vision OCR, мультиплеером в реальном времени, платежами Stripe и алгоритмами сравнения. Пишу код, который выживает в продакшене, — потому что сам ловил баги в 2 часа ночи.</p>
-    <p class="about-body">Когда не пишу код — читаю про системный дизайн, оптимизирую свой dev-workflow или думаю, как сделать узбекский edtech лучше. Сейчас <b>доступен для новых проектов</b> — особенно AI-интеграция, MVP и автоматизация.</p>
+    <p class="about-lead" data-i18n-html="about.lead">I'm <b>Slezul</b> — a developer from Uzbekistan who turns ideas into products that <em>work in production</em>, not just in a demo.</p>
+    <p class="about-body" data-i18n-html="about.body1">Strong side: <b>Python backend + AI integration + thoughtful frontend</b>. Shipped products with Gemini Vision OCR, real-time multiplayer, Stripe payments and matching algorithms. I write code that survives production — because I've chased bugs at 2 a.m. myself.</p>
+    <p class="about-body" data-i18n-html="about.body2">When I'm not coding — I read about system design, optimize my dev workflow, or think about making Uzbek edtech better. Right now <b>available for new projects</b> — especially AI integration, MVP and automation.</p>
     <div class="facts">
-      <div><div class="ic">🌏</div><div class="t">Ташкент, Узбекистан</div><div class="s">UTC+5 · сейчас <span id="tashTime">--:--</span> · асинхронно</div></div>
-      <div><div class="ic">💬</div><div class="t">Русский · Узбекский · English</div><div class="s">свободно</div></div>
-      <div><div class="ic">⏰</div><div class="t">~60 часов в неделю</div><div class="s">доступен для проектов</div></div>
+      <div><div class="ic">🌏</div><div class="t" data-i18n="about.fact1_t">Tashkent, Uzbekistan</div><div class="s" data-i18n-html="about.fact1_s">UTC+5 · now <span id="tashTime">--:--</span> · async</div></div>
+      <div><div class="ic">💬</div><div class="t" data-i18n="about.fact2_t">Russian · Uzbek · English</div><div class="s" data-i18n="about.fact2_s">fluent</div></div>
+      <div><div class="ic">⏰</div><div class="t" data-i18n="about.fact3_t">~60 hours a week</div><div class="s" data-i18n="about.fact3_s">available for projects</div></div>
     </div>
   </div>
 </div></section>
 
 <!-- FAQ -->
 <section id="faq"><div class="wrap">
-  <div class="sec-head center reveal"><span class="eyebrow">FAQ</span><h2>Частые <em>вопросы</em></h2></div>
+  <div class="sec-head center reveal"><span class="eyebrow" data-i18n="faq.eyebrow">FAQ</span><h2 data-i18n-html="faq.title">Common <em>questions</em></h2></div>
   <div class="faq reveal">
-    <details><summary><span>Как мы начнём работу?</span><span class="q-ic">+</span></summary><p>Напишите в Telegram или на почту с кратким описанием задачи. Обсудим объём, сроки и бюджет — обычно отвечаю в тот же день.</p></details>
-    <details><summary><span>Часовой пояс и языки?</span><span class="q-ic">+</span></summary><p>Ташкент (UTC+5), работаю асинхронно — комфортно пересекаюсь с Европой и Азией. Общение на русском, узбекском и английском.</p></details>
-    <details><summary><span>Как оцениваете проект?</span><span class="q-ic">+</span></summary><p>После короткого обсуждения даю оценку по объёму: фикс-прайс за чёткую задачу или почасово за развитие продукта. Без сюрпризов по бюджету.</p></details>
-    <details><summary><span>Код будет моим? А NDA?</span><span class="q-ic">+</span></summary><p>Да — по завершении весь код и права переходят к вам. Готов подписать NDA; часть моих проектов закрытые именно поэтому.</p></details>
-    <details><summary><span>Берёте небольшие задачи?</span><span class="q-ic">+</span></summary><p>Да — от отдельной AI-интеграции или автоматизации до полного MVP. Если задача не мой профиль, честно скажу об этом сразу.</p></details>
+    <details><summary><span data-i18n="faq.q1">How do we start?</span><span class="q-ic">+</span></summary><p data-i18n="faq.a1">Message me on Telegram or email with a short description of the task. We'll discuss scope, timeline and budget — I usually reply the same day.</p></details>
+    <details><summary><span data-i18n="faq.q2">Timezone and languages?</span><span class="q-ic">+</span></summary><p data-i18n="faq.a2">Tashkent (UTC+5), I work async — comfortable overlap with Europe and Asia. I communicate in Russian, Uzbek and English.</p></details>
+    <details><summary><span data-i18n="faq.q3">How do you price a project?</span><span class="q-ic">+</span></summary><p data-i18n="faq.a3">After a short discussion I give an estimate by scope: fixed price for a clear task or hourly for ongoing product work. No budget surprises.</p></details>
+    <details><summary><span data-i18n="faq.q4">Do I own the code? NDA?</span><span class="q-ic">+</span></summary><p data-i18n="faq.a4">Yes — on completion all code and rights transfer to you. Happy to sign an NDA; some of my projects are private for exactly this reason.</p></details>
+    <details><summary><span data-i18n="faq.q5">Do you take small tasks?</span><span class="q-ic">+</span></summary><p data-i18n="faq.a5">Yes — from a single AI integration or automation to a full MVP. If a task isn't my profile, I'll tell you honestly up front.</p></details>
   </div>
 </div></section>
 
 <!-- CONTACT -->
 <section id="contact"><div class="wrap">
   <div class="cta reveal">
-    <span class="eyebrow" style="justify-content:center;">Свяжемся</span>
-    <h2 style="margin-top:16px;">Есть идея? <em>Соберём.</em></h2>
-    <p>Сейчас принимаю новые проекты — AI-интеграция, MVP, автоматизация или fullstack SaaS.</p>
+    <span class="eyebrow" style="justify-content:center;" data-i18n="contact.eyebrow">Let's talk</span>
+    <h2 style="margin-top:16px;" data-i18n-html="contact.title">Got an idea? <em>Let's build it.</em></h2>
+    <p data-i18n="contact.sub">I'm taking on new projects right now — AI integration, MVP, automation or fullstack SaaS.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://t.me/Slezul" target="_blank" rel="noopener" class="btn">Написать в Telegram</a>
+      <a href="https://t.me/Slezul" target="_blank" rel="noopener" class="btn" data-i18n="contact.btn_tg">Message on Telegram</a>
       <a href="mailto:slezul99@gmail.com" class="btn ghost">slezul99@gmail.com</a>
     </div>
     <div class="socials"><a href="https://t.me/Slezul" target="_blank" rel="noopener">Telegram</a><a href="https://github.com/slezul99" target="_blank" rel="noopener">GitHub</a></div>
@@ -428,14 +437,14 @@ footer{border-top:1px solid var(--border);padding:48px 0 40px;position:relative;
 </div></section>
 </main>
 
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Проект"><div class="modal-bg"></div><div class="modal-card"></div></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Project"><div class="modal-bg"></div><div class="modal-card"></div></div>
 
 <footer><div class="wrap">
   <div class="foot-grid">
-    <div><span class="foot-brand">Slezul<b>.</b></span><p class="foot-tag">Fullstack & AI Engineer · создаю продукты, которые живут в проде.</p></div>
-    <div class="foot-links"><a href="#work">Работы</a><a href="#services">Услуги</a><a href="#contact">Контакты</a><a href="https://t.me/Slezul" target="_blank" rel="noopener">Telegram</a><a href="https://github.com/slezul99" target="_blank" rel="noopener">GitHub</a></div>
+    <div><span class="foot-brand">Slezul<b>.</b></span><p class="foot-tag" data-i18n="foot.tag">Fullstack & AI Engineer · I build products that live in production.</p></div>
+    <div class="foot-links"><a href="#work" data-i18n="nav.work">Work</a><a href="#services" data-i18n="nav.services">Services</a><a href="#contact" data-i18n="nav.contact">Contact</a><a href="https://t.me/Slezul" target="_blank" rel="noopener">Telegram</a><a href="https://github.com/slezul99" target="_blank" rel="noopener">GitHub</a></div>
   </div>
-  <div class="foot-bottom"><span>© 2026 Slezul · сделано с любопытством</span><span>Ташкент · slezul99@gmail.com</span></div>
+  <div class="foot-bottom"><span data-i18n="foot.made">© 2026 Slezul · made with curiosity</span><span data-i18n="foot.loc">Tashkent · slezul99@gmail.com</span></div>
 </div></footer>
 
 <!-- GSAP (complex motion tier) -->
@@ -452,6 +461,152 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   setTimeout(()=>{ ready?hide():addEventListener('load',hide,{once:true}); }, min);
   setTimeout(hide, 3000); // hard fallback so it never sticks
 })();
+
+// ===== i18n — EN default, plus RU / UZ =====
+const I18N = {
+  en:{
+    'nav.work':`Work`,'nav.services':`Services`,'nav.stack':`Stack`,'nav.about':`About`,'nav.faq':`FAQ`,'nav.contact':`Contact`,'nav.write':`Get in touch`,
+    'hero.status':`Available for new projects`,
+    'hero.title':`<span class="rl"><span class="rl-in">I build things</span></span><span class="rl"><span class="rl-in">that <em>work</em>.</span></span>`,
+    'hero.sub':`Fullstack developer & AI engineer from Tashkent. SaaS, LLM integration, automation — products that live in production, not just in a demo.`,
+    'hero.btn_tg':`Message on Telegram`,'hero.btn_work':`See my work`,'hero.scroll':`scroll`,
+    'stat.products':`shipped products`,'stat.lines':`lines of code / week`,'stat.tech':`technologies in stack`,'stat.coffee':`cups of coffee`,'stat.live':`live`,'stat.tech2':`technologies`,
+    'work.eyebrow':`Selected`,'work.title':`What I've <em>built</em>`,
+    'proj.quiz.badge':`● live`,'proj.quiz.desc':`AI exam-prep platform. Flashcards, tests, real-time duels, question generation from PDF via Gemini Vision OCR. 3 languages, SRS algorithm, Stripe payments.`,
+    'proj.calp.badge':`● closed beta`,'proj.calp.desc':`AI calorie tracker: photo of a dish → macros in a second. Flutter + Firebase.`,
+    'proj.pharma.badge':`● private`,'proj.pharma.desc':`B2B price comparison: 5000+ items, AI matching. −15-30% on purchasing.`,
+    'proj.stack.badge':`● stack`,
+    'svc.eyebrow':`Services`,'svc.title':`How I can <em>help</em>`,
+    'svc.1.h':`AI & LLM integration`,'svc.1.p':`Chatbots, RAG search over your data, document and image processing via Gemini / Claude / OpenAI. From prototype to production with honest error handling.`,
+    'svc.2.h':`SaaS & MVP end-to-end`,'svc.2.p':`A product from scratch: Python / Flask backend, thoughtful frontend, auth, Stripe payments, multi-language. Things that actually work for users.`,
+    'svc.3.h':`Automation & data`,'svc.3.p':`Data matching, Excel / PDF processing, web scraping, fuzzy search. A price-comparison engine saved a client 15-30% on purchasing.`,
+    'svc.4.h':`Mobile apps`,'svc.4.p':`Cross-platform Flutter apps with AI features, subscriptions and Firebase. From design to Google Play release.`,
+    'proc.eyebrow':`Process`,'proc.title':`How I <em>work</em>`,
+    'proc.1.h':`Discuss`,'proc.1.p':`You send the task on Telegram — the same day I come back with an estimate of scope, timeline and budget. No commitment.`,
+    'proc.2.h':`Prototype`,'proc.2.p':`I build a working prototype of the key part so you see the result before full development.`,
+    'proc.3.h':`Build`,'proc.3.p':`Iterative, with demos along the way. Honest error handling, tests, code that survives production.`,
+    'proc.4.h':`Launch`,'proc.4.p':`Deploy, handover of code and rights, launch support. Then — growing the product as needed.`,
+    'skills.eyebrow':`Tech`,'skills.title':`My <em>arsenal</em>`,
+    'about.eyebrow':`About`,'about.title':`A quick <em>intro</em>`,
+    'about.lead':`I'm <b>Slezul</b> — a developer from Uzbekistan who turns ideas into products that <em>work in production</em>, not just in a demo.`,
+    'about.body1':`Strong side: <b>Python backend + AI integration + thoughtful frontend</b>. Shipped products with Gemini Vision OCR, real-time multiplayer, Stripe payments and matching algorithms. I write code that survives production — because I've chased bugs at 2 a.m. myself.`,
+    'about.body2':`When I'm not coding — I read about system design, optimize my dev workflow, or think about making Uzbek edtech better. Right now <b>available for new projects</b> — especially AI integration, MVP and automation.`,
+    'about.fact1_t':`Tashkent, Uzbekistan`,'about.fact1_s':`UTC+5 · now <span id="tashTime">--:--</span> · async`,
+    'about.fact2_t':`Russian · Uzbek · English`,'about.fact2_s':`fluent`,
+    'about.fact3_t':`~60 hours a week`,'about.fact3_s':`available for projects`,
+    'faq.eyebrow':`FAQ`,'faq.title':`Common <em>questions</em>`,
+    'faq.q1':`How do we start?`,'faq.a1':`Message me on Telegram or email with a short description of the task. We'll discuss scope, timeline and budget — I usually reply the same day.`,
+    'faq.q2':`Timezone and languages?`,'faq.a2':`Tashkent (UTC+5), I work async — comfortable overlap with Europe and Asia. I communicate in Russian, Uzbek and English.`,
+    'faq.q3':`How do you price a project?`,'faq.a3':`After a short discussion I give an estimate by scope: fixed price for a clear task or hourly for ongoing product work. No budget surprises.`,
+    'faq.q4':`Do I own the code? NDA?`,'faq.a4':`Yes — on completion all code and rights transfer to you. Happy to sign an NDA; some of my projects are private for exactly this reason.`,
+    'faq.q5':`Do you take small tasks?`,'faq.a5':`Yes — from a single AI integration or automation to a full MVP. If a task isn't my profile, I'll tell you honestly up front.`,
+    'contact.eyebrow':`Let's talk`,'contact.title':`Got an idea? <em>Let's build it.</em>`,'contact.sub':`I'm taking on new projects right now — AI integration, MVP, automation or fullstack SaaS.`,'contact.btn_tg':`Message on Telegram`,
+    'foot.tag':`Fullstack & AI Engineer · I build products that live in production.`,'foot.made':`© 2026 Slezul · made with curiosity`,'foot.loc':`Tashkent · slezul99@gmail.com`,
+    'mod.quiz.d':`AI exam-prep platform. Flashcards, tests and real-time duels, question generation from PDF via Gemini Vision OCR. 3 languages, SRS spaced-repetition algorithm, Stripe payments. Live in production with real users.`,'mod.quiz.link':`Open quizaipro.com →`,
+    'mod.calp.d':`AI calorie and nutrition tracker. Photograph a dish — Gemini Vision detects calories and macros in a second. 24/7 AI nutritionist, barcode scanner, 3 languages. First mobile app — Flutter + Firebase, coming soon to Google Play.`,
+    'mod.pharma.d':`B2B price-comparison engine: 5000+ items across 9 catalogs, AI match arbitration and fuzzy search. Saved a client 15-30% on purchasing. Excel / PDF processing at industrial scale.`
+  },
+  ru:{
+    'nav.work':`Работы`,'nav.services':`Услуги`,'nav.stack':`Стек`,'nav.about':`Обо мне`,'nav.faq':`FAQ`,'nav.contact':`Контакты`,'nav.write':`Написать`,
+    'hero.status':`Доступен для новых проектов`,
+    'hero.title':`<span class="rl"><span class="rl-in">Создаю то,</span></span><span class="rl"><span class="rl-in">что <em>работает</em>.</span></span>`,
+    'hero.sub':`Fullstack-разработчик и AI-инженер из Ташкента. SaaS, интеграция LLM, автоматизация — продукты, которые живут в продакшене, а не в демо.`,
+    'hero.btn_tg':`Написать в Telegram`,'hero.btn_work':`Смотреть работы`,'hero.scroll':`прокрутите`,
+    'stat.products':`готовых продукта`,'stat.lines':`строк кода в неделю`,'stat.tech':`технологий в стеке`,'stat.coffee':`чашек кофе`,'stat.live':`в проде`,'stat.tech2':`технологий`,
+    'work.eyebrow':`Избранное`,'work.title':`Что я <em>создал</em>`,
+    'proj.quiz.badge':`● в проде`,'proj.quiz.desc':`AI-платформа для подготовки к экзаменам. Флешкарты, тесты, дуэли в реальном времени, генерация вопросов из PDF через Gemini Vision OCR. 3 языка, SRS-алгоритм, оплата Stripe.`,
+    'proj.calp.badge':`● закрытая бета`,'proj.calp.desc':`AI-трекер калорий: фото блюда → БЖУ за секунду. Flutter + Firebase.`,
+    'proj.pharma.badge':`● приватный`,'proj.pharma.desc':`B2B-сравнение цен: 5000+ позиций, AI-арбитраж. −15-30% на закупках.`,
+    'proj.stack.badge':`● стек`,
+    'svc.eyebrow':`Услуги`,'svc.title':`Чем могу <em>помочь</em>`,
+    'svc.1.h':`AI и LLM интеграция`,'svc.1.p':`Чат-боты, RAG-поиск по вашим данным, обработка документов и изображений через Gemini / Claude / OpenAI. От прототипа до продакшена с честной обработкой ошибок.`,
+    'svc.2.h':`SaaS и MVP под ключ`,'svc.2.p':`Запуск продукта с нуля: бэкенд Python / Flask, продуманный фронтенд, авторизация, платежи Stripe, мультиязычность. То, что реально работает у пользователей.`,
+    'svc.3.h':`Автоматизация и данные`,'svc.3.p':`Сопоставление данных, обработка Excel / PDF, веб-скрейпинг, нечёткий поиск. Движок сравнения цен сэкономил клиенту 15-30% на закупках.`,
+    'svc.4.h':`Мобильные приложения`,'svc.4.p':`Кроссплатформенные приложения на Flutter с AI-фичами, подписками и Firebase. От дизайна до релиза в Google Play.`,
+    'proc.eyebrow':`Процесс`,'proc.title':`Как я <em>работаю</em>`,
+    'proc.1.h':`Обсуждаем`,'proc.1.p':`Пишете задачу в Telegram — в тот же день возвращаюсь с оценкой объёма, сроков и бюджета. Без обязательств.`,
+    'proc.2.h':`Прототип`,'proc.2.p':`Собираю рабочий прототип ключевой части, чтобы вы увидели результат ещё до полной разработки.`,
+    'proc.3.h':`Разработка`,'proc.3.p':`Итеративно, с демо по ходу. Честная обработка ошибок, тесты, код, который выживает в проде.`,
+    'proc.4.h':`Запуск`,'proc.4.p':`Деплой, передача кода и прав, поддержка на старте. Дальше — развитие продукта по необходимости.`,
+    'skills.eyebrow':`Технологии`,'skills.title':`Мой <em>арсенал</em>`,
+    'about.eyebrow':`Обо мне`,'about.title':`Краткое <em>знакомство</em>`,
+    'about.lead':`Я <b>Slezul</b> — разработчик из Узбекистана, который превращает идеи в продукты, <em>работающие в проде</em>, а не только в демо.`,
+    'about.body1':`Сильная сторона: <b>Python-бэкенд + AI-интеграция + продуманный фронтенд</b>. Запущенные продукты с Gemini Vision OCR, мультиплеером в реальном времени, платежами Stripe и алгоритмами сравнения. Пишу код, который выживает в продакшене, — потому что сам ловил баги в 2 часа ночи.`,
+    'about.body2':`Когда не пишу код — читаю про системный дизайн, оптимизирую свой dev-workflow или думаю, как сделать узбекский edtech лучше. Сейчас <b>доступен для новых проектов</b> — особенно AI-интеграция, MVP и автоматизация.`,
+    'about.fact1_t':`Ташкент, Узбекистан`,'about.fact1_s':`UTC+5 · сейчас <span id="tashTime">--:--</span> · асинхронно`,
+    'about.fact2_t':`Русский · Узбекский · English`,'about.fact2_s':`свободно`,
+    'about.fact3_t':`~60 часов в неделю`,'about.fact3_s':`доступен для проектов`,
+    'faq.eyebrow':`FAQ`,'faq.title':`Частые <em>вопросы</em>`,
+    'faq.q1':`Как мы начнём работу?`,'faq.a1':`Напишите в Telegram или на почту с кратким описанием задачи. Обсудим объём, сроки и бюджет — обычно отвечаю в тот же день.`,
+    'faq.q2':`Часовой пояс и языки?`,'faq.a2':`Ташкент (UTC+5), работаю асинхронно — комфортно пересекаюсь с Европой и Азией. Общение на русском, узбекском и английском.`,
+    'faq.q3':`Как оцениваете проект?`,'faq.a3':`После короткого обсуждения даю оценку по объёму: фикс-прайс за чёткую задачу или почасово за развитие продукта. Без сюрпризов по бюджету.`,
+    'faq.q4':`Код будет моим? А NDA?`,'faq.a4':`Да — по завершении весь код и права переходят к вам. Готов подписать NDA; часть моих проектов закрытые именно поэтому.`,
+    'faq.q5':`Берёте небольшие задачи?`,'faq.a5':`Да — от отдельной AI-интеграции или автоматизации до полного MVP. Если задача не мой профиль, честно скажу об этом сразу.`,
+    'contact.eyebrow':`Свяжемся`,'contact.title':`Есть идея? <em>Соберём.</em>`,'contact.sub':`Сейчас принимаю новые проекты — AI-интеграция, MVP, автоматизация или fullstack SaaS.`,'contact.btn_tg':`Написать в Telegram`,
+    'foot.tag':`Fullstack & AI Engineer · создаю продукты, которые живут в проде.`,'foot.made':`© 2026 Slezul · сделано с любопытством`,'foot.loc':`Ташкент · slezul99@gmail.com`,
+    'mod.quiz.d':`AI-платформа для подготовки к экзаменам. Флешкарты, тесты и дуэли в реальном времени, генерация вопросов из PDF через Gemini Vision OCR. 3 языка, SRS-алгоритм интервального повторения, оплата через Stripe. Живёт в проде с реальными пользователями.`,'mod.quiz.link':`Открыть quizaipro.com →`,
+    'mod.calp.d':`AI-трекер калорий и питания. Сфотографируй блюдо — Gemini Vision определит калории и БЖУ за секунду. AI-нутрициолог 24/7, сканер штрихкодов, 3 языка. Первое мобильное приложение — Flutter + Firebase, скоро в Google Play.`,
+    'mod.pharma.d':`B2B-движок сравнения цен: 5000+ позиций из 9 каталогов, AI-арбитраж совпадений и нечёткий поиск. Сэкономил клиенту 15-30% на закупках. Обработка Excel / PDF в промышленных объёмах.`
+  },
+  uz:{
+    'nav.work':`Loyihalar`,'nav.services':`Xizmatlar`,'nav.stack':`Stek`,'nav.about':`Men haqimda`,'nav.faq':`FAQ`,'nav.contact':`Aloqa`,'nav.write':`Bog'lanish`,
+    'hero.status':`Yangi loyihalarga ochiq`,
+    'hero.title':`<span class="rl"><span class="rl-in">Men <em>ishlaydigan</em></span></span><span class="rl"><span class="rl-in">narsalar quraman.</span></span>`,
+    'hero.sub':`Toshkentlik fullstack dasturchi va AI muhandisi. SaaS, LLM integratsiyasi, avtomatlashtirish — demoda emas, ishlab chiqarishda yashaydigan mahsulotlar.`,
+    'hero.btn_tg':`Telegramda yozish`,'hero.btn_work':`Ishlarni ko'rish`,'hero.scroll':`pastga`,
+    'stat.products':`tayyor mahsulot`,'stat.lines':`haftasiga kod qatori`,'stat.tech':`stekdagi texnologiya`,'stat.coffee':`finjon qahva`,'stat.live':`ishlayapti`,'stat.tech2':`texnologiya`,
+    'work.eyebrow':`Tanlangan`,'work.title':`Men nima <em>yaratdim</em>`,
+    'proj.quiz.badge':`● ishlayapti`,'proj.quiz.desc':`Imtihonlarga tayyorlash uchun AI platforma. Fleshkartalar, testlar, real vaqt duellari, PDF'dan Gemini Vision OCR orqali savol generatsiyasi. 3 til, SRS algoritmi, Stripe to'lovi.`,
+    'proj.calp.badge':`● yopiq beta`,'proj.calp.desc':`AI kaloriya hisoblagich: taom rasmi → bir soniyada BJU. Flutter + Firebase.`,
+    'proj.pharma.badge':`● shaxsiy`,'proj.pharma.desc':`B2B narx taqqoslash: 5000+ pozitsiya, AI moslashtirish. Xaridda −15-30%.`,
+    'proj.stack.badge':`● stek`,
+    'svc.eyebrow':`Xizmatlar`,'svc.title':`Qanday <em>yordam</em> beraman`,
+    'svc.1.h':`AI va LLM integratsiyasi`,'svc.1.p':`Chatbotlar, ma'lumotlaringiz bo'yicha RAG qidiruv, Gemini / Claude / OpenAI orqali hujjat va rasmlarni qayta ishlash. Prototipdan halol xatoliklar bilan ishlab chiqarishgacha.`,
+    'svc.2.h':`SaaS va MVP kalit topshirish`,'svc.2.p':`Mahsulotni noldan: Python / Flask backend, o'ylangan frontend, avtorizatsiya, Stripe to'lovlari, ko'p tillilik. Foydalanuvchilarda haqiqatan ishlaydigan narsa.`,
+    'svc.3.h':`Avtomatlashtirish va ma'lumotlar`,'svc.3.p':`Ma'lumotlarni moslashtirish, Excel / PDF qayta ishlash, veb-skreping, noaniq qidiruv. Narx taqqoslash mexanizmi mijozga xaridda 15-30% tejadi.`,
+    'svc.4.h':`Mobil ilovalar`,'svc.4.p':`AI funksiyalari, obunalar va Firebase bilan Flutter'dagi kross-platforma ilovalar. Dizayndan Google Play relizigacha.`,
+    'proc.eyebrow':`Jarayon`,'proc.title':`Qanday <em>ishlayman</em>`,
+    'proc.1.h':`Muhokama`,'proc.1.p':`Vazifani Telegramda yuborasiz — o'sha kuni hajm, muddat va byudjet bahosi bilan qaytaman. Majburiyatsiz.`,
+    'proc.2.h':`Prototip`,'proc.2.p':`To'liq ishlab chiqishdan oldin natijani ko'rishingiz uchun asosiy qismning ishlaydigan prototipini yig'aman.`,
+    'proc.3.h':`Ishlab chiqish`,'proc.3.p':`Iterativ, yo'l davomida demolar bilan. Halol xatoliklar bilan ishlash, testlar, ishlab chiqarishda omon qoladigan kod.`,
+    'proc.4.h':`Ishga tushirish`,'proc.4.p':`Deploy, kod va huquqlarni topshirish, ishga tushirishda qo'llab-quvvatlash. Keyin — kerak bo'lganda mahsulotni rivojlantirish.`,
+    'skills.eyebrow':`Texnologiyalar`,'skills.title':`Mening <em>arsenalim</em>`,
+    'about.eyebrow':`Men haqimda`,'about.title':`Qisqacha <em>tanishuv</em>`,
+    'about.lead':`Men <b>Slezul</b> — O'zbekistonlik dasturchiman, g'oyalarni demoda emas, <em>ishlab chiqarishda ishlaydigan</em> mahsulotlarga aylantiraman.`,
+    'about.body1':`Kuchli tomonim: <b>Python backend + AI integratsiya + o'ylangan frontend</b>. Gemini Vision OCR, real vaqt multiplayer, Stripe to'lovlari va moslashtirish algoritmlari bilan ishga tushirilgan mahsulotlar. Ishlab chiqarishda omon qoladigan kod yozaman — chunki tunda soat 2 da xatolarni o'zim quvganman.`,
+    'about.body2':`Kod yozmaganimda — tizim dizayni haqida o'qiyman, dev-workflow'imni optimallashtiraman yoki o'zbek edtech'ini yaxshilashni o'ylayman. Hozir <b>yangi loyihalarga ochiqman</b> — ayniqsa AI integratsiya, MVP va avtomatlashtirish.`,
+    'about.fact1_t':`Toshkent, O'zbekiston`,'about.fact1_s':`UTC+5 · hozir <span id="tashTime">--:--</span> · asinxron`,
+    'about.fact2_t':`Rus · O'zbek · Ingliz`,'about.fact2_s':`erkin`,
+    'about.fact3_t':`haftasiga ~60 soat`,'about.fact3_s':`loyihalarga ochiq`,
+    'faq.eyebrow':`FAQ`,'faq.title':`Ko'p beriladigan <em>savollar</em>`,
+    'faq.q1':`Qanday boshlaymiz?`,'faq.a1':`Telegram yoki pochtaga vazifaning qisqacha tavsifi bilan yozing. Hajm, muddat va byudjetni muhokama qilamiz — odatda o'sha kuni javob beraman.`,
+    'faq.q2':`Vaqt mintaqasi va tillar?`,'faq.a2':`Toshkent (UTC+5), asinxron ishlayman — Yevropa va Osiyo bilan qulay kesishaman. Rus, o'zbek va ingliz tillarida muloqot.`,
+    'faq.q3':`Loyihani qanday baholaysiz?`,'faq.a3':`Qisqa muhokamadan so'ng hajm bo'yicha baho beraman: aniq vazifa uchun fiks narx yoki mahsulotni rivojlantirish uchun soatbay. Byudjet bo'yicha kutilmagan holatlarsiz.`,
+    'faq.q4':`Kod meniki bo'ladimi? NDA?`,'faq.a4':`Ha — tugagach, barcha kod va huquqlar sizga o'tadi. NDA imzolashga tayyorman; ayrim loyihalarim aynan shu sababdan yopiq.`,
+    'faq.q5':`Kichik vazifalarni olasizmi?`,'faq.a5':`Ha — bitta AI integratsiya yoki avtomatlashtirishdan to'liq MVP'gacha. Vazifa mening profilim bo'lmasa, darhol halol aytaman.`,
+    'contact.eyebrow':`Bog'lanamiz`,'contact.title':`G'oya bormi? <em>Quramiz.</em>`,'contact.sub':`Hozir yangi loyihalarni qabul qilyapman — AI integratsiya, MVP, avtomatlashtirish yoki fullstack SaaS.`,'contact.btn_tg':`Telegramda yozish`,
+    'foot.tag':`Fullstack & AI muhandisi · ishlab chiqarishda yashaydigan mahsulotlar quraman.`,'foot.made':`© 2026 Slezul · qiziquvchanlik bilan`,'foot.loc':`Toshkent · slezul99@gmail.com`,
+    'mod.quiz.d':`Imtihonlarga tayyorlash uchun AI platforma. Fleshkartalar, testlar va real vaqt duellari, PDF'dan Gemini Vision OCR orqali savol generatsiyasi. 3 til, SRS intervalli takrorlash algoritmi, Stripe to'lovi. Real foydalanuvchilar bilan ishlab turibdi.`,'mod.quiz.link':`quizaipro.com ochish →`,
+    'mod.calp.d':`AI kaloriya va ovqatlanish hisoblagichi. Taomni suratga oling — Gemini Vision bir soniyada kaloriya va BJU'ni aniqlaydi. 24/7 AI nutritsiolog, shtrix-kod skaneri, 3 til. Birinchi mobil ilova — Flutter + Firebase, tez orada Google Play'da.`,
+    'mod.pharma.d':`B2B narx taqqoslash mexanizmi: 9 katalogdagi 5000+ pozitsiya, AI moslik arbitraji va noaniq qidiruv. Mijozga xaridda 15-30% tejadi. Sanoat hajmida Excel / PDF qayta ishlash.`
+  }
+};
+let curLang = 'en';
+function updClock(){ const el=document.getElementById('tashTime'); if(el){ try{ el.textContent=new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Tashkent',hour:'2-digit',minute:'2-digit'}); }catch(e){ el.textContent=''; } } }
+function applyLang(lang){
+  if(!I18N[lang]) lang='en';
+  curLang=lang; const d=I18N[lang];
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ const v=d[el.getAttribute('data-i18n')]; if(v!=null) el.textContent=v; });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{ const v=d[el.getAttribute('data-i18n-html')]; if(v!=null) el.innerHTML=v; });
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+  updClock();
+  try{ localStorage.setItem('slezulLang',lang); }catch(e){}
+}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+(function(){ let sl='en'; try{ sl=localStorage.getItem('slezulLang')||'en'; }catch(e){} applyLang(sl); })();
+setInterval(updClock,15000);
+
 if (window.gsap && !reduce) {
   gsap.registerPlugin(ScrollTrigger);
   gsap.set('.rl-in',{yPercent:112});
@@ -509,12 +664,7 @@ mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList
   b.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 })();
 
-// live Tashkent time
-(function(){
-  const el=document.getElementById('tashTime'); if(!el) return;
-  const upd=()=>{try{el.textContent=new Date().toLocaleTimeString('ru-RU',{timeZone:'Asia/Tashkent',hour:'2-digit',minute:'2-digit'});}catch(e){el.textContent='';}};
-  upd(); setInterval(upd,15000);
-})();
+// (Tashkent clock handled in the i18n block via updClock)
 // smooth anchors
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();scrollTo({top:t.offsetTop-70,behavior:'smooth'});}}));
 
@@ -568,12 +718,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   const card=modal.querySelector('.modal-card'); let lastFocus=null;
   const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
   function open(k){
-    const p=PROJ[k]; if(!p) return;
-    card.innerHTML='<button class="modal-close" aria-label="Закрыть">✕</button>'+
+    const p=PROJ[k]; if(!p) return; const T=I18N[curLang]||I18N.en;
+    const st=T['proj.'+k+'.badge']||p.st||'', d=T['mod.'+k+'.d']||p.d||'', linkText=T['mod.'+k+'.link']||p.linkText||'';
+    card.innerHTML='<button class="modal-close" aria-label="Close">✕</button>'+
       (p.img?'<img class="modal-shot" src="'+p.img+'" alt="'+esc(p.t)+'">':'')+
-      '<div class="modal-body"><span class="st">'+esc(p.st)+'</span><h3>'+esc(p.t)+'</h3><p>'+esc(p.d)+'</p>'+
+      '<div class="modal-body"><span class="st">'+esc(st)+'</span><h3>'+esc(p.t)+'</h3><p>'+esc(d)+'</p>'+
       '<div class="tags">'+p.tags.map(x=>'<span class="tag">'+esc(x)+'</span>').join('')+'</div>'+
-      (p.link?'<a class="btn" href="'+p.link+'" target="_blank" rel="noopener">'+esc(p.linkText)+'</a>':'')+'</div>';
+      (p.link?'<a class="btn" href="'+p.link+'" target="_blank" rel="noopener">'+esc(linkText)+'</a>':'')+'</div>';
     modal.classList.add('open'); document.body.style.overflow='hidden';
     lastFocus=document.activeElement;
     const cl=card.querySelector('.modal-close'); cl.focus(); cl.addEventListener('click',close);
