@@ -165,6 +165,17 @@ section{position:relative;z-index:1;padding:100px 0;}
 .svc h3{font-family:var(--disp);font-weight:600;font-size:20px;margin-bottom:8px;}
 .svc p{color:var(--muted);font-size:14px;margin-bottom:16px;}
 
+/* process steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+@media(max-width:860px){.steps{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.steps{grid-template-columns:1fr;}}
+.step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;position:relative;overflow:hidden;transition:transform .45s var(--ease),border-color .45s;}
+.step::before{content:'';position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.6),transparent);opacity:.5;}
+.step:hover{transform:translateY(-4px);border-color:rgba(139,92,246,.35);}
+.step-n{font-family:var(--mono);font-size:13px;color:var(--violet);letter-spacing:.12em;}
+.step h3{font-family:var(--disp);font-weight:600;font-size:19px;margin:14px 0 8px;letter-spacing:-.01em;}
+.step p{color:var(--muted);font-size:14px;line-height:1.6;}
+
 /* SKILLS MARQUEE */
 .marquee{display:flex;overflow:hidden;user-select:none;gap:14px;-webkit-mask-image:linear-gradient(90deg,transparent,#fff 8%,#fff 92%,transparent);mask-image:linear-gradient(90deg,transparent,#fff 8%,#fff 92%,transparent);}
 .marquee+.marquee{margin-top:14px;}
@@ -203,8 +214,14 @@ section{position:relative;z-index:1;padding:100px 0;}
 .cta p{color:var(--muted);max-width:480px;margin:0 auto 30px;}
 .socials{display:flex;gap:26px;justify-content:center;margin-top:28px;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
 .socials a:hover{color:var(--fg);}
-footer{border-top:1px solid var(--border);padding:40px 0;position:relative;z-index:1;}
-.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:12px;color:var(--muted);}
+footer{border-top:1px solid var(--border);padding:48px 0 40px;position:relative;z-index:1;}
+.foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid var(--border);}
+.foot-brand{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:-.02em;}
+.foot-brand b{background:linear-gradient(120deg,var(--violet),var(--magenta),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.foot-tag{color:var(--muted);font-size:13px;margin-top:8px;}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
+.foot-links a:hover{color:var(--fg);}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:22px;font-family:var(--mono);font-size:12px;color:var(--muted);}
 
 /* interactive 3D tilt + cursor spotlight on cards */
 .bento,.svc-grid{perspective:1200px;}
@@ -317,6 +334,17 @@ footer{border-top:1px solid var(--border);padding:40px 0;position:relative;z-ind
   </div>
 </div></section>
 
+<!-- PROCESS -->
+<section id="process"><div class="wrap">
+  <div class="sec-head center reveal"><span class="eyebrow">Процесс</span><h2>Как я <em>работаю</em></h2></div>
+  <div class="steps">
+    <div class="step reveal"><span class="step-n">01</span><h3>Обсуждаем</h3><p>Пишете задачу в Telegram — в тот же день возвращаюсь с оценкой объёма, сроков и бюджета. Без обязательств.</p></div>
+    <div class="step reveal"><span class="step-n">02</span><h3>Прототип</h3><p>Собираю рабочий прототип ключевой части, чтобы вы увидели результат ещё до полной разработки.</p></div>
+    <div class="step reveal"><span class="step-n">03</span><h3>Разработка</h3><p>Итеративно, с демо по ходу. Честная обработка ошибок, тесты, код, который выживает в проде.</p></div>
+    <div class="step reveal"><span class="step-n">04</span><h3>Запуск</h3><p>Деплой, передача кода и прав, поддержка на старте. Дальше — развитие продукта по необходимости.</p></div>
+  </div>
+</div></section>
+
 <!-- SKILLS MARQUEE -->
 <section id="skills"><div class="wrap">
   <div class="sec-head center reveal"><span class="eyebrow">Технологии</span><h2>Мой <em>арсенал</em></h2></div>
@@ -349,7 +377,7 @@ footer{border-top:1px solid var(--border);padding:40px 0;position:relative;z-ind
     <p class="about-body">Сильная сторона: <b>Python-бэкенд + AI-интеграция + продуманный фронтенд</b>. Запущенные продукты с Gemini Vision OCR, мультиплеером в реальном времени, платежами Stripe и алгоритмами сравнения. Пишу код, который выживает в продакшене, — потому что сам ловил баги в 2 часа ночи.</p>
     <p class="about-body">Когда не пишу код — читаю про системный дизайн, оптимизирую свой dev-workflow или думаю, как сделать узбекский edtech лучше. Сейчас <b>доступен для новых проектов</b> — особенно AI-интеграция, MVP и автоматизация.</p>
     <div class="facts">
-      <div><div class="ic">🌏</div><div class="t">Ташкент, Узбекистан</div><div class="s">UTC+5 · работаю асинхронно</div></div>
+      <div><div class="ic">🌏</div><div class="t">Ташкент, Узбекистан</div><div class="s">UTC+5 · сейчас <span id="tashTime">--:--</span> · асинхронно</div></div>
       <div><div class="ic">💬</div><div class="t">Русский · Узбекский · English</div><div class="s">свободно</div></div>
       <div><div class="ic">⏰</div><div class="t">~60 часов в неделю</div><div class="s">доступен для проектов</div></div>
     </div>
@@ -385,7 +413,13 @@ footer{border-top:1px solid var(--border);padding:40px 0;position:relative;z-ind
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Проект"><div class="modal-bg"></div><div class="modal-card"></div></div>
 
-<footer><div class="wrap foot"><span>© 2026 Slezul · сделано с любопытством</span><span>design-v6 · rich × pro-max</span></div></footer>
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div><span class="foot-brand">Slezul<b>.</b></span><p class="foot-tag">Fullstack & AI Engineer · создаю продукты, которые живут в проде.</p></div>
+    <div class="foot-links"><a href="#work">Работы</a><a href="#services">Услуги</a><a href="#contact">Контакты</a><a href="https://t.me/Slezul" target="_blank" rel="noopener">Telegram</a><a href="https://github.com/slezul99" target="_blank" rel="noopener">GitHub</a></div>
+  </div>
+  <div class="foot-bottom"><span>© 2026 Slezul · сделано с любопытством</span><span>Ташкент · slezul99@gmail.com</span></div>
+</div></footer>
 
 <!-- GSAP (complex motion tier) -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -456,6 +490,13 @@ mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList
   const b=document.getElementById('toTop'); if(!b) return;
   addEventListener('scroll',()=>{b.classList.toggle('show',scrollY>640);},{passive:true});
   b.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+})();
+
+// live Tashkent time
+(function(){
+  const el=document.getElementById('tashTime'); if(!el) return;
+  const upd=()=>{try{el.textContent=new Date().toLocaleTimeString('ru-RU',{timeZone:'Asia/Tashkent',hour:'2-digit',minute:'2-digit'});}catch(e){el.textContent='';}};
+  upd(); setInterval(upd,15000);
 })();
 // smooth anchors
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();scrollTo({top:t.offsetTop-70,behavior:'smooth'});}}));
