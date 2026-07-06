@@ -83,9 +83,10 @@ nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(20px) saturate(150%);b
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;width:100%;}
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:30px;text-align:center;}.hero .eyebrow{justify-content:center;}}
 h1{font-family:var(--disp);font-weight:600;font-size:clamp(46px,6.6vw,96px);line-height:.96;letter-spacing:-.035em;margin:24px 0;text-wrap:balance;}
-h1 em{font-family:var(--serif);font-style:italic;font-weight:500;background:linear-gradient(120deg,var(--violet),var(--magenta),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+h1 em{font-family:var(--serif);font-style:italic;font-weight:500;background:linear-gradient(120deg,var(--violet),var(--magenta),var(--cyan),var(--violet));background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+@media(prefers-reduced-motion:no-preference){h1 em,.cta h2 em{animation:shimmer 7s linear infinite;}@keyframes shimmer{to{background-position:220% center;}}}
 .rl{display:block;overflow:hidden;padding-bottom:.05em;}
-.hero p{font-size:19px;color:var(--muted);max-width:520px;margin-bottom:32px;}
+.hero p{font-size:19px;color:#b4b9c2;max-width:520px;margin-bottom:32px;}
 @media(max-width:900px){.hero p{margin-left:auto;margin-right:auto;}}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
 @media(max-width:900px){.hero-actions{justify-content:center;}}
@@ -179,7 +180,7 @@ section{position:relative;z-index:1;padding:100px 0;}
 /* contact */
 .cta{text-align:center;background:radial-gradient(120% 140% at 50% 0,rgba(139,92,246,.14),transparent 60%);border:1px solid var(--border);border-radius:24px;padding:80px 32px;position:relative;overflow:hidden;}
 .cta h2{font-family:var(--disp);font-weight:600;font-size:clamp(34px,5vw,64px);letter-spacing:-.03em;margin-bottom:16px;}
-.cta h2 em{font-family:var(--serif);font-style:italic;font-weight:500;background:linear-gradient(120deg,var(--violet),var(--magenta),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.cta h2 em{font-family:var(--serif);font-style:italic;font-weight:500;background:linear-gradient(120deg,var(--violet),var(--magenta),var(--cyan),var(--violet));background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
 .cta p{color:var(--muted);max-width:480px;margin:0 auto 30px;}
 .socials{display:flex;gap:26px;justify-content:center;margin-top:28px;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
 .socials a:hover{color:var(--fg);}
@@ -238,9 +239,9 @@ footer{border-top:1px solid var(--border);padding:40px 0;position:relative;z-ind
 <!-- STATS -->
 <section style="padding:20px 0 40px;"><div class="wrap">
   <div class="stats reveal">
-    <div class="stat"><div class="num">3+</div><div class="lbl">готовых продукта</div></div>
-    <div class="stat"><div class="num warm">5K+</div><div class="lbl">строк кода в неделю</div></div>
-    <div class="stat"><div class="num">20+</div><div class="lbl">технологий в стеке</div></div>
+    <div class="stat"><div class="num" data-to="3" data-suf="+">3+</div><div class="lbl">готовых продукта</div></div>
+    <div class="stat"><div class="num warm" data-to="5000" data-fmt="k">5K+</div><div class="lbl">строк кода в неделю</div></div>
+    <div class="stat"><div class="num" data-to="20" data-suf="+">20+</div><div class="lbl">технологий в стеке</div></div>
     <div class="stat"><div class="num warm">∞</div><div class="lbl">чашек кофе</div></div>
   </div>
 </div></section>
@@ -389,6 +390,23 @@ mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList
 // smooth anchors
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();scrollTo({top:t.offsetTop-70,behavior:'smooth'});}}));
 
+// stat count-up (fires once when the row scrolls into view)
+(function(){
+  const nums=document.querySelectorAll('.num[data-to]');
+  if(!nums.length) return;
+  const fmt=(v,el)=>el.dataset.fmt==='k'?(Math.round(v/1000)+'K+'):(Math.round(v)+(el.dataset.suf||''));
+  const run=el=>{
+    if(el._done) return; el._done=true;
+    const to=+el.dataset.to, dur=1500; let s=null;
+    if(reduce){el.textContent=fmt(to,el);return;}
+    const step=ts=>{s=s||ts;const p=Math.min((ts-s)/dur,1);const e=1-Math.pow(1-p,3);el.textContent=fmt(to*e,el);if(p<1)requestAnimationFrame(step);};
+    requestAnimationFrame(step);
+  };
+  if(!('IntersectionObserver'in window)){nums.forEach(run);return;}
+  const io=new IntersectionObserver((es)=>es.forEach(en=>{if(en.isIntersecting){run(en.target);io.unobserve(en.target);}}),{threshold:.5});
+  nums.forEach(n=>io.observe(n));
+})();
+
 /* ===== GRAND FLOW-FIELD BACKGROUND =====
    ~1900 glowing particles advected through an animated value-noise flow field,
    leaving silky comet trails (additive 'lighter' blend) in the brand palette.
@@ -400,6 +418,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   const ctx=cv.getContext('2d');
   if(!ctx) return;
   const COLORS=[[139,92,246],[236,72,153],[6,182,212]]; // violet · magenta · cyan
+  const MOBILE=innerWidth<700;
   let W,H,DPR;
   function resize(){
     DPR=Math.min(devicePixelRatio||1,1.4);
@@ -417,31 +436,50 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     const a=hash(xi,yi),b=hash(xi+1,yi),c=hash(xi,yi+1),d=hash(xi+1,yi+1);
     return a*(1-u)*(1-v)+b*u*(1-v)+c*(1-u)*v+d*u*v;
   }
-  const COUNT=innerWidth<700?750:1900;
+  const COUNT=MOBILE?820:2200;
   const NS=0.0016;                             // flow-field noise scale
   const parts=[];
   function spawn(p,fresh){
     p.x=Math.random()*W;p.y=Math.random()*H;p.px=p.x;p.py=p.y;
-    p.life=fresh?Math.random()*260:0;p.max=140+Math.random()*220;
-    p.sp=0.55+Math.random()*1.6;
+    p.life=fresh?Math.random()*300:0;p.max=150+Math.random()*240;
+    p.sp=0.5+Math.random()*1.8;
     p.c=COLORS[(Math.random()*COLORS.length)|0];
-    p.a=0.16+Math.random()*0.32;
+    p.hot=Math.random()<0.12;                   // a few brighter, thicker filaments
+    p.a=(p.hot?0.5:0.16)+Math.random()*0.3;
+    p.w=p.hot?1.7:1.0;
   }
   for(let i=0;i<COUNT;i++){const p={};spawn(p,true);parts.push(p);}
+  // twinkling star-flashes
+  const SPN=MOBILE?14:30, sparks=[];
+  function respark(s){s.x=Math.random()*W;s.y=Math.random()*H;s.t=0;s.dur=42+Math.random()*95;s.r=1+Math.random()*2.2;s.c=COLORS[(Math.random()*3)|0];}
+  for(let i=0;i<SPN;i++){const s={};respark(s);s.t=Math.random()*s.dur;sparks.push(s);}
+  // slow-drifting nebula color pools → depth behind the streams
+  const neb=[{c:COLORS[0],px:.22,py:.3},{c:COLORS[1],px:.8,py:.55},{c:COLORS[2],px:.5,py:.85}];
   let mx=-1e4,my=-1e4;
   addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;},{passive:true});
   addEventListener('mouseout',()=>{mx=-1e4;my=-1e4;});
   let hidden=false,t=0;
   document.addEventListener('visibilitychange',()=>{hidden=document.hidden;});
   cv.classList.add('on');document.body.classList.add('fx-live');
-  const R=210,R2=R*R;
+  const R=235,R2=R*R, nebR=Math.max(W,H)*0.6;
   function frame(){
     requestAnimationFrame(frame);
     if(hidden) return;
     t+=0.0016;
-    ctx.globalCompositeOperation='source-over';   // fade previous frame → trails
-    ctx.fillStyle='rgba(10,10,12,0.085)';ctx.fillRect(0,0,W,H);
-    ctx.globalCompositeOperation='lighter';       // additive glow
+    // fade previous frame → comet trails
+    ctx.globalCompositeOperation='source-over';
+    ctx.fillStyle='rgba(10,10,12,0.12)';ctx.fillRect(0,0,W,H);
+    ctx.globalCompositeOperation='lighter';       // everything below glows additively
+    // nebula wash — kept subtle so text stays readable
+    for(let i=0;i<neb.length;i++){
+      const n=neb[i];
+      const cx=(n.px+0.05*Math.sin(t*0.7+i))*W, cy=(n.py+0.05*Math.cos(t*0.6+i*2))*H;
+      const g=ctx.createRadialGradient(cx,cy,0,cx,cy,nebR);
+      g.addColorStop(0,'rgba('+n.c[0]+','+n.c[1]+','+n.c[2]+',0.03)');
+      g.addColorStop(1,'rgba('+n.c[0]+','+n.c[1]+','+n.c[2]+',0)');
+      ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    }
+    // flow-field streams
     for(let i=0;i<COUNT;i++){
       const p=parts[i];
       const ang=vnoise(p.x*NS+t,p.y*NS-t*0.6)*Math.PI*4.0;
@@ -449,12 +487,32 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       p.x+=Math.cos(ang)*p.sp;p.y+=Math.sin(ang)*p.sp;
       // cursor vortex — tangential swirl + gentle pull
       const dx=p.x-mx,dy=p.y-my,d2=dx*dx+dy*dy;
-      if(d2<R2){const d=Math.sqrt(d2)||1,w=1-d/R;p.x+=(-dy/d)*w*2.4;p.y+=(dx/d)*w*2.4;p.x-=dx/d*w*0.6;p.y-=dy/d*w*0.6;}
+      if(d2<R2){const d=Math.sqrt(d2)||1,w=1-d/R;p.x+=(-dy/d)*w*2.8;p.y+=(dx/d)*w*2.8;p.x-=dx/d*w*0.7;p.y-=dy/d*w*0.7;}
       const env=Math.sin(p.life/p.max*Math.PI);   // fade in then out over lifetime
       ctx.strokeStyle='rgba('+p.c[0]+','+p.c[1]+','+p.c[2]+','+(p.a*env)+')';
-      ctx.lineWidth=1.1;
+      ctx.lineWidth=p.w;
       ctx.beginPath();ctx.moveTo(p.px,p.py);ctx.lineTo(p.x,p.y);ctx.stroke();
       if(++p.life>p.max||p.x<-30||p.x>W+30||p.y<-30||p.y>H+30) spawn(p,false);
+    }
+    // star-flashes — small, crisp twinkles
+    for(let i=0;i<SPN;i++){
+      const s=sparks[i], b=Math.sin(s.t/s.dur*Math.PI);
+      if(b>0.02){
+        const rr=s.r*(1.3+b*1.6)*2;
+        const g=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,rr);
+        g.addColorStop(0,'rgba(255,255,255,'+(0.7*b)+')');
+        g.addColorStop(0.3,'rgba('+s.c[0]+','+s.c[1]+','+s.c[2]+','+(0.45*b)+')');
+        g.addColorStop(1,'rgba('+s.c[0]+','+s.c[1]+','+s.c[2]+',0)');
+        ctx.fillStyle=g;ctx.beginPath();ctx.arc(s.x,s.y,rr,0,6.283);ctx.fill();
+      }
+      if(++s.t>s.dur) respark(s);
+    }
+    // luminous halo trailing the cursor
+    if(mx>-9999){
+      const g=ctx.createRadialGradient(mx,my,0,mx,my,160);
+      g.addColorStop(0,'rgba(170,130,255,0.11)');
+      g.addColorStop(1,'rgba(170,130,255,0)');
+      ctx.fillStyle=g;ctx.fillRect(mx-160,my-160,320,320);
     }
   }
   requestAnimationFrame(frame);
